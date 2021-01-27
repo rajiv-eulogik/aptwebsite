@@ -1,0 +1,146 @@
+<!-- <div fxLayout fxLayoutAlign="center center">
+    <p class="registraion">{{data.heading}} </p>
+</div>
+<br>
+<form [formGroup]="DownlodsForm" (ngSubmit)="submitForm()">
+    
+    <div fxLayout fxLayoutAlign="center center">
+        <div fxFlex="100" fxLayoutAlign="center center">
+            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                <mat-label> Name</mat-label>
+                <input required formControlName="name" matInput minlength="3" maxlength="150">
+                <mat-error> Name is Required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="center center" *ngIf="data.action === 'download App'">
+        <div fxFlex="100" fxLayoutAlign="center center">
+            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                <mat-label>Country Code</mat-label>
+                <input required formControlName="countrycode" matInput minlength="2" maxlength="15">
+                <mat-error>Country Code is Required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="center center">
+        <div fxFlex="100" fxLayoutAlign="center center">
+            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                <mat-label>Contact Number</mat-label>
+                <input required formControlName="mobile" type="tel" matInput minlength="5" maxlength="20">
+                <mat-error>Contact number is Required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="center center" *ngIf="data.action !== 'download App'">
+        <div fxFlex="100" fxLayoutAlign="center center">
+            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                <mat-label>Email </mat-label>
+                <input required type="email" formControlName="email" matInput>
+                <mat-error
+                    *ngIf="DownlodsForm.controls.email.invalid && (DownlodsForm.controls.email.touched || DownlodsForm.controls.email.dirty )"
+                    style="color: #f44336">
+                    <mat-error *ngIf="DownlodsForm.controls.email.errors.required"> Email is Required </mat-error>
+                    <mat-error *ngIf="DownlodsForm.controls.email.errors.pattern"> Invalid email format </mat-error>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="end center">
+        <div fxFlex="100" fxLayoutAlign="end center">
+            <button mat-button class="CancelButton" type="button" (click)="cancel()">CANCEL</button>
+            <button mat-raised-button color="primary" class="submitButton" type="submit"><span
+                    class="submit">SUBMIT</span></button>
+        </div>
+    </div>
+</form> -->
+
+
+
+
+
+<h1 style="text-align: center;" mat-dialog-title><b>{{data.heading}}</b></h1>
+<form [formGroup]="DownlodsForm" (ngSubmit)="submitForm()">
+    <div mat-dialog-content>
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100" fxLayoutAlign="center center">
+                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                    <mat-label> Name</mat-label>
+                    <input required formControlName="name" matInput minlength="3" maxlength="50">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout fxLayoutAlign="center center">
+            <div style="margin-top: -11px;" fxFlex="20" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Country Code</mat-label>
+                    <mat-select required formControlName="country"
+                        (ngModelChange)="onChange($event)">
+                        <div *ngFor="let contry of AllCoutryName">
+                            <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                            <mat-divider></mat-divider>
+                        </div>
+                    </mat-select>
+                    <!-- <mat-error>Country name is Required</mat-error> -->
+                </mat-form-field>
+            </div>
+            <div fxFlex="80" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Contact Number</mat-label>
+                            <input required formControlName="mobile" type="tel" matInput
+                                [maxlength]="mobileMax">
+                            <mat-error
+                                *ngIf="DownlodsForm.controls.mobile.invalid && (DownlodsForm.controls.mobile.touched || DownlodsForm.controls.mobile.dirty)">
+                                <mat-error *ngIf="DownlodsForm.controls.mobile.errors.required">
+                                    </mat-error>
+                                <mat-error *ngIf="DownlodsForm.controls.mobile.errors.minlength">
+                                    </mat-error>
+                                <mat-error *ngIf="DownlodsForm.controls.mobile.errors.maxlength">
+                                    </mat-error>
+                                <mat-error *ngIf="DownlodsForm.controls.mobile.errors.pattern">
+                                    </mat-error>
+                            </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+       
+        
+        <div fxLayout fxLayoutAlign="center center" *ngIf="data.action !== 'download App'">
+            <div fxFlex="100" fxLayoutAlign="center center">
+                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                    <mat-label>Email ID </mat-label>
+                    <input required type="email" formControlName="email" matInput>
+                    <mat-error
+                        *ngIf="DownlodsForm.controls.email.invalid && (DownlodsForm.controls.email.touched || DownlodsForm.controls.email.dirty )"
+                        style="color: #f44336">
+                        <mat-error *ngIf="DownlodsForm.controls.email.errors.required"> </mat-error>
+                        <mat-error *ngIf="DownlodsForm.controls.email.errors.pattern">  </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout fxLayoutAlign="center center" *ngIf="data.action !== 'download App' && data.action !== 'download'">
+            <div fxFlex="100" fxLayoutAlign="center center">
+                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                    <mat-label>School Name </mat-label>
+                    <input required formControlName="schoolname" matInput minlength="3" maxlength="150">
+                    <mat-error> </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout fxLayoutAlign="center center" *ngIf="data.action !== 'download App' && data.action !== 'download'">
+            <div fxFlex="100" fxLayoutAlign="center center">
+                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                    <mat-label>Your City </mat-label>
+                    <input required formControlName="city" matInput minlength="3" maxlength="150">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div fxLayout mat-dialog-actions fxLayoutAlign="end center">
+        <button mat-button class="CancelButton" type="button" (click)="cancel()">CANCEL</button>
+        <button mat-raised-button color="primary" class="submit-btn" type="submit"><span
+                class="submit">SUBMIT</span></button>
+    </div>
+</form>

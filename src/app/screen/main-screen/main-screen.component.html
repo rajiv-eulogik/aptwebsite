@@ -1,0 +1,162 @@
+<mat-toolbar role="banner" *ngIf="route1 !== '/feedback'" class="toolbar " id="navbar" (scroll)="onWindowScroll($event);"
+    style="background: #ffffff; display:none" fxLayout fxLayoutAlign="space-between center">
+    <div *ngIf="!(smallScreen && !showSearch)" fxLayout fxLayoutGap="10px" fxLayoutAlign="start center">
+        <button [disableRipple]="true" class="btn" mat-icon-button (click)="sidenav.toggle()" *ngIf="smallScreen == true">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <a href="">
+            <img src="https://v2.aptstudy.com/wp-content/uploads/2018/11/logo.png" height="50">
+        </a>
+    </div>
+
+    <!-- { path: 'work-as-Collabotor', component: WorkAsCollaboratorComponent},
+    { path: 'video-faculty', component: VideoFacultyComponent},
+    { path: 'Language-translator', component: LanguageTranslatorComponent},
+    { path: 'Dubbing-Artist', component: DubbingArtistComponent } -->
+    <!-- <button mat-mini-fab [matMenuTriggerFor]="menu">A</button> -->
+    <span class="spacer"></span>
+    <div fxLayout fxLayoutAlign="start center" *ngIf="smallScreen !== true">
+        <button mat-button [disableRipple]="true" class="px-16 btn" *ngIf="showSearch == true"
+            routerLinkActive="active-route" (click)="navigatePage('home')" [routerLink]="['/home']">Home</button>
+        <button mat-button [disableRipple]="true" class="px-16 btn" *ngIf="showSearch == true"
+            routerLinkActive="active-route" (click)="navigatePage('downloads')"
+            [routerLink]="['/downloads']">Downloads</button>
+        <button mat-button [disableRipple]="true" class="px-16 btn" *ngIf="showSearch == true"
+            routerLinkActive="active-route" [matMenuTriggerFor]="menu" (mouseenter)="menu"> Earn With Us </button>
+        <button mat-button [disableRipple]="true" class="px-16 btn" *ngIf="showSearch == true"
+            routerLinkActive="active-route" (click)="navigatePage('school-tie-ups')"
+            [routerLink]="['/school-tie-ups']">Tie-Up</button>
+        <button mat-button [disableRipple]="true" class="px-16 btn" *ngIf="showSearch == true"
+            routerLinkActive="active-route" (click)="navigatePage('contact-us')" [routerLink]="['/contact-us']">Contact
+            Us</button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [disableRipple]="true" class="btn no-hover-effect"
+                (click)="navigatePage('Join-team-apt')">Join Team APT </button>
+            <button mat-menu-item [disableRipple]="true" class="btn no-hover-effect"
+                (click)="navigatePage('work-as-Collabotor')">Work As a Collaborator</button>
+            <button mat-menu-item [disableRipple]="true" class="btn no-hover-effect"
+                (click)="navigatePage('video-faculty')">Work As a Video Faculty</button>
+            <button mat-menu-item [disableRipple]="true" class="btn no-hover-effect"
+                (click)="navigatePage('Language-translator')">Work As a Language Translator</button>
+            <button mat-menu-item [disableRipple]="true" class="btn no-hover-effect"
+                (click)="navigatePage('Dubbing-Artist')">Work As a Dubbing Artist</button>
+        </mat-menu>
+        <button mat-icon-button *ngIf="showSearch == true " (click)="openSearch()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+    <mat-form-field floatLabel="never" *ngIf="showSearch == false && smallScreen !== true" class="formWith">
+        <mat-label class="standard" style="color:black">Search</mat-label>
+        <input matInput #search (keyup.enter)="SearchData(search.value)" style="color:black">
+        <button matSuffix mat-icon-button (click)="SearchData(search.value)">
+            <mat-icon (click)="CloseHome()">close</mat-icon>
+        </button>
+    </mat-form-field>
+    <mat-form-field floatLabel="never" *ngIf="showSearch == false && smallScreen ==  true" class="formWith">
+        <mat-label class="searchFont">Search</mat-label>
+        <input matInput #search (keyup.enter)="SearchData(search.value)" style="color:black">
+        <button matSuffix mat-icon-button (click)="SearchData(search.value)">
+            <mat-icon (click)="CloseHome()">close</mat-icon>
+        </button>
+    </mat-form-field>
+    <!-- <button mat-icon-button *ngIf="showSearch == true" (click)="openSearch()">
+        <mat-icon>search</mat-icon>
+    </button> -->
+    <button class="search-btn" mat-icon-button *ngIf="showSearch == true && smallScreen == true" (click)="openSearch()">
+        <mat-icon>search</mat-icon>
+    </button>
+</mat-toolbar>
+<!-- <div class="main_div" fxLayout fxLayoutGap="10px" fxLayoutAlign="start center" *ngIf="smallScreen !== true">
+    <div fxFlex="100">
+        <router-outlet></router-outlet>
+    </div>
+</div> -->
+<!-- <mat-toolbar style="background: #404040!important;height: 250px;"> -->
+<!-- <app-footer></app-footer> -->
+<!-- </mat-toolbar> -->
+<mat-sidenav-container >
+    <mat-sidenav #sidenav [mode]="sidenavMode" [opened]="sidenavMenu" class="sidnav-menu">
+        <mat-nav-list *ngIf="smallScreen == true" style="overflow: hidden">
+            
+            <!-- <mat-list-item *ngFor="let menu of sideMenu" #rla="routerLinkActive" routerLink="{{menu.path}}"
+                routerLinkActive="active-route custom-elevation-low border-light">
+                <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
+                <a matLine>{{menu.name}}</a>
+            </mat-list-item> -->
+            <mat-list-item (click)="sideNavOpenClose(sidenav.mode);navigatePage('home');" [routerLink]="['/home']"
+                routerLinkActive="active-route">
+                <a matLine class="font_size18">Home</a>
+            </mat-list-item>
+            <mat-list-item class="font_size18" (click)="sideNavOpenClose(sidenav.mode);navigatePage('downloads');"
+                routerLinkActive="active-route" [routerLink]="['/downloads']">
+                <a matLine class="font_size18">Downloads</a>
+            </mat-list-item>
+            <!-- <mat-list-item class="font_size18" routerLinkActive="active-route"  [routerLink]="['/Earn-with-us/']"> -->
+            <!-- <a matLine> -->
+            <mat-accordion matLine routerLinkActive="active-route">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="font_size18">
+                            Earn With Us
+                        </mat-panel-title>
+                        <!-- <mat-panel-description>
+                              Type your name and age
+                            </mat-panel-description> -->
+                    </mat-expansion-panel-header>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem" class="font_size18"
+                            (click)="sideNavOpenClose(sidenav.mode);navigatePage('Join-team-apt');"
+                            routerLinkActive="active-route" [routerLink]="['/Earn-with-us/Join-team-apt']">
+                            Join Team APT
+                        </mat-list-item>
+                        <mat-list-item role="listitem" class="font_size18"
+                            (click)="sideNavOpenClose(sidenav.mode);navigatePage('work-as-Collabotor');"
+                            routerLinkActive="active-route" [routerLink]="['/Earn-with-us/work-as-Collabotor']">Work As
+                            a Collaborator </mat-list-item>
+                        <mat-list-item role="listitem" class="font_size18"
+                            (click)="sideNavOpenClose(sidenav.mode);navigatePage('video-faculty');"
+                            routerLinkActive="active-route" [routerLink]="['/Earn-with-us/video-faculty']">Work As a
+                            Video Faculty </mat-list-item>
+                        <mat-list-item role="listitem" class="font_size18"
+                            (click)="sideNavOpenClose(sidenav.mode);navigatePage('Language-translator');"
+                            routerLinkActive="active-route" [routerLink]="['/Earn-with-us/Language-translator']">Work As
+                            a Language Translator</mat-list-item>
+                        <mat-list-item role="listitem" class="font_size18"
+                            (click)="sideNavOpenClose(sidenav.mode);navigatePage('Dubbing-Artist');"
+                            routerLinkActive="active-route" [routerLink]="['/Earn-with-us/Dubbing-Artist']"> Work As a
+                            Dubbing Artist </mat-list-item>
+                    </mat-list>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <!-- </a> -->
+            <!-- </mat-list-item> -->
+            <mat-list-item class="font_size18" (click)="sideNavOpenClose(sidenav.mode);navigatePage('school-tie-ups');"
+                routerLinkActive="active-route" [routerLink]="['/school-tie-ups']">
+                <a matLine class="font_size18">Tie-Up</a>
+            </mat-list-item>
+            <mat-list-item class="font_size18" (click)="sideNavOpenClose(sidenav.mode);navigatePage('contact-us');"
+                routerLinkActive="active-route" [routerLink]="['/contact-us']">
+                <a matLine class="font_size18">Contact Us</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="main">
+        <div class="main_div" fxLayout fxLayoutGap="10px" fxLayoutAlign="start center">
+            <div fxFlex="100" *ngIf="route1 !== '/feedback'">
+                <main [@routeAnimations]="prepareRoute(o)">
+                    
+                    <router-outlet #o="outlet"></router-outlet>
+                    
+                </main>
+                <app-footer></app-footer>
+            </div>
+            <div fxFlex="100" *ngIf="route1 === '/feedback'">
+                <main [@routeAnimations]="prepareRoute(o)">
+                    <router-outlet #o="outlet"></router-outlet>
+                </main>
+                <br><br><br><br><br>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

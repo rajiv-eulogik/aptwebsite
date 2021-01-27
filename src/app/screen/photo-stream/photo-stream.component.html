@@ -1,0 +1,37 @@
+<div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+  <div fxFlex="100" fxLayoutAlign="center center">
+    <p class="MainHeding" style="font-weight: 600;">PHOTO STREAM </p>
+  </div>
+</div>
+<br>
+<mat-grid-list [cols]="cols" rowHeight="400px" (window:resize)="getWidth()">
+  <div *ngFor="let image of PhotoStream; let i=index">
+    <div *ngIf="i%3 == 1">
+    <mat-grid-tile class="container">
+      <mat-card style="box-shadow: none!important; margin-top: 150px;" [@bounceOut]="'bounceOut'">
+          <img mat-card-image [src]="ImageUrl + image.image" alt="Photo stream">
+          <div class="overlay">
+            <div class="text">
+              <p>{{image.name}}</p>
+              <p> Rank {{image.rank}} </p> 
+            </div>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    </div>
+    <div *ngIf="i%3 !== 1">
+      <mat-grid-tile class="container">
+        <mat-card style="box-shadow: none!important" [@bounceOut]="'bounceOut'">
+            <img mat-card-image [src]="ImageUrl + image.image" alt="Photo stream">
+            <div class="overlay">
+              <div class="text">
+                <p>{{image.name}}</p>
+                <p> Rank {{image.rank}} </p> 
+              </div>
+          </div>
+        </mat-card>
+      </mat-grid-tile>
+      </div>
+
+  </div>
+</mat-grid-list>

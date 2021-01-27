@@ -1,0 +1,39 @@
+:host {
+  display:block;
+}
+
+.overlay {
+  position:fixed;
+  cursor:pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(0,0,0,0.5);
+  z-index:100000;
+}
+
+.frame {
+  color:black;
+  background:#272822;
+  position:absolute;
+  top:50%;
+  left:50%;
+  max-width: 90vh;
+  min-height:300px;
+  transform:translateX(-50%) translateY(-50%);
+  width:55%;
+  padding:20px;
+  z-index:100001;
+  border:5px solid black;
+}
+
+.frame code {
+  padding:0;
+  margin:0;
+}
+
+.frame pre {
+  padding:0;
+  margin:0;
+}

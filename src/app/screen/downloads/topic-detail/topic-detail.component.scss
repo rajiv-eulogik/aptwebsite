@@ -1,0 +1,48 @@
+.imageHeight{
+    // height: 455px;
+    width: 100%;
+}
+
+.free{
+    font-weight: 500;
+    font-size: 16px;
+    color: #0c5c8f;
+} 
+
+.count{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.downlodsHeading{
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .divImage{
+    // background-image: url(assets/image/downlods123.png);
+    width: 100%;
+  }
+  .mobileImage{
+    width: 50%;
+  }
+  
+  .whiteText{
+    color: #ffffff;
+  }
+
+  .imagedata{
+    width: 40%;
+  }
+
+  @media only screen and (max-width:600px)
+{
+  .imagedata{
+    width: 100%;
+  }
+  .free{
+    font-weight: 500;
+    font-size: 14px;
+    color: #0c5c8f;
+} 
+}

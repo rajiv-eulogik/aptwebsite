@@ -1,0 +1,221 @@
+<div class="no-data" *ngIf="loading" fxLayoutAlign="center center" fxFlex>
+  <ngx-loading [show]="loading"  [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+  </ngx-loading>
+</div>
+
+<div *ngIf= "!loading" [@expand] [@flyInOut]>
+  <div fxLayoutAlign="center center">
+    <br>
+    <h1 style="font-size: 34px; padding-top: 3px; margin-top: 30px"><b>About Us</b></h1>
+  </div>
+  <br>
+  <br>
+  <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="100">
+      <img  id="aboutapt-coverImage"  src="" class="imageHeight">
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div fxLayout fxLayoutAlign="center center" style="margin-left: 5%;margin-right: 5%;">
+      <h4 class="courseDis" id= "aboutapt-description">        
+      </h4>
+  </div>
+  <br><br>
+  <div fxLayout fxLayoutAlign="start start" style="margin-left: 5%;margin-right: 5%;" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+      <div fxFlex="50%" fxFlex.sm="100%" fxFlex.xs="100%">
+          <div fxLayout fxLayoutAlign="start center">
+              <p class="courseHeading" id="aboutfounders-title">               
+              </p>
+          </div>
+          <div fxLayout fxLayoutAlign="start center">
+              <h4 class="courseDis" id="aboutfounders-description">                
+              </h4>
+          </div>
+      </div>
+      <div fxLayout="row wrap">
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxFill>
+            <mat-card class="example-card" >
+                <!-- <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Shiba Inu</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header> -->
+                <div class="container">
+                    <img id="founderimage0" src="" mat-card-image height="225px" alt="co-founder">
+                    <!-- <img src="img_avatar.png" alt="Avatar" > -->
+                    <div class="overlay layover">
+                      <div class="text" id="founders0-about"></div>
+                    </div>
+                </div>
+                <mat-card-content>
+                  <h4 class="fname" id="founders0-name"></h4>
+                  <h5 class="digination" id="founders0-designation">
+                  </h5>
+                </mat-card-content>
+                
+                <mat-card-actions>
+                    <p fxLayout fxLayoutAlign="center center">
+                        <a id="founders0-facebook" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fast fa-facebook1"></a> 
+                        <a id="founders0-twitter" href="https://twitter.com/aptclasses1?lang=en" target="_blank" class="fa fa-twitter fast fa-twitter1"></a>
+                        <a id="founders0-instagram"  href="https://www.instagram.com/" target="_blank" class="fa fa-instagram fast fa-instagram1"></a>
+                        <a id="founders0-linkedin" href="https://www.linkedin.com/in/apt-classes-306b46177/?originalSubdomain=in" target="_blank" class="fa fa-linkedin fast fa-linkedin1"></a>
+                    </p>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxFill>
+            <mat-card class="example-card">
+                <!-- <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Shiba Inu</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header> -->
+                <div class="container">
+                    <img id="founderimage1" mat-card-image height="225px" src="" alt="co-founder">
+                    <!-- <img src="img_avatar.png" alt="Avatar" > -->
+                    <div class="overlay layover">
+                      <div class="text" id="founders1-about"></div>
+                    </div>
+                  </div>
+                <mat-card-content>
+                  <h4 class="fname" id="founders1-name"></h4>
+                  <h5 class="digination" id="founders1-designation">
+                  </h5>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p fxLayout fxLayoutAlign="center center">
+                        <a id="founders1-facebook" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fast fa-facebook1"></a> 
+                        <a id="founders1-twitter" href="https://twitter.com/aptclasses1?lang=en" target="_blank" class="fa fa-twitter fast fa-twitter1"></a>
+                        <a id="founders1-instagram"  href="https://www.instagram.com/" target="_blank" class="fa fa-instagram fast fa-instagram1"></a>
+                        <a id="founders1-linkedin"  href="https://www.linkedin.com/in/apt-classes-306b46177/?originalSubdomain=in" target="_blank" class="fa fa-linkedin fast fa-linkedin1"></a>
+                    </p>
+                </mat-card-actions>
+              </mat-card>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div fxLayout fxLayoutAlign="center center"  style="margin-left: 5%;margin-right: 5%;">
+      <div fxFlex="100">
+        <div fxLayout fxLayoutAlign="start center">
+          <p class="registraion" id="aboutfaculties-title">           
+          </p>
+        </div>
+        <br>
+        <div fxLayout fxLayoutAlign="center center">
+          <h4 class="courseDis" id="aboutfaculties-description">
+          </h4>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  <div fxLayout fxLayoutAlign="start start" style="margin-left: 5%;margin-right: 5%;" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxLayout="row wrap">
+    {{fac}}
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxFill>
+          <mat-card class="example-card">
+              <div class="container">
+                  <img id="facultyimage0" mat-card-image src="" alt="co-founder">
+                  <!-- <img src="img_avatar.png" alt="Avatar" > -->
+                  <div class="overlay">
+                    <div class="text" id="faculties0-designation"></div>
+                  </div>
+                </div>
+              <mat-card-content>
+                  <h4 class="fname" id="faculties0-name"></h4>
+                  <h5 class="digination" id="faculties0-about">
+                  
+                  </h5>
+              </mat-card-content>
+              <mat-card-actions>
+                  <p fxLayout fxLayoutAlign="center center">
+                      <a id="faculties0-facebook" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fast fa-facebook1"></a> 
+                      <a id="faculties0-twitter" href="https://twitter.com/aptclasses1?lang=en" target="_blank" class="fa fa-twitter fast fa-twitter1"></a>
+                      <a id="faculties0-instagram" href="https://www.instagram.com/" target="_blank" class="fa fa-instagram fast fa-instagram1"></a>
+                      <a id="faculties0-linkedin" href="https://www.linkedin.com/in/apt-classes-306b46177/?originalSubdomain=in" target="_blank" class="fa fa-linkedin fast fa-linkedin1"></a>
+                  </p>
+              </mat-card-actions>
+            </mat-card>
+        </div>
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxFill>
+            <mat-card class="example-card">
+                <div class="container">
+                    <img id="facultyimage1" mat-card-image src="" alt="co-founder">
+                    <!-- <img src="img_avatar.png" alt="Avatar" > -->
+                    <div class="overlay">
+                      <div class="text" id = "faculties1-designation"></div>
+                    </div>
+                </div>
+                <mat-card-content>
+                  <h4 class="fname" id="faculties1-name"></h4>
+                  <h5 class="digination" id="faculties1-about">
+                  </h5>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p fxLayout fxLayoutAlign="center center">
+                        <a id="faculties1-facebook" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fast fa-facebook1"></a> 
+                        <a id="faculties1-twitter" href="https://twitter.com/aptclasses1?lang=en" target="_blank" class="fa fa-twitter fast fa-twitter1"></a>
+                        <a id="faculties1-instagram" href="https://www.instagram.com/"  target="_blank" class="fa fa-instagram fast fa-instagram1"></a>
+                        <a  id="faculties1-linkedin" href="https://www.linkedin.com/in/apt-classes-306b46177/?originalSubdomain=in"  target="_blank" class="fa fa-linkedin fast fa-linkedin1"></a>
+                    </p>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxFill>
+            <mat-card class="example-card">
+                <div class="container">
+                    <img id="facultyimage2" mat-card-image src="" alt="co-founder">
+                    <!-- <img src="img_avatar.png" alt="Avatar" > -->
+                    <div class="overlay">
+                      <div class="text" id="faculties2-designation"></div>
+                    </div>
+                  </div>
+                <mat-card-content>
+                    <h4 class="fname" id = "faculties2-name"></h4>
+                    <h5 class="digination" id = "faculties2-about">
+                    </h5>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p fxLayout fxLayoutAlign="center center">
+                        <a id= "faculties2-facebook" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fast fa-facebook1"></a> 
+                        <a id= "faculties2-twitter" href="https://twitter.com/aptclasses1?lang=en"  target="_blank" class="fa fa-twitter fast fa-twitter1"></a>
+                        <a id= "faculties2-instagram" href="https://www.instagram.com/"  target="_blank" class="fa fa-instagram fast fa-instagram1"></a>
+                        <a id= "faculties2-linkedin" href="https://www.linkedin.com/in/apt-classes-306b46177/?originalSubdomain=in"  target="_blank" class="fa fa-linkedin fast fa-linkedin1"></a>
+                    </p>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+        <!-- <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center center" fxFill>
+            <mat-card class="example-card">
+                <div class="container">
+                    <img id="facultyimage3" mat-card-image src="" alt="co-founder">
+                    
+                    <div class="overlay">
+                      <div class="text" id ="faculties3-designation" ></div>
+                    </div>
+                  </div>
+                <mat-card-content>
+                  <h4 class="fname" id="faculties3-name"></h4>
+                  <h5 class="digination" id= "faculties3-about">
+                  </h5>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p fxLayout fxLayoutAlign="center center">
+                        <a id="faculties3-facebook" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fast fa-facebook1"></a> 
+                        <a id="faculties3-twitter" href="https://twitter.com/aptclasses1?lang=en"  target="_blank" class="fa fa-twitter fast fa-twitter1"></a>
+                        <a id="faculties3-instagram" href="https://www.instagram.com/"  target="_blank" class="fa fa-instagram fast fa-instagram1"></a>
+                        <a id="faculties3-linkedin" href="https://www.linkedin.com/in/apt-classes-306b46177/?originalSubdomain=in"  target="_blank" class="fa fa-linkedin fast fa-linkedin1"></a>
+                    </p>
+                </mat-card-actions>
+              </mat-card>
+        </div> -->
+    </div>
+  </div>
+  <br><br>
+  <br><br>
+
+</div>
+

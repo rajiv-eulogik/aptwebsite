@@ -1,0 +1,37 @@
+
+
+<div class="res-container" fxLayout="column" fxLayoutAlign="start center">
+    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px" class="MainDiv">
+        <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+            <h1 style="margin-bottom: 30px;" class="mat-display-1"><b>Payment Successful!</b></h1>
+            <h2 class="mat-h2">Your payment has been successful.</h2>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div style="width: 100%;" fxLayout.xs="column" fxLayout.sm="column" fxLayout fxLayoutAlign="center center">
+        <div fxFlex="50" fxLayoutAlign="center center">
+            <img src="assets/image/staticPdf.png" height="250" alt="home">
+        </div>
+        <div fxFlex="50" fxLayout="column">
+            <h1 class="mat-h1"><b>{{fileData?.title}}</b></h1>
+            <p class="mat-h3">Your download will start in few seconds</p>
+            <h1 class="mat-h1 blue"><b>{{showTimer()}}</b></h1>
+            <p *ngIf="!timer" class="mat-h3"><span class="blue" style="cursor: pointer;" (click)="downloadFile()">Click here</span> to download manually.</p>
+            <button mat-flat-button color="primary" style="color: white; width: 180px;"  (click)="exploreMore()">
+                <b>EXPLORE MORE</b>
+            </button>
+            <!-- <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayoutAlign="start center">
+                    <h4 class="mrp"> Price &nbsp;&nbsp;&nbsp;<span class="space free">&#8377;
+                            {{fileData?.price}}</span>&nbsp;&nbsp; <span class="gst"> *GST Included</span>
+                    </h4>
+                </div>
+            </div>
+            <div fxLayout fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center" fxLayoutAlign="start center">
+                <button style="color: white;" mat-flat-button color="primary" ><b>PROCEED TO PAY</b></button>
+            </div> -->
+        </div>
+    </div>
+</div>

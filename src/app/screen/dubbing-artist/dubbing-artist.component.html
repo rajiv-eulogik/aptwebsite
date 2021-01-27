@@ -1,0 +1,412 @@
+<div class="no-data" *ngIf="showloader" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="showloader"
+        [config]="{ backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+<div *ngIf="!showloader" (window:resize)="getWidth($event)">
+    <div fxLayout fxLayoutAlign="start center">
+        <div fxFlex="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <p class="MainHeding"> Work As a Dubbing Artist </p>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <br>
+    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+        <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <img src="assets/images/dubaging.png" class="marginButtom" alt="home">
+            </div>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+        <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <div fxFlex="96">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <p class="courseHeading">
+                            Work As a Dubbing Artist
+                        </p>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <h4 class="courseDis">
+                            Our courses are designed to clarify all the topics, be it basic or advanced.
+                            When I try to create a component in the angular cli, it's showing me this erro
+                            More than one module matches.
+                            Use skip-import option to skip importing the component into the closest module
+                        </h4>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <h4 class="courseDis">
+                            Our courses are designed to clarify all the topics, be it basic or advanced.
+                            When I try to create a component in the angular cli, it's showing me this erro
+                            More than one module matches.
+                            Use skip-import option to skip importing the component into the closest module
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div *ngIf="!mobileDevice" fxLayout fxLayoutAlign="start center">
+        <div fxFlex="100" class="formRemove">
+            <br><br>
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <p class="registraion"> Register Now </p>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayoutAlign="center center">
+                    <mat-card class="cardWith">
+                        <form [formGroup]="DubugArtistForm" (ngSubmit)="SAVEDATA()">
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Name</mat-label>
+                                        <input formControlName="name" required matInput minlength="3" maxlength="50">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Country Code</mat-label>
+                                        <mat-select required formControlName="country"
+                                            (ngModelChange)="onChange($event)">
+                                            <div *ngFor="let contry of AllCoutryName">
+                                                <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                                <mat-divider></mat-divider>
+                                            </div>
+                                        </mat-select>
+                                        <!-- <mat-error>Country name is Required</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div fxFlex="85" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Contact Number</mat-label>
+                                        <input formControlName="mobile" type="tel" required matInput
+                                            [maxlength]="mobileMax">
+                                        <mat-error
+                                            *ngIf="DubugArtistForm.controls.mobile.invalid && (DubugArtistForm.controls.mobile.touched || DubugArtistForm.controls.mobile.dirty)">
+                                            <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.required">
+                                                </mat-error>
+                                            <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.minlength">
+                                                
+                                            </mat-error>
+                                            <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.maxlength">
+                                                
+                                            </mat-error>
+                                            <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.pattern">
+                                                
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Email</mat-label>
+                                        <input required type="email" formControlName="email" matInput>
+                                        <mat-error
+                                            *ngIf="DubugArtistForm.controls.email.invalid && (DubugArtistForm.controls.email.touched || DubugArtistForm.controls.email.dirty )"
+                                            style="color: #f44336">
+                                            <mat-error *ngIf="DubugArtistForm.controls.email.errors.required"> 
+                                                 </mat-error>
+                                            <mat-error *ngIf="DubugArtistForm.controls.email.errors.pattern"> 
+                                                 </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <!-- <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Country</mat-label>
+                                <mat-select required formControlName="country">
+                                    <div *ngFor="let contry of AllCoutryName"> 
+                                        <mat-option [value]="contry">+{{contry.dial_code}}-({{contry.name}})</mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-select>
+                                <mat-error>Country name is Required</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div> -->
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>State</mat-label>
+                                        <mat-select formControlName="state">
+                                            <div *ngFor="let state of allState">
+                                                <mat-option [value]="state.state">{{state.state}}</mat-option>
+                                                <mat-divider></mat-divider>
+                                            </div>
+                                        </mat-select>
+                                        <!--mat-error>State Name is Required</mat-error -->
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div *ngIf="!flag">
+                                <h5>*Not required for people registering outside India</h5>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>City</mat-label>
+                                        <input required formControlName="city" matInput maxlength="150">
+                                        <mat-error>City Name is Required</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Language Comfort</mat-label>
+                                        <mat-select required formControlName="comfortLanguage" multiple>
+                                            <!-- <div *ngFor="let state of allState.states"> -->
+                                            <div *ngFor="let lan of AllLanguage">
+                                                <mat-option [value]="lan.title">
+                                                    {{lan.title}} </mat-option>
+                                                <mat-divider></mat-divider>
+                                            </div>
+                                        </mat-select>
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Highest Qualification</mat-label>
+                                        <input required formControlName="qualification" matInput>
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Experience as dubbing artist</mat-label>
+                                        <mat-select required formControlName="exprience">
+                                            <!-- <div *ngFor="let state of allState.states"> I am a student-->
+                                            <mat-option value="Less than 1 yr">Less than 1 yr</mat-option>
+                                            <mat-divider></mat-divider>
+                                            <mat-option value="1-3 yrs">1-3 yrs</mat-option>
+                                            <mat-divider></mat-divider>
+                                            <mat-option value="More than 3yrs">More than 3yrs</mat-option>
+                                            <mat-divider></mat-divider>
+                                            <!-- </div> -->
+                                        </mat-select>
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                        <mat-label>Suitable Time for Contact</mat-label>
+                                        <mat-select required formControlName="TimeContact">
+                                            <!-- <div *ngFor="let state of allState.states"> -->
+                                            <mat-option value=" 8am - 10am">8am - 10am</mat-option>
+                                            <mat-divider></mat-divider>
+                                            <mat-option value="10am - 6pm">10am - 6pm</mat-option>
+                                            <mat-divider></mat-divider>
+                                            <mat-option value="6pm - 9pm">6pm - 9pm</mat-option>
+                                            <mat-divider></mat-divider>
+                                            <!-- </div> -->
+                                        </mat-select>
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <button mat-raised-button color="primary" type="submit"
+                                        class="submitButton">SUBMIT</button>
+                                </div>
+                            </div>
+                        </form>
+                    </mat-card>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <div *ngIf="mobileDevice" fxLayout fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column" fxLayoutAlign="start center">
+
+            <div>
+                <div fxLayout fxLayoutAlign="center center">
+                    <p class="registraion"> Register Now </p>
+                </div>
+            </div>
+
+            <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayout fxLayoutAlign="center center">
+                    <form  fxFlex="96" [formGroup]="DubugArtistForm" (ngSubmit)="SAVEDATA()">
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'"  style="width: 100%;">
+                                <mat-label>Name</mat-label>
+                                <input formControlName="name" required matInput minlength="3" maxlength="150">
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'"  style="width: 100%;">
+                                <mat-label>Country Code</mat-label>
+                                <mat-select required formControlName="country" (ngModelChange)="onChange($event)">
+                                    <div *ngFor="let contry of AllCoutryName">
+                                        <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>Contact Number</mat-label>
+                                <input formControlName="mobile" type="tel" required matInput [maxlength]="mobileMax">
+                                <mat-error
+                                    *ngIf="DubugArtistForm.controls.mobile.invalid && (DubugArtistForm.controls.mobile.touched || DubugArtistForm.controls.mobile.dirty)">
+                                    <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.required">
+                                        </mat-error>
+                                    <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.minlength">
+                                        
+                                    </mat-error>
+                                    <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.maxlength">
+                                        
+                                    </mat-error>
+                                    <mat-error *ngIf="DubugArtistForm.controls.mobile.errors.pattern">
+                                        
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>Email</mat-label>
+                                <input required type="email" formControlName="email" matInput>
+                                <mat-error
+                                    *ngIf="DubugArtistForm.controls.email.invalid && (DubugArtistForm.controls.email.touched || DubugArtistForm.controls.email.dirty )"
+                                    style="color: #f44336">
+                                    <mat-error *ngIf="DubugArtistForm.controls.email.errors.required">
+                                      </mat-error>
+                                    <mat-error *ngIf="DubugArtistForm.controls.email.errors.pattern">
+                                        </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>State</mat-label>
+                                <mat-select formControlName="state">
+                                    <div *ngFor="let state of allState">
+                                        <mat-option [value]="state.state">{{state.state}}</mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-select>
+                                <!--mat-error>State Name is Required</mat-error -->
+                            </mat-form-field>
+                        </div>
+
+                        <div *ngIf="!flag">
+                            <h5>*Not required for people registering outside India</h5>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>City</mat-label>
+                                <input required formControlName="city" matInput maxlength="150">
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>Language Comfort</mat-label>
+                                <mat-select required formControlName="comfortLanguage" multiple>
+                                    <!-- <div *ngFor="let state of allState.states"> -->
+                                    <div *ngFor="let lan of AllLanguage">
+                                        <mat-option [value]="lan.title">
+                                            {{lan.title}} </mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-select>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>Highest Qualification</mat-label>
+                                <input required formControlName="qualification" matInput>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>Experience as dubbing artist</mat-label>
+                                <mat-select required formControlName="exprience">
+                                    <!-- <div *ngFor="let state of allState.states"> I am a student-->
+                                    <mat-option value="Less than 1 yr">Less than 1 yr</mat-option>
+                                    <mat-divider></mat-divider>
+                                    <mat-option value="1-3 yrs">1-3 yrs</mat-option>
+                                    <mat-divider></mat-divider>
+                                    <mat-option value="More than 3yrs">More than 3yrs</mat-option>
+                                    <mat-divider></mat-divider>
+                                    <!-- </div> -->
+                                </mat-select>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'"  style="width: 100%;">
+                                <mat-label>Time for Contact</mat-label>
+                                <mat-select required formControlName="TimeContact">
+                                    <!-- <div *ngFor="let state of allState.states"> -->
+                                    <mat-option value=" 8am - 10am">8am - 10am</mat-option>
+                                    <mat-divider></mat-divider>
+                                    <mat-option value="10am - 6pm">10am - 6pm</mat-option>
+                                    <mat-divider></mat-divider>
+                                    <mat-option value="6pm - 9pm">6pm - 9pm</mat-option>
+                                    <mat-divider></mat-divider>
+                                    <!-- </div> -->
+                                </mat-select>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout fxLayoutAlign="center center">
+                            <div fxFlex="100" fxLayoutAlign="center center">
+                                <button mat-raised-button color="primary" type="submit"
+                                    class="submitButton">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    <br><br><br>
+</div>

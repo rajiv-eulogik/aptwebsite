@@ -1,0 +1,147 @@
+<!-- <br><br> -->
+
+<div [@expand] [@flyInOut]>
+    <div fxLayout fxLayoutAlign="start center" fxLayout.sm="column" fxLayout.xs="column">
+        <div fxFlex="100" fxLayoutAlign="center center">
+            <div fxLayout fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxFlex="30" fxLayout fxLayoutAlign="start center">
+                        <br>
+                        <div fxLayout fxLayoutAlign="center center" >
+                            <img src="../../assets/facetoface/logo.png" class="logo" >
+                        </div>
+                </div>
+                <div fxFlex="70" fxLayout fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                    <div fxLayout fxLayoutAlign="center center" >
+                        <p class="title">
+                        FeedBack Form
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div fxLayout fxLayoutAlign="start center" fxLayout.sm="column" fxLayout.xs="column" >
+            <div fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <div>
+                        <div fxLayout fxLayoutAlign="start center">
+                            <div class="classImage" fxFlex="100" fxLayoutAlign="start center">
+                                <img src="../../assets/image/BANK-EXAM-200x200.jpg"  alt="home">
+                                
+                            </div>
+                        </div>
+                        <br>
+                        <div fxLayout fxLayoutAlign="center center">
+                            <div class="heading" fxFlex = "100" fxLayoutAlign="start center">
+                                Bank Exam
+                            </div>
+                        </div>
+                        <br>
+                        <div fxLayout fxLayoutAlign="center center">
+                            <div fxFlex = "100" fxLayoutAlign="center center">
+                                <div class="description" fxFlex="100" fxLayoutAlign="start center">
+                                    hadsgjhasc asjhdvasjd jasdvsgaj sgjvdasg ghasvghsav
+                                    dsghfadg feggadfgad adghvasghvadghs dfvaghvadfg
+                                        
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            
+            <div fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <div>
+                        <div class="rate" fxLayout fxLayoutAlign="center center" [@slideInLeft]="'slideInLeft'">
+                            <div class="panel panel-primary">
+                                <div class="table-responsive" fxFlex.sm="100" fxFlex.xs="100">
+                                <table class="table">
+                                    
+                                    <tbody *ngFor="let item of items let i = index">
+                                    <tr *ngIf="i==ratingClicked" fxFlex.sm="100" fxFlex.xs="100">
+                                        <td fxLayoutAlign="center center">
+                                        <app-rating [rating]='item.rating' [itemId]='item.id' [message]="item.message" (ratingClick)='ratingComponentClick($event)'></app-rating>
+                                        </td>
+                                    </tr>
+            
+                                    <tr class="text" *ngIf="i==ratingClicked" fxFlex.sm="100" fxFlex.xs="100">
+                                        <br>
+                                        <td fxLayoutAlign="center center">
+                                        <b>{{item.message}} </b>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxLayout fxLayoutAlign="start center" >
+                            <div fxFlex="100" fxLayoutAlign="start center" [@slideInDown]="'slideInDown'"> 
+                                <mat-card class="cardWith1">
+                                    <form [formGroup]="RateUsForm" (ngSubmit)="submitForm()"> 
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <div fxFlex="100" fxLayoutAlign="center center">
+                                                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                                    <mat-label> Full Name</mat-label>
+                                                    <input required formControlName="name" matInput minlength="3" maxlength="150">
+                                                    <mat-error> Name is Required</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <div fxFlex="100" fxLayoutAlign="center center">
+                                                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                                    <mat-label>Contact Number</mat-label>
+                                                    <input required formControlName="mobile" type="tel" matInput minlength="5" maxlength="20">
+                                                    <mat-error>Contact number is Required</mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <div fxFlex="100" fxLayoutAlign="center center">
+                                                <mat-form-field  appearance="outline" [floatLabel]="'never'" style="width: 100%;">
+                                                    <mat-label>Describe your experience</mat-label>
+                                                    <textarea matInput rows="2" cols="50" formContolName="description"   
+                                                        pattern="^(?:\b\w+\b[\s\r\n]*){1,250}$">
+                                                    </textarea>
+                                                    
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="end center">
+                                            <div fxFlex="100" fxLayoutAlign="end center">
+                                                <span id="remain">0 </span> /250
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <div fxFlex="100" fxLayoutAlign="center center">
+                                                <button style="font-weight: 600;" mat-raised-button color="primary" type="submit" class="submitButton">SUBMIT</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </mat-card>                                
+                            </div>
+                        </div>
+                        <br>
+                    </div>  
+                </div>
+            </div>
+        
+    </div>
+    <br><br><br><br><br><br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+

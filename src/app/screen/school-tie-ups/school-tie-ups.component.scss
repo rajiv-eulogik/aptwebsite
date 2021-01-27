@@ -1,0 +1,113 @@
+.courseDis{
+    font-size: 16px;
+    font-weight: 300;
+    color: #212121;
+    margin-right: 0px!important;
+    margin-left: 0px !important;
+  }
+
+  .courseHeading{
+    font-size: 24px;
+  }
+
+  .registraion{
+   font-size: 24px;
+   font-weight: 500;
+  }
+  .whiteText{
+    color: #ffffff;
+  }
+
+  .marginButtom{
+    margin-bottom: 10%;
+    height: auto;
+    width: 40%;
+  }
+
+  .MainDiv {
+    margin: 0 10%;
+  }
+
+.DividerShow{
+  display: none;
+}
+
+.heading {
+  font-size: 34px;
+  text-align: center;
+}
+
+
+.heading-2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+@media only screen and (max-width:600px)
+{
+  .DividerShow{
+    display: block;
+  }
+  .marginButtom{
+    margin-bottom: 40px;
+    height: auto;
+    width: 80%;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+  .heading-2 {
+    font-size: 18px;
+    text-align: center;
+  }
+  .MainDiv {
+    margin: 0px 0px;
+    padding: 0 20px;
+  }
+ 
+
+}
+
+::ng-deep .mat-form-field .mat-input-element {
+  color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: slategray !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: slategray;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #0c5c8f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: #0c5c8f;
+}
+
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #e40000 !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #e40000;
+}

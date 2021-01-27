@@ -1,0 +1,20 @@
+<fieldset class="rating">
+  <input type="radio" [name]="inputName" value="5" [checked]="rating==5" />
+  <label title="Excellent" (click)='onClick(5,"Excellent" )'>Excellent</label>
+
+  <input type="radio" [name]="inputName" value="4" [checked]="rating==4" />
+  <label title="Impressive" (click)='onClick(4, "Impressive")'>Impressive</label>
+  
+  
+  <input type="radio" [name]="inputName" value="3" [checked]="rating==3" />
+  <label title="Quite Good" (click)='onClick(3, "Quite Good")'>Quite Good</label>
+
+  <input type="radio" [name]="inputName" value="2" [checked]="rating===2" />
+  <label title="Disappointing" (click)='onClick(2, "Disappointing")'>Disappointing</label>
+
+  <input type="radio" [name]="inputName" value="1" [checked]="rating===1" />
+  <label title="Very Disappointing" (click)='onClick(1, "Very Disappointing")'>Very Disappointing</label>
+
+
+
+  </fieldset>

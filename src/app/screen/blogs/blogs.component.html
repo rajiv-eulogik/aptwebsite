@@ -1,0 +1,271 @@
+<br><br>
+
+<div class="no-data" *ngIf="loading1 || loading2" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 || loading2"
+        [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+
+<div style="width: 100%;" *ngIf="!loading1 && !loading2" (window:resize)="getWidth($event)">
+    <div style="width: 100%; padding: 20px 0;" fxLayout fxLayoutAlign="center center">
+        <h1 class="courseHeading1">
+            News and Views
+        </h1>
+    </div>
+    <br>
+    <div fxLayout="column" fxLayoutAlign="center start" style="width: 100%; padding: 10px 20px;" *ngIf="mobileDevice">
+        <div fxLayout fxLayoutAlign="start center">
+            <p style="margin-left: 0px;" class="serchHeadings">
+                SEARCH POSTS
+            </p>
+        </div>
+        <div style="width: 100%;margin-bottom: 20px; margin-left: 0px;" class="blogDivider">
+
+        </div>
+
+        <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label> Let's Search </mat-label>
+            <input matInput autocomplete="off" type="search" [(ngModel)]="searchValue" id="search" name="search"
+                (keyup)="applyFilter(searchValue)">
+            <mat-icon matSuffix *ngIf="searchValue == 'about'">search</mat-icon>
+            <button *ngIf="searchValue" mat-button matSuffix mat-icon-button aria-label="Clear"
+                (click)="applyFilter(searchValue)">
+                <mat-icon (click)="OnSearch()">close</mat-icon>
+            </button>
+            <mat-error>Not Found</mat-error>
+        </mat-form-field>
+    </div>
+    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px"
+        class="MainDiv">
+
+        <div class="two" fxFlex="65" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <div style=" text-align: left;" fxFlex="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayout="column" fxLayoutGap.xs="40px" fxLayoutGap="80px">
+                            <div *ngIf="AllBlogs?.length === 0 && !mobileDevice" style="height: 400px;" fxLayout
+                                fxLayoutAlign="center center">
+                                <h3 class="mat-h3 primary">NO POSTS FOUND!</h3>
+                            </div>
+                            <div *ngIf="AllBlogs?.length === 0 && mobileDevice" style="height: 300px; width: 100%;"
+                                fxLayout fxLayoutAlign="center center">
+                                <h3 class="mat-h3 primary">NO POSTS FOUND!</h3>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center" *ngFor="let blog of AllBlogs.slice().reverse();let i = index">
+                                <div fxFlex="100">
+                                    <div fxLayout fxLayoutAlign="start center">
+                                        <p [style.marginBottom]="mobileDevice ? '10px' : '15px'" class="courseHeading">
+                                            {{blog.title}}
+                                        </p>
+                                    </div>
+                                    <div [style]="mobileDevice ? 'padding: 5px 0;' : 'padding: 0'" fxLayout
+                                        fxLayoutAlign="start center">
+                                        <div fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="40" fxFlex.xs="40">
+                                            <div class="BlogsHeading cut-text">
+                                                <button style="pointer-events: none;" mat-icon-button>
+                                                    <mat-icon class="BlogsIcon">people_outline</mat-icon>
+                                                </button> BY {{blog.staff.name}}
+                                            </div>
+                                        </div>
+                                        <div fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="60" fxFlex.xs="60">
+                                            <div class="BlogsHeading cut-text">
+                                                <button style="pointer-events: none;" mat-icon-button>
+                                                    <mat-icon class="BlogsIcon">list_alt</mat-icon>
+                                                </button> {{blog.categories[0].title}} <span
+                                                    *ngIf="blog.categories.length > 1" #tooltip="matTooltip"
+                                                    [matTooltip]="returnValName(blog.categories, 'cat')"
+                                                    style="color: #1565c0;">+
+                                                    {{blog.categories.length - 1}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="center center">
+                                        <div fxFlex="100" (click)="BlogDetail(blog)">
+                                            <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div fxLayout fxLayoutAlign="center center" (click)="BlogDetail(blog)" #blogdata>
+                                        <div fxFlex="100" id="{{'blogdata' + i }}" class="classData">
+                                            <p *ngIf="showdata(blog.content,i)">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="readone" fxLayoutAlign="start center">
+                                        <p class="readMore" (click)="BlogDetail(blog)" style="cursor: pointer;">
+                                            READ MORE
+                                        </p>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="center center" *ngIf="mobileDevice">
+                        <div fxFlex="100" fxLayout="column" fxLayoutAlign="start start">
+                            <div fxLayout fxLayoutAlign="start center">
+                                <p class="serchHeadings">
+                                    CATEGORIES
+                                </p>
+                            </div>
+                            <div class="blogDivider">
+
+                            </div>
+                            <p>&nbsp;</p>
+                            <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100" fxLayoutAlign="start center">
+                                    <div fxFlex="100">
+                                        <div style="height: 180px; overflow: auto;" fxLayout="column">
+                                            <button mat-button class="example-item" fxLayout
+                                                fxLayoutAlign="start center" (click)="GetBlogs()">
+                                                <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                                    mat-list-icon>panorama_fish_eye
+                                                </mat-icon>
+                                                &nbsp;
+                                                <span mat-line>All</span>
+                                            </button>
+                                            <button mat-button *ngFor="let category of Allcategory" class="example-item"
+                                                fxLayout fxLayoutAlign="start center" (click)="filterByCat(category)">
+                                                <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                                    mat-list-icon>panorama_fish_eye
+                                                </mat-icon>
+                                                &nbsp;
+                                                <span mat-line>{{category.title}}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>&nbsp;</p>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <p class="serchHeadings">
+                                    RECENT POSTS
+                                </p>
+                            </div>
+                            <div class="blogDivider">
+
+                            </div>
+                            <br>
+                            <div style="width: 100%;" fxLayout="column" fxLayoutAlign="start center"
+                                *ngFor="let blog of AllBlogs.slice().reverse();let i = index" fxLayoutGap="10px">
+                                <div style="width: 100%" *ngIf=" i<3" fxLayout="column" fxLayoutAlign="start start">
+                                    <div style="letter-spacing: 0.5px;" class="blogsList"> {{blog.title}}</div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                        <mat-icon style="font-size: 18px; height: 18px; width:20px;">
+                                            people_outline</mat-icon>&nbsp;&nbsp;
+                                        <div class="cut-text">By {{blog.staff.name}}</div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout *ngIf="!mobileDevice" class="one" fxFlex="30" style="justify-content: flex-end;" fxFlex.sm="100"
+            fxFlex.xs="100">
+            <div style="width: 80%;" fxLayout fxLayoutAlign="center center">
+                <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            SEARCH POSTS
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <p>&nbsp;</p>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <mat-form-field appearance="outline" class="Sarchmargin">
+                                <mat-label> Let's Search </mat-label>
+                                <input matInput autocomplete="off" type="search" [(ngModel)]="searchValue" id="search"
+                                    name="search" (keyup)="applyFilter(searchValue)">
+                                <mat-icon matSuffix *ngIf="searchValue == 'about'">search</mat-icon>
+                                <button *ngIf="searchValue" mat-button matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="applyFilter(searchValue)">
+                                    <mat-icon (click)="OnSearch()">close</mat-icon>
+                                </button>
+                                <mat-error>Not Found</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            CATEGORIES
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <p>&nbsp;</p>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <div fxFlex="100" fxLayoutAlign="start center">
+                            <div fxFlex="100">
+                                <div style="height: 180px; overflow: auto;" fxLayout="column">
+                                    <button mat-button class="example-item" fxLayout fxLayoutAlign="start center"
+                                        (click)="GetBlogs()">
+                                        <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                            mat-list-icon>panorama_fish_eye
+                                        </mat-icon>
+                                        &nbsp;
+                                        <span mat-line>All</span>
+                                    </button>
+                                    <button mat-button *ngFor="let category of Allcategory" class="example-item"
+                                        fxLayout fxLayoutAlign="start center" (click)="filterByCat(category)">
+                                        <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                            mat-list-icon>panorama_fish_eye
+                                        </mat-icon>
+                                        &nbsp;
+                                        <span mat-line>{{category.title}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>&nbsp;</p>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            RECENT POSTS
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center" *ngFor="let blog of AllBlogs.slice().reverse();let i = index">
+                        <div fxFlex="100">
+                            <div *ngIf=" i<3" fxLayout fxLayoutAlign="start start" class="Sarchmargin"
+                                fxLayoutGap="5px">
+                                <div fxFlex="50" fxLayoutAlign="start start">
+                                    <div fxLayout>
+                                        <div fxFlex="100">
+                                            <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="10px">
+                                                <div style="letter-spacing: 0.5px;" class="blogsList"> {{blog.title}}
+                                                </div>
+                                                <div fxLayout fxLayoutAlign="start center">
+                                                    <mat-icon style="font-size: 18px; height: 18px; width:20px;">
+                                                        people_outline</mat-icon>&nbsp;&nbsp;
+                                                    <div class="cut-text">By {{blog.staff.name}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>

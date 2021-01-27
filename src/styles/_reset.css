@@ -1,0 +1,40 @@
+*, *:before, *:after {
+  box-sizing:border-box;
+  line-height:150%;
+}
+
+html, body {
+  position:relative;
+  height:100%;
+  padding:0;
+  margin:0;
+  font-family: "Open Sans";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display:block;
+  padding:0;
+  margin:0;
+}
+
+ol, ul, li {
+  display:block;
+  padding:0;
+  margin:0;
+}
+
+html, #wrapper {
+  color:white;
+  background:black url(/assets/bg-dark.png);
+  height:100%;
+  position:relative;
+}
+
+.container {
+  width:80%;
+  margin:0 auto;
+}
+
+a,a:link,a:visited,a:active {
+  text-decoration: none;
+}

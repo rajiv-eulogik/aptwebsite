@@ -1,0 +1,78 @@
+<div class="no-data" *ngIf="loading" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading"  [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+<div *ngIf="!loading" [@expand] [@flyInOut]>
+    <div fxLayoutAlign="center center" style="margin-top: 30px;">
+        <h1 style="font-weight: 600;"><b>Download App </b></h1>
+    </div>
+    <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div fxFlex="100" class="divImage" style="background-image: url(assets/images/homeback.png);">
+            <br>
+            <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+                <div fxFlex="40" fxLayoutAlign="center center" fxFlex.sm="100" >
+                    <img id="image" src="" alt="home" class="mobileImage">
+                </div>
+                <br><br>
+                <div fxFlex="60" fxFlex.sm="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100">
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <h3 class="downlodsHeading marginApp" id="imageTitle"> </h3>
+                            </div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <p style="font-size: 16px;" class="marginApp" id="imageDescription">                               
+                                </p>
+                            </div>
+        
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <button mat-raised-button class="whiteText" color="primary" (click)="DownloadsApp()"> DOWNLOAD APT APP </button>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+
+        <div fxFlex="100">
+            <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+                <div fxFlex="40" fxLayoutAlign="center center" fxFlex.sm="100" >
+                    <video class="marginApp1" width="408" id="video" height="260" controls>
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+                <br><br>
+                <div fxFlex="60" fxFlex.sm="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100">
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <h3 class="downlodsHeading marginApp" id="videoTitle"> </h3>
+                            </div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <p style="font-size: 16px;" class="marginApp" id="videoDescription">                               
+                                </p>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <button mat-raised-button class="whiteText" color="primary" (click)="DownloadsApp()"> DOWNLOAD APT APP </button>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+

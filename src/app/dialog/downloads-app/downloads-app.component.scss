@@ -1,0 +1,79 @@
+.registraion {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.CancelButton {
+  background: white;
+  width: 100px !important;
+  background: #ffffff;
+  border: 2px solid #e40000;
+  font-weight: bolder;
+  font-size: 14px;
+  color: #e40000;
+  height: 38px;
+}
+
+.submit-btn {
+  width: 100px !important;
+  height: 40px;
+}
+
+.submit {
+  //position: absolute;
+  width: 63px;
+  height: 18px;
+  left: 263px;
+  top: 495px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #ffffff;
+}
+
+::ng-deep .mat-form-field .mat-input-element {
+  color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: slategray !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: slategray;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #0c5c8f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: #0c5c8f;
+}
+
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #e40000 !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #e40000;
+}

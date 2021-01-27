@@ -1,0 +1,29 @@
+<div class="res-container" fxLayout="column" fxLayoutAlign="start center">
+    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px" class="MainDiv">
+        <div fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+            <h1 style="margin-bottom: 30px;" class="mat-display-1"><b>Payment Failed!</b></h1>
+            <h2 class="mat-h2">Your payment has been failed. Please try again.</h2>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div style="width: 100%;" fxLayout.xs="column" fxLayout.sm="column" fxLayout fxLayoutAlign="center center">
+        <div fxFlex="50" fxLayoutAlign="center center">
+            <img src="assets/image/staticPdf.png" height="250" alt="home">
+        </div>
+        <div fxFlex="50" fxLayout="column">
+            <h1 class="mat-h1"><b>{{fileData?.title}}</b></h1>
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayoutAlign="start center">
+                    <h4 class="mrp"> Price &nbsp;&nbsp;&nbsp;<span class="space free">&#8377;
+                            {{fileData?.price}}</span>&nbsp;&nbsp; <span class="gst"> *GST Included</span>
+                    </h4>
+                </div>
+            </div>
+            <div fxLayout fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center" fxLayoutAlign="start center">
+                <button style="color: white;" mat-flat-button color="primary" (click)="PAYNOW()"><b>PROCEED TO PAY</b></button>
+            </div>
+        </div>
+    </div>
+</div>

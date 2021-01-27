@@ -1,0 +1,179 @@
+.heading {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.heading1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.copyright {
+  bottom: 10px;
+  margin-top: 365px;
+}
+
+.payment {
+  top: 400px;
+}
+
+.textHeading {
+  color: #fafafa;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.moreText {
+  color: #e6e6e6;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none !important;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
+
+.footerText {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 300;
+  margin-block-end: 0em;
+}
+
+.fa {
+  padding: 15px;
+  font-size: 30px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa-2 {
+  padding: 15px;
+  font-size: 30px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 1;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #1da1f2;
+  color: white;
+}
+.fa-linkedin {
+  background: #0073b1;
+  color: white;
+}
+.fa-instagram {
+  background: #e1306c;
+  color: white;
+}
+.fa-facebook2:hover {
+  background: #ffffff;
+  color: #3b5998;
+  border: 0px solid #3b5998;
+}
+.fa-twitter2:hover {
+  background: #ffffff;
+  color: #1da1f2;
+  border: 0px solid #1da1f2;
+}
+.fa-linkedin2:hover {
+  background: #ffffff;
+  color: #0073b1;
+  border: 0px solid #0073b1;
+}
+.fa-instagram2:hover {
+  background: #ffffff;
+  color: #e1306c;
+  border: 0px solid #e1306c;
+}
+.fast {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  padding: 0 !important;
+}
+
+.fast:hover {
+  opacity: 1;
+}
+
+.fa-facebook1 {
+  background: #404040;
+  color: white;
+}
+
+.fa-twitter1 {
+  background: #404040;
+  color: white;
+}
+.fa-linkedin1 {
+  background: #404040;
+  color: white;
+}
+.fa-instagram1 {
+  background: #404040;
+  color: white;
+}
+.foot{
+  padding: 0 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .mat-display-1 {
+    font-size: 24px !important;
+  }
+
+  .copyright {
+    bottom: 10px;
+    margin-top: 556px;
+  }
+
+  .footerText {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 300;
+    margin-block-end: 0em;
+  }
+
+  .fa {
+    padding: 15px;
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+  }
+
+  .fast {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .foot{
+    margin-left: 0px;
+    
+  }
+}

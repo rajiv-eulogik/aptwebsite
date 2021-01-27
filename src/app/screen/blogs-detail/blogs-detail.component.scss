@@ -1,0 +1,370 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.viewport1 {
+  height: 175px;
+  width: 100%;
+  margin: 1em 14em 4em 2em;
+}
+
+.angular-with-newlines {
+  white-space: pre-wrap;
+}
+
+.one {
+  order: 2;
+}
+
+.two {
+  order: 1;
+}
+
+.viewport1::-webkit-scrollbar {
+  width: 11px;
+}
+.viewport1 {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.viewport1::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.viewport1::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 4px 0;
+  margin-right: 20px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 0;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.imageHeight {
+  // height: 455px;
+  width: 100%;
+}
+.classButton {
+  border: 2px solid;
+  margin-bottom: 15px;
+  width: 150px;
+}
+.courseDis {
+  font-size: 18px;
+  font-weight: 300;
+  color: #212121;
+}
+
+.courseHeading {
+  font-size: 24px;
+  text-align: center;
+}
+.courseHeading1 {
+  font-size: 24px;
+  text-align: center;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+.courseIcon {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+mat-list-icon {
+  font-size: 14px !important;
+}
+
+.whiteText {
+  color: #ffffff;
+}
+
+.blogsImage {
+  width: 100%;
+}
+.BlogsHeading {
+  font-size: 14px;
+}
+
+.BlogsIcon {
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+}
+
+.classData {
+  // font-size: 18px;
+  font-weight: 400;
+  color: #4e4d4d;
+}
+.readMore {
+  font-size: 14px;
+  color: #e40000;
+}
+
+.IconMore {
+  font-size: 25px;
+}
+
+.example-viewport {
+  height: 200px;
+  width: 200px;
+}
+
+.example-item {
+  height: 50px;
+}
+
+.MainDiv {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 600px) {
+  .MainDiv {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  // .res-container1{
+  //     margin-left: -10%;
+  //     margin-right: 10%;
+  // }
+
+  .one {
+    order: 2;
+  }
+
+  .two {
+    order: 1;
+  }
+
+  .blogsImage {
+    width: 90%;
+  }
+  .courseHeading {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.serchHeadings {
+  font-size: 16px;
+  // text-align: center;margin-left: 15px;
+  // margin-left: 15px;
+  font-weight: 500;
+}
+.blogDivider {
+  border: 1px solid #212121;
+}
+
+.blogDivider1 {
+  border: 0.5px solid #212121;
+}
+
+.Sarchmargin {
+  width: 100%;
+}
+.category {
+  text-align: left;
+}
+@media only screen and (max-width: 600px) {
+  .cut-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .category {
+    margin-left: 0px;
+  }
+  .blogDivider {
+    width: 90%;
+    border: 1px solid #212121;
+  }
+  
+  .blogDivider1 {
+     width: 90%;
+    border: 0.5px solid #212121;
+  }
+
+  .form-control {
+    border: 0;
+  }
+}
+
+.blogsList {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-right: 12px solid #bdbdbd;
+  border-bottom: 12px solid transparent;
+  margin-top: 20px;
+}
+.CommentsImage {
+  width: 90%;
+  border-radius: 50%;
+}
+
+.triangle-left23 {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -10px;
+  top: 0px;
+  bottom: auto;
+  border: 10px solid #eee;
+  z-index: -2;
+  border-color: #eee transparent transparent transparent;
+}
+
+.reply-arrow {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -10px;
+  top: 0px;
+  bottom: auto;
+  border: 10px solid #eee;
+  z-index: -2;
+  border-color: #eee transparent transparent transparent;
+}
+
+.MainChat {
+  min-height: 50px;
+  border: 1px solid #eee;
+  width: 90%;
+  border-radius: 5px;
+  background: #eee;
+  padding: 10px;
+}
+.ReplyChat {
+  min-height: 50px;
+  border: 2px solid #eee;
+  width: 90%;
+  border-radius: 5px;
+  padding: 10px;
+}
+.ptag {
+  font-size: 13px;
+  color: #212121;
+  margin: 0;
+}
+
+.reply-tri-right.left-top:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: -3px;
+  bottom: auto;
+  border: 22px solid #bdbdbd;
+  z-index: -2;
+  border-color: #bdbdbd transparent transparent transparent;
+}
+
+.form-control {
+  border: 0;
+}
+
+.no-border {
+  border: 0;
+  box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}
+
+.chatName {
+  font-size: 14px;
+  font-weight: 500;
+  /* margin-right: 20px; */
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.timeago {
+  margin-right: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cut-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 150px;
+  white-space: nowrap;
+}
+
+::ng-deep .mat-form-field .mat-input-element {
+  color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: slategray !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: slategray;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #0c5c8f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: red
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #e40000 !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #e40000;
+}
+
+

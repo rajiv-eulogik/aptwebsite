@@ -1,0 +1,253 @@
+.courseHeading{
+  position: absolute;
+  width: 439px;
+  height: 49px;
+  left: 560px;
+  top: 30px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 49px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+  }
+
+  .courseHeading2{
+     position: absolute;
+    width: 600px;
+    height: 28px;
+    left: 400px;
+    top: 80px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 28px;
+    /* identical to box height, or 112% */
+
+
+    color: #454545;
+  }
+  
+
+  .classImage{
+     position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 340px;
+    top: 170px;
+  }
+
+  // .MainDiv{
+  //   margin-left: 3%;
+  //   margin-right: 3%;
+  // }
+
+  .paragraph{
+    font-size: 14px;
+    color: #212121;
+    font-weight: 500;
+  }
+
+  .whiteText{
+    color: #ffffff;
+    margin-left: 25px;
+  }
+
+  .imageHeight{
+    width: 100%;
+  }
+
+  .form-div{
+    position: absolute;
+    top:290px;
+  }
+   .completed{
+     position: absolute;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    top: 170px;
+   }
+  .mrp{
+    position: absolute;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    top: 210px;
+  }
+  .price{
+    position: absolute;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    top: 230px;
+  }
+  .gst{
+    position: absolute;
+    color: #3f51b5;
+    font-weight: 500;
+    font-size: 12px;
+    top: 250px;
+    left: 710px;
+  }
+  .space{
+    position: absolute; left: 80px;
+    white-space: nowrap ;
+  }
+
+  .coupon{
+    margin-top: 7px;
+    margin-left: 200px;
+    background-color: white;
+    color: #E40000;
+    transition: right 0.2s;
+    
+  }
+
+  .coup{
+    
+    margin-left: 75px;
+    background-color: white;
+    color: #0C5C8F;
+    font-weight: 900;
+    transition: right 0.2s;
+  }
+
+  .but{
+    
+    //margin-left: 340px;
+    background-color: white;
+    color: black;
+    margin-top: -3px;
+    width: 20px;
+    height: 20px;
+    font-weight: 800;
+  }
+
+  @media only screen and (max-width:600px){
+    .classImage{
+     // position: absolute;
+      width: 200px;
+      height: 200px;
+      left: 107px;
+      top: 140px;
+    }
+
+    .form1{
+      //position: absolute;
+      top: 500px;
+    }
+
+    .courseHeading2{
+      //position: absolute;
+      width: 374px;
+      height: 40px;
+      left: 20px;
+      top: 80px;
+  
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      /* or 143% */
+  
+      text-align: center;
+  
+      color: #454545;
+    }
+    
+    .courseHeading{
+      //position: absolute;
+      width: 216px;
+      height: 24px;
+      left: 125px;
+      top: 50px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      text-transform: capitalize;
+
+      color: #212121;
+    }
+
+    .completed{
+      position: absolute;
+     font-size: 18px;
+     font-weight: 500;
+     margin-bottom: 10px;
+     top: 400px;
+     left: 20px;
+    }
+   .mrp{
+     position: absolute;
+     font-size: 16px;
+     font-weight: 500;
+     margin-bottom: 0px;
+     top: 430px;
+     left: 20px;
+   }
+   .price{
+    position: absolute;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    top: 450px;
+    left: 20px;
+  }
+   .gst{
+     position: absolute;
+     color: #3f51b5;
+     font-weight: 500;
+     font-size: 12px;
+     top: 470px;
+     left: 100px;
+   }
+
+    .form-div{
+      position: absolute;
+      top:500px;
+      left: 20px;
+    }
+
+    .space{
+      position: absolute; left: 80px;
+      white-space: nowrap ;
+    }
+
+    .coupon{
+      margin-left: 110px;
+      background-color: white;
+      color: #E40000;
+      
+    }
+  
+    .coup{
+      margin-left: -24px;
+      background-color: white;
+      color: #0C5C8F;
+      font-weight: 900;
+    }
+
+    .but{
+    
+      //margin-left: 340px;
+      background-color: white;
+      color: black;
+      margin-top: -3px;
+      width: 20px;
+      height: 20px;
+      font-weight: 800;
+      margin-left: 11px;
+    }
+
+}

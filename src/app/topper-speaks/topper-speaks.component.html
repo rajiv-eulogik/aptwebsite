@@ -1,0 +1,42 @@
+<div *ngIf="toppersData?.topperSpeak" class="mat-display-1" style="width: 100%; font-weight: 600;margin-bottom: 20px; color: #212121;" fxLayout
+	fxLayoutAlign="center center">
+	<div *ngIf="toppersData?.speakTitle" [innerHtml]="toppersData?.speakTitle"></div>
+	<div *ngIf="!toppersData?.speakTitle ">Toppers Speak</div>
+	
+</div>
+<div *ngIf="toppersData?.toppers" class="mat-display-1" style="width: 100%; font-weight: 600;margin-bottom: 20px; color: #212121;" fxLayout
+	fxLayoutAlign="center center">
+	<div *ngIf="toppersData?.speakTitle" [innerHtml]="toppersData?.speakTitle"></div>
+	<div *ngIf="!toppersData?.speakTitle ">Toppers Speak</div>
+	
+</div>
+<p>&nbsp;</p>
+<div *ngIf="toppersData?.topperSpeak" fxLayout fxLayoutAlign="center center">
+	<mat-grid-list fxFlex="80" fxFlex.sm="90" fxFlex.ms="85" [cols]="mobileDevice? '1' : '3'"
+		[rowHeight]="mobileDevice ? '330px' : '410px'" gutterSize="20px">
+		<mat-grid-tile *ngFor="let topper of toppersData?.topperSpeak">
+			<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" style="width: 100%">
+				<img [height]="mobileDevice ? '180' : '240'" [src]="topperImage + topper.image" alt="not_found">
+				<div style="height: 140px;">
+					<p style="margin-bottom: 5px;" class="testimonial">{{topper.testimonial}}</p>
+					<p style="margin-bottom: 0px;" class="topper">{{topper.name}}</p>
+				</div>
+			</div>
+		</mat-grid-tile>
+	</mat-grid-list>
+</div>
+
+<div *ngIf="toppersData?.toppers" fxLayout fxLayoutAlign="center center">
+	<mat-grid-list fxFlex="80" fxFlex.sm="90" fxFlex.ms="85" [cols]="mobileDevice? '1' : '3'"
+		[rowHeight]="mobileDevice ? '250px' : '300px'" gutterSize="20px">
+		<mat-grid-tile *ngFor="let topper of toppersData?.toppers">
+			<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" style="width: 100%">
+				<img [height]="mobileDevice ? '150' : '200'" [src]="topperImage + topper.image" alt="not_found">
+				<div style="height: 90px;">
+					<p style="margin-bottom: 5px;" class="testimonial">{{topper.testimonial}}</p>
+					<p style="margin-bottom: 0;" class="topper">{{topper.nameRank}}</p>
+				</div>
+			</div>
+		</mat-grid-tile>
+	</mat-grid-list>
+</div>

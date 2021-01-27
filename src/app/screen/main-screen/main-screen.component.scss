@@ -1,0 +1,141 @@
+// .mat-toolbar {
+//     background: #ffffff!important;
+//     color: rgba(0,0,0,.87);
+// }
+.main_div {
+    // margin-top: 65px;
+    margin-top: 10px;
+}
+
+
+.mat-toolbar{
+    // height: 40px;
+    // position: fixed;
+    top:0;
+}
+
+#header:hover{
+    visibility: visible;
+    display: block;
+}
+
+.nav-up {
+    top: -40px;
+}
+
+.btn:focus,
+button:focus {
+    box-shadow: 0;
+    outline: 0;
+    border: none;
+}
+
+.no-hover-effect ::ng-deep .mat-button-focus-overlay {  
+    background-color: transparent;
+}
+
+mat-sidenav-content {
+    display: block;
+    background-color: white;
+    height: 100%;
+}
+
+.search-btn {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-icon {
+        height: 30px;
+        width: 30px;
+        font-size: 24px;
+        line-height: 30px;
+        color: #454545;
+    }
+}
+
+.mat-form-field {
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: "Montserrat", sans-serif !important;
+    letter-spacing: normal;
+}
+
+.formWith {
+    // margin-right: 300px;
+    width: 40%;
+    // margin-top: 15px;
+}
+
+.searchFont {
+    font-size: 18px !important;
+}
+
+.sticky {
+    background: #fff;
+    box-shadow: none;
+    position: fixed;
+    top: 0;
+    height: 67px;
+    width: 100%;
+}
+
+.px-16 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #424242;
+}
+
+.parent-toolbar{
+    padding: 0 5%;
+}
+
+.toolbar {
+    transition: transform 0.4s;
+  }
+   
+  .scroll-down .toolbar {
+    transform: translate3d(0, -100%, 0);
+  }
+   
+  .scroll-up .toolbar {
+    transform: none;
+  }
+   
+  .scroll-up:not(.menu-open) .toolbar {
+    background: var(--lightpurple);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  }
+@media only screen and (max-width: 600px) {
+    .mat-nav-list{
+        width: 75vw;
+    }
+
+    .formWith {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .searchFont {
+        font-size: 12px !important;
+    }
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+    .mat-nav-list{
+        width: 75vw;
+    }
+
+    .formWith {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .searchFont {
+        font-size: 12px !important;
+    }
+}

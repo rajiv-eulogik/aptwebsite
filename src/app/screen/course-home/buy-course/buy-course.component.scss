@@ -1,0 +1,306 @@
+.courseHeading{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+  }
+  ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: unset;
+}
+
+::ng-deep .mat-option-pseudo-checkbox.mat-pseudo-checkbox-checked {
+    background-color: 
+    #0C5C8F;
+}
+  .classImage{
+    width: 100%;
+  }
+
+  .MainDiv{
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .coupon{
+    margin-top: 7px;
+    margin-left: 200px;
+    background-color: white;
+    color: #E40000;
+    transition: right 0.2s;
+    
+  }
+
+  .but{
+    
+    //margin-left: 340px;
+    background-color: white;
+    color: black;
+    margin-top: -3px;
+    width: 20px;
+    height: 20px;
+    font-weight: 800;
+  }
+
+  .coup{
+    
+    margin-left: 75px;
+    background-color: white;
+    color: #0C5C8F;
+    font-weight: 900;
+    transition: right 0.2s;
+  }
+
+  .verticalLine{
+    border-left: 3px solid #1565C0;
+    height: 100px;
+  }
+
+  .Number{
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  .paragraph{
+    font-size: 14px;
+    color: #212121;
+    font-weight: 500;
+  }
+
+  .whiteText{
+    color: #ffffff;
+    margin-left: 25px;
+  }
+
+  .imageHeight{
+    width: 100%;
+  }
+   .completed{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+   }
+  .mrp,.price{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+  .gst{
+    color: #0C5C8F;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .downlodsHeading{
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .marginApp{
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .divImage{
+    // background-image: url(assets/image/downlods123.png);
+    width: 100%;
+  }
+  .mobileImage{
+    width: 50%;
+  }
+
+  .courseHeading12{
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  
+.toppersSpeal{
+  font-size: 24px;
+}
+
+.mainCard{
+  margin-left: -15px;
+    margin-top: 120px;
+    position: relative;
+    width: 100%;
+}
+
+.centerImage{
+  position: initial;
+  width: 100%;
+  margin-top: -50%;
+  background-color: white;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: drop-shadow(8px 8px 10px #ffffff );
+}
+
+.theySay{
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.testominial{
+  font-size: 20px;
+  color: #757575;
+}
+
+.rank{
+  font-size: 20px;
+  color: #757575;
+}
+
+.leftButton{
+  display: none;
+  position: absolute;
+  left: -5%;
+}
+.rightButton{
+  display: none;
+  position: absolute;
+  left: 83%;
+}
+
+.iconButton{
+  font-size: 50px;
+  color:#212121;
+}
+
+.submitButton{
+  position: absolute;
+  width: 182px;
+  height: 40px;
+  left:720px;
+  top: 530px;
+
+  background: #E40000;
+  border-radius: 5px;
+}
+
+.submit{
+  position: absolute;
+width: 131px;
+height: 17px;
+left: 25px;
+top: 12px;
+
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+text-transform: uppercase;
+
+color: #FFFFFF;
+}
+
+
+.mat-option[formfiltros-inmuebles] {
+  .mat-list-item-content {
+    .mat-pseudo-checkbox.mat-pseudo-checkbox-checked {
+      background-color: green;
+    }
+  }
+}
+
+.text-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+@media only screen and (max-width:600px)
+{
+
+  .but{
+    
+    //margin-left: 340px;
+    background-color: white;
+    color: black;
+    margin-top: -3px;
+    width: 20px;
+    height: 20px;
+    font-weight: 800;
+    margin-left: 11px;
+  }
+
+
+  .coupon{
+    margin-left: 110px;
+    background-color: white;
+    color: #E40000;
+    
+  }
+
+  .coup{
+    margin-left: -24px;
+    background-color: white;
+    color: #0C5C8F;
+    font-weight: 900;
+  }
+
+  .courses{
+    font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+  }
+
+  .submit{
+    position: absolute;
+  width: 131px;
+  height: 17px;
+  
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  
+  text-transform: uppercase;
+  
+  color: #FFFFFF;
+  }
+
+  .submitButton{
+    position: absolute;
+    width: 182px;
+    height: 40px;
+    left: 90px;
+    top: 1020px;
+
+    background: #E40000;
+    border-radius: 5px;
+  }
+  .marginData{
+    margin-left: 20%;
+  }
+  .blogsImage{
+    width: 100%;
+   }
+   .courseHeading{
+    font-size: 22px;
+    text-align: center;
+    margin-left: 15px;
+  }
+  .leftButton{
+    display: unset;
+    position: absolute;
+    left: -5%;
+  }
+  .rightButton{
+    display: unset;
+    position: absolute;
+    left: 83%;
+  }
+}
+
+
+.not-empty-select.mat-selected {
+  color: green !important;
+}

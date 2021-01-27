@@ -1,0 +1,35 @@
+@import "./_colors";
+
+.main-navigation {
+  text-align:left;
+  background:#111;
+  padding:1em;
+  display:inline-block;
+  z-index:10000;
+  position:absolute;
+  top:1em;
+  left:1em;
+}
+
+.main-navigation > a {
+  display:inline-block;
+  padding:0 10px;
+}
+
+.main-navigation a {
+  color:white;
+  letter-spacing: 2px;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size:0.8rem;
+  text-decoration:none;
+  border-bottom:5px solid transparent;
+  padding-bottom:5px;
+}
+
+.main-navigation > a:hover,
+.main-navigation > a.active {
+  color:$redColor;
+  border-bottom-color:$redColor;
+}

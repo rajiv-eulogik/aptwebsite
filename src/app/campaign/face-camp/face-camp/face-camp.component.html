@@ -1,0 +1,183 @@
+<div style="height: 100%; width: 100%; overflow: auto !important;">
+	<mat-toolbar>
+		<img src="https://v2.aptstudy.com/wp-content/uploads/2018/11/logo.png" height="50">
+	</mat-toolbar>
+
+	<div fxLayout fxLayoutAlign="center center" (window:resize)="getWidth($event)">
+		<img [src]="dir + normalCampaignData?.image" height="100" alt="not_error">
+	</div>
+
+	<div class="full-width" fxLayout fxLayoutAlign="center start">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout.xs="column" fxLayout.sm="column" fxLayout
+			fxLayoutAlign="center start" fxLayoutGap="20px">
+			<div fxFlex="50" fxFlex.xs="100" fxFlex.sm="100">
+				<div [innerHtml]="normalCampaignData?.contentTitle"></div>
+				<div fxLayout="column" fxLayoutColumn="center start">
+					<p *ngFor="let point of normalCampaignData?.contents" class="mat-body">{{point}}</p>
+				</div>
+			</div>
+
+			<!-- <div *ngIf="!mobileDevice" fxFlex="50">
+				<ng-template *ngIf="formLoaded" #portal [cdkPortalOutlet]="formPortal"></ng-template>
+			</div>
+
+			<div *ngIf="mobileDevice" class="full-width">
+				<ng-template *ngIf="formLoaded" #portal [cdkPortalOutlet]="formPortal"></ng-template>
+			</div> -->
+
+			<div *ngIf="!formLoaded" fxLayout fxLayoutAlign="center center" fxFlex="50" fxFlex.xs="100" fxFlex.sm="100">
+				<p class="mat-body-strong">Loading...</p>
+			</div>
+
+			<form [style.width]="mobileDevice ? '100%' : 'auto'" fxLayout="column" fxLayoutAlign="start center"
+				*ngIf="formLoaded" fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" fxLayoutAlign.xs="start center"
+				fxLayoutAlign.sm="start center" fxLayoutGap="10px" [formGroup]="campForm">
+				<h1 style="color: #ff0000;" class="mat-h1">Register Now</h1>
+				<!-- <div [innerHtml]="normalCampaignData?.form.code | noSanitize"></div> -->
+				<!-- <ng-template *ngIf="formLoaded" #portal [cdkPortalOutlet]="formPortal"></ng-template> -->
+
+				<mat-form-field style="width: 90%;" *ngFor="let form of formData; let i = index">
+					<!-- LABEL -->
+					<mat-label>{{form.label}}</mat-label>
+
+					<!-- FOR INPUT -->
+					<input *ngIf="form.type === 'Textinput'" matInput formControlName="{{form.key}}" autocomplete="off"
+						[required]="form.required">
+
+					<!-- FOR DROPDOWN -->
+					<mat-select *ngIf="form.type === 'Dropdown'" required formControlName="{{form.key}}"
+						[required]="form.required" [multiple]="form.multiple">
+						<mat-option *ngFor="let option of form.options" [value]="option.opt ? option.opt : option">{{option.opt ? option.opt : option}}</mat-option>
+					</mat-select>
+
+					<!-- ERROR -->
+					<mat-error *ngIf="form.required">{{form.label}} is required</mat-error>
+				</mat-form-field>
+
+				<div style="width: 100%;" fxLayout fxLayoutAlign="center center">
+					<button [disabled]="campForm.invalid" fxFlex="60" fxFlex.xs="80" fxFlex.sm="70"
+						style="color: white;" type="submit" mat-flat-button color="primary" (click)="submit()">
+						SUBMIT
+					</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="full-width" fxLayout fxLayoutAlign="center center">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center center">
+			<div class="inner-text" [innerHtml]="normalCampaignData?.bestResultTitle"></div>
+			<p>&nbsp;</p>
+			<div fxLayout fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.xs="20px" fxLayoutGap="80px">
+				<img *ngFor="let img of normalCampaignData?.bestImages" height="200" [src]="dir + img" alt="not_avail">
+			</div>
+		</div>
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="full-width" fxLayout fxLayoutAlign="center center">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center center">
+			<div class="inner-text" [innerHtml]="normalCampaignData?.featuresTitle"></div>
+			<p>&nbsp;</p>
+			<mat-grid-list class="full-width" [cols]="mobileDevice ? '1' : '3'"
+				[rowHeight]="mobileDevice ? '100px' : '120px'" gutterSize="20">
+				<mat-grid-tile *ngFor="let feature of normalCampaignData?.features">
+					<div class="full-width" fxLayout>
+						<div style="padding: 5px 0;" fxFlex="30" fxLayout fxLayoutAlign="center start">
+							<img height="50" [src]="dir + feature.image" alt="error">
+						</div>
+						<div fxFlex="70" fxLayout="column" fxLayoutAlign="start start">
+							<p class="mat-body-strong" [innerHtml]="feature.title"></p>
+							<p class="mat-body" [innerHtml]="feature.description"></p>
+						</div>
+					</div>
+				</mat-grid-tile>
+			</mat-grid-list>
+		</div>
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="full-width" fxLayout fxLayoutAlign="center center">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center center">
+			<div class="inner-text" [innerHtml]="normalCampaignData?.resultImageTitle"></div>
+			<p>&nbsp;</p>
+			<mat-grid-list class="full-width" [cols]="mobileDevice ? '2' : '4'"
+				[rowHeight]="mobileDevice ? '150px' : '200px'" gutterSize="20">
+				<mat-grid-tile *ngFor="let result of normalCampaignData?.resultImages">
+					<img [height]="mobileDevice ? '150' : '200'" [src]="dir + result" alt="404_error">
+				</mat-grid-tile>
+			</mat-grid-list>
+		</div>
+	</div>
+	<!-- <p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="full-width" fxLayout fxLayoutAlign="center center">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center center">
+			<div class="inner-text" [innerHtml]="normalCampaignData?.facultyTitle"></div>
+			<p>&nbsp;</p>
+			<mat-grid-list class="full-width" [cols]="mobileDevice ? '2' : '4'" [rowHeight]="mobileDevice ? '150px' : '200px'" gutterSize="20">
+				<mat-grid-tile *ngFor="let image of normalCampaignData?.facultyImages">
+					<img [height]="mobileDevice ? '150' : '200'" [src]="dir + image" alt="404_error">
+				</mat-grid-tile>
+			</mat-grid-list>
+			<p>&nbsp;</p>
+			<h2 class="mat-h4 inner-text">{{normalCampaignData?.facultyAbout}}</h2>
+		</div>
+	</div> -->
+
+	<!-- <p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="full-width" fxLayout fxLayoutAlign="center center">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center center">
+			<div class="inner-text" [innerHtml]="normalCampaignData?.supportTitle"></div>
+			<p>&nbsp;</p>
+			<mat-grid-list class="full-width" [cols]="mobileDevice ? '1' : '3'" [rowHeight]="mobileDevice ? '100px' : '120px'" gutterSize="20">
+				<mat-grid-tile *ngFor="let support of normalCampaignData?.supports">
+					<div class="full-width" fxLayout>
+						<div style="padding: 5px 0;" fxFlex="30" fxLayout fxLayoutAlign="center start">
+							<img height="50" [src]="dir + support.image" alt="error">
+						</div>
+						<div fxFlex="70" fxLayout="column" fxLayoutAlign="start start">
+							<p class="mat-body-strong" [innerHtml]="support.title"></p>
+							<p class="mat-body" [innerHtml]="support.description"></p>
+						</div>
+					</div>
+				</mat-grid-tile>
+			</mat-grid-list>
+		</div>
+	</div> -->
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div class="full-width" fxLayout fxLayoutAlign="center center">
+		<div fxFlex="80" fxFlex.xs="96" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center center">
+			<div class="inner-text" [innerHtml]="normalCampaignData?.speakTitle"></div>
+			<p>&nbsp;</p>
+			<div fxLayout fxLayoutAlign="center center" fxLayoutGap="80px">
+				<div *ngFor="let img of normalCampaignData?.topperSpeak" fxLayout="column" fxLayoutAlign="center center"
+					fxLayoutGap="15px">
+					<img height="200" [src]="dir + img.image" alt="not_avail">
+					<p class="mat-body">{{img.testimonial}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+
+	<div style="height: 50px;" fxLayout fxLayoutAlign="center center" class="footer">
+		<span style="color: #bcbcbc">&#9400; &nbsp;</span>
+		<p class="footer-text"> Copyright APT. Handcrafted by <a href="https://eulogik.com" target="_blank">Eulogik</a>,
+			India &nbsp;</p><span style="font-size: 16px; height: 16px; color: #fff;">&#10084;</span>
+	</div>
+</div>

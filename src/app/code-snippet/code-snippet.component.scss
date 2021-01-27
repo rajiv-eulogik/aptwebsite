@@ -1,0 +1,26 @@
+:host {
+  display:block;
+  position:relative;
+  height:100%;
+}
+
+pre {
+  border-radius:0;
+  margin:0!important;
+}
+
+pre * {
+  font-size:1.5rem;
+  font-family:Monaco;
+}
+
+pre.big * {
+  font-size:1.8rem;
+}
+
+.error {
+  padding:1em;
+  text-align:center;
+  font-size:1.5rem;
+  color:white;
+}

@@ -1,0 +1,153 @@
+.imageHeight{
+    width: 100%;
+}
+.fname{
+    text-align: center;
+    font-weight: 500;
+}
+
+.digination{
+    text-align: center;
+    /* font-weight: 300; */
+    font-size: 14px;
+    color: #757575;
+}
+
+.img{width: 100%;  max-width: 1363px;}
+
+
+.container {
+    position: relative;
+    overflow: hidden;
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 150%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    // width: 100%;
+    opacity: 0;
+    margin: -16px;
+    transition: .5s ease;
+    background-color: #bdbdbd;
+  }
+  
+  .container:hover .overlay {
+    opacity: 0.8;
+  }
+  @media screen and (min-width: 600px) {
+    div.layover {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    div.layover {
+      font-size: 9px;
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    div.layover {
+      font-size: 8px;
+    }
+  }
+  
+  .text {
+    color: #212121;
+    font-weight: bold;;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    margin-right: 5px;
+    margin-left: 4px;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  .fa-instagram {
+    background: #ea158e;
+    color: white;
+  }
+  
+  .fast {
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0px 3px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .fast:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook1 {
+    background: white; 
+    color: #404040;
+  }
+  
+  .fa-twitter1 {
+    background: white; 
+    color: #404040;
+  }
+  .fa-linkedin1 {
+    background: white; 
+    color: #404040;
+  }
+  .fa-instagram1 {
+    background: white; 
+    color: #404040;
+  }
+
+  .example-card{
+    width: 100%;
+    height: auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }

@@ -1,0 +1,398 @@
+<div class="no-data" *ngIf="showloader" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="showloader"
+        [config]="{ backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+<div *ngIf="!showloader" (window:resize)="getWidth($event)">
+    <p>&nbsp;</p>
+    <div fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+        <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <h2 class="heading">
+                            <b> School / Coaching / College Tie-up's</b>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- <mat-divider class="DividerShow"></mat-divider>
+  <mat-divider class="DividerShow"></mat-divider> -->
+    <br>
+    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+        <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <img src="assets/latest/tie-ups.png" alt="home" class="marginButtom">
+            </div>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+        <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <h3 class="heading-2">
+                            About Tie-ups
+                        </h3>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <h4 class="courseDis">
+                            We have a unique teaching methodology as well as highly experienced faculty at APT. As a
+                            school you
+                            can make use of our
+                            expertise in helping your students prepare themselves for board exams as well as competitive
+                            examinations. We provide
+                            online classes as well as offline classes as per the convenience of the school. The students
+                            will be
+                            given comprehensive
+                            study material, practice sheets, test series and regularly screened to understand their
+                            level of
+                            grasping the concepts.
+                            At APT we “transform possibilities into probabilities”. We can give your students the
+                            winning edge
+                            they need for
+                            overcoming any obstacles and help them get a better vision of their potential and
+                            possibilities
+                            within them.
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!mobileDevice" fxLayout fxLayoutAlign="start center">
+        <div fxFlex="100" class="formRemove">
+            <br><br>
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <p class="registraion"> Register Now </p>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100" fxLayoutAlign="center center">
+                    <mat-card class="cardWith">
+                        <form [formGroup]="schoollTieUp" (ngSubmit)="SAVEDATA()">
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;"
+                                        (click)="uploadFile.click()">
+                                        <mat-label>Logo</mat-label>
+                                        <input type="file" name="imageLibrary" accept="image/*"
+                                            (change)="changeListener($event)" #uploadFile style="display: none;">
+                                        <input matInput readonly formControlName="logo">
+                                        <!--mat-error>Logo is Required</mat-error -->
+                                        <button mat-icon-button matSuffix type="button">
+                                            <mat-icon matSuffix>attachment</mat-icon>
+                                        </button>
+                                        <!-- <mat-hint>Hint</mat-hint> -->
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Select Type</mat-label>
+                                        <mat-select formControlName="schoolType" required>
+                                            <mat-option value="school">
+                                                School
+                                            </mat-option>
+                                            <mat-divider></mat-divider>
+                                            <mat-option value="coaching">
+                                                Coaching
+                                            </mat-option>
+                                            <mat-divider></mat-divider>
+                                            <mat-option value="college">
+                                                College
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>School/Coaching/College Name</mat-label>
+                                        <input required formControlName="school" matInput minlength="3" maxlength="150">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Board/University</mat-label>
+                                        <input required formControlName="board" matInput minlength="3" maxlength="150">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Short Description</mat-label>
+                                        <input required formControlName="description" matInput minlength="3"
+                                            maxlength="250">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Country Code</mat-label>
+                                        <mat-select  required formControlName="country" (ngModelChange)="onChange($event)">
+                                            <div *ngFor="let contry of AllCoutryName">
+                                                <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                                <mat-divider></mat-divider>
+                                            </div>
+                                        </mat-select>
+                                        <!-- <mat-error>Country name is Required</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div fxFlex="85" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Contact Number</mat-label>
+                                        <input formControlName="mobile" required type="tel" matInput [maxlength]="mobileMax">
+                                        <mat-error
+                                            *ngIf="schoollTieUp.controls.mobile.invalid && (schoollTieUp.controls.mobile.touched || schoollTieUp.controls.mobile.dirty)">
+                                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.required"></mat-error>
+                                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.minlength">
+                                            </mat-error>
+                                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.maxlength">
+                                                
+                                            </mat-error>
+                                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.pattern">
+                                            </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <p id="err" style="font-size: 10px; margin-top: -3px;"></p>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Contact Person</mat-label>
+                                        <input required formControlName="name" matInput minlength="3" maxlength="50">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Email</mat-label>
+                                        <input required type="email" formControlName="email" matInput >
+                                        <mat-error
+                                            *ngIf="schoollTieUp.controls.email.invalid && (schoollTieUp.controls.email.touched || schoollTieUp.controls.email.dirty )"
+                                            style="color: #f44336">
+                                            <mat-error *ngIf="schoollTieUp.controls.email.errors.required">
+                                                </mat-error>
+                                            <mat-error *ngIf="schoollTieUp.controls.email.errors.pattern">
+                                                </mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                           
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>State</mat-label>
+                                        <input required formControlName="state" matInput maxlength="150">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>City</mat-label>
+                                        <input required formControlName="city" matInput maxlength="150">
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <mat-form-field appearance="standard" style="width: 100%;">
+                                        <mat-label>Comment Here </mat-label>
+                                        <textarea matInput formControlName="comment"></textarea>
+                                        <!-- <input formControlName="comment" matInput > -->
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100" fxLayoutAlign="center center">
+                                    <button mat-raised-button color="primary" type="submit"
+                                        class="submitButton">SUBMIT</button>
+                                </div>
+                            </div>
+                        </form>
+                    </mat-card>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <div fxLayout="column" style="width: 100%;" *ngIf="mobileDevice">
+        <div fxLayout fxLayoutAlign="start center">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <h1 class="mat-h1">Register Now</h1>
+                </div>
+            </div>
+        </div>
+        <form fxFlex="100" style="padding: 20px;" [formGroup]="schoollTieUp" (ngSubmit)="SAVEDATA()">
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;"
+                                        (click)="uploadFile.click()">
+                                        <mat-label>Logo</mat-label>
+                                        <input type="file" name="imageLibrary" accept="image/*"
+                                            (change)="changeListener($event)" #uploadFile style="display: none;">
+                                        <input matInput readonly formControlName="logo">
+                                        
+                                        <button mat-icon-button matSuffix type="button">
+                                            <mat-icon matSuffix>attachment</mat-icon>
+                                        </button>
+                                        
+                                    </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                    <mat-form-field appearance="standard" style="width: 100%;">
+                        <mat-label>Select Type</mat-label>
+                        <mat-select formControlName="schoolType" required>
+                            <mat-option value="school">
+                                School
+                            </mat-option>
+                            <mat-divider></mat-divider>
+                            <mat-option value="coaching">
+                                Coaching
+                            </mat-option>
+                            <mat-divider></mat-divider>
+                            <mat-option value="college">
+                                College
+                            </mat-option>
+                        </mat-select>
+                        <mat-error></mat-error>
+                    </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>School/Coaching/College Name</mat-label>
+                    <input required formControlName="school" matInput minlength="3" maxlength="150">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Board/University</mat-label>
+                    <input required formControlName="board" matInput minlength="3" maxlength="150">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Short Description</mat-label>
+                    <input required formControlName="description" matInput minlength="3"
+                        maxlength="250">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout fxLayoutAlign="center center">
+                <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                    <mat-form-field appearance="standard" style="width: 100%;">
+                        <mat-label>Country Code</mat-label>
+                        <mat-select  required formControlName="country" (ngModelChange)="onChange($event)">
+                            <div *ngFor="let contry of AllCoutryName">
+                                <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                <mat-divider></mat-divider>
+                            </div>
+                        </mat-select>
+                        <!-- <mat-error>Country name is Required</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div fxFlex="85" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                    <mat-form-field appearance="standard" style="width: 100%;">
+                        <mat-label>Contact Number</mat-label>
+                        <input formControlName="mobile" required type="tel" matInput [maxlength]="mobileMax">
+                        <mat-error
+                            *ngIf="schoollTieUp.controls.mobile.invalid && (schoollTieUp.controls.mobile.touched || schoollTieUp.controls.mobile.dirty)">
+                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.required"></mat-error>
+                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.minlength">
+                            </mat-error>
+                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.maxlength">
+                                
+                            </mat-error>
+                            <mat-error *ngIf="schoollTieUp.controls.mobile.errors.pattern">
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Contact Person</mat-label>
+                    <input required formControlName="name" matInput minlength="3" maxlength="50">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Email</mat-label>
+                    <input required type="email" formControlName="email" matInput >
+                    <mat-error
+                        *ngIf="schoollTieUp.controls.email.invalid && (schoollTieUp.controls.email.touched || schoollTieUp.controls.email.dirty )"
+                        style="color: #f44336">
+                        <mat-error *ngIf="schoollTieUp.controls.email.errors.required">
+                            </mat-error>
+                        <mat-error *ngIf="schoollTieUp.controls.email.errors.pattern">
+                            </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>State</mat-label>
+                    <input required formControlName="state" matInput maxlength="150">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>City</mat-label>
+                    <input required formControlName="city" matInput maxlength="150">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Comment Here </mat-label>
+                    <textarea matInput formControlName="comment"></textarea>
+                    <!-- <input formControlName="comment" matInput > -->
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <div fxFlex="100" fxLayoutAlign="center center">
+                    <button mat-raised-button color="primary" type="submit"
+                        class="submitButton">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br><br><br>
+<!-- class="imageHeight" -->

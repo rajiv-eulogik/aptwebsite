@@ -1,0 +1,675 @@
+<!-- <br><br> -->
+<div class="no-data" *ngIf="loading1 || loading2 || loading3 || loading4" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 || loading2 || loading3 || loading4"
+        [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+<div class="res-container1" *ngIf="!loading1 &&  !loading2 && !loading3 && !loading4" (window:resize)="getWidth($event)">
+    <div style="margin: 0 20px;" *ngIf="mobileDevice">
+        <div fxLayout fxLayoutAlign="start center">
+            <p class="serchHeadings">
+                SEARCH POSTS
+            </p>
+        </div>
+        <div class="blogDivider">
+
+        </div>
+        <br>
+        <div fxLayout fxLayoutAlign="start start" style="width: 90%;">
+            <div fxFlex="100" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" class="Sarchmargin">
+                    <mat-label> Let's Search </mat-label>
+                    <input matInput type="search" [(ngModel)]="searchValue" id="search" name="search"
+                        (keyup)="applyFilter(searchValue)">
+                    <mat-icon matSuffix *ngIf="searchValue == ''">search</mat-icon>
+                    <button *ngIf="searchValue" mat-button matSuffix mat-icon-button aria-label="Clear"
+                        (click)="applyFilter(searchValue)">
+                        <mat-icon (click)="OnSearch()">close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20px"
+        class="MainDiv">
+        <div *ngIf="!mobileDevice" class="one" style="width: 30%;" fxLayout="20" fxLayoutAlign="end start">
+            <div style="margin-left: 450px;" fxFlex="80" fxLayout fxLayoutAlign="center center">
+                <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            SEARCH THE BLOGS
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start start">
+                        <div fxFlex="100" fxLayoutAlign="start start">
+                            <mat-form-field appearance="outline" class="Sarchmargin">
+                                <mat-label> Let's Search </mat-label>
+                                <input matInput type="search" [(ngModel)]="searchValue" id="search" name="search"
+                                    (keyup)="applyFilter(searchValue)">
+                                <mat-icon matSuffix *ngIf="searchValue == ''">search</mat-icon>
+                                <button *ngIf="searchValue" mat-button matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="applyFilter(searchValue)">
+                                    <mat-icon (click)="OnSearch()">close</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            CATEGORIES
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <br>
+
+                    <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                        <div fxFlex="100" fxLayoutAlign="start center">
+                            <div fxFlex="100">
+                                <div style="height: 180px; overflow: auto;" fxLayout="column">
+                                    <button mat-button class="example-item" fxLayout fxLayoutAlign="start center"
+                                        (click)="GetBlogs()">
+                                        <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                            mat-list-icon>panorama_fish_eye
+                                        </mat-icon>
+                                        &nbsp;
+                                        <span mat-line>All</span>
+                                    </button>
+                                    <button mat-button *ngFor="let category of Allcategory" class="example-item"
+                                        fxLayout fxLayoutAlign="start center" (click)="filterByCat(category)">
+                                        <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                            mat-list-icon>panorama_fish_eye
+                                        </mat-icon>
+                                        &nbsp;
+                                        <span mat-line>{{category.title}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div fxLayout fxLayoutAlign="start center" class="Sarchmargin" fxLayoutGap="1px">
+                        <div fxFlex="100" fxLayoutAlign="start center" class="category">
+                            <div>
+                                <cdk-virtual-scroll-viewport itemSize="4" class="viewport1">
+                                    <div *cdkVirtualFor="let category of Allcategory" class="example-item">
+                                        <mat-icon mat-list-icon style="font-size: 8px;">panorama_fish_eye</mat-icon>
+                                        <span mat-line>{{category.title}}</span>
+
+                                    </div>
+                                </cdk-virtual-scroll-viewport>
+                            </div>
+                        </div>
+                    </div> -->
+                    <br>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            RECENT POSTS
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start start" class="Sarchmargin" fxLayoutGap="5px"
+                        *ngFor="let blog of allPosts.slice().reverse();let i = index">
+                        <div style="width: 100%" *ngIf=" i<3" fxLayout="column" fxLayoutAlign="start start">
+                            <div style="letter-spacing: 0.5px;" class="blogsList"> {{blog.title}}</div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <mat-icon style="font-size: 18px; height: 18px; width:20px;">
+                                    people_outline</mat-icon>&nbsp;&nbsp;
+                                <div class="cut-text">By {{blog.staff.name}}</div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div *ngIf="!showSearch" class="two" fxFlex="100" fxLayoutAlign="start center" fxFlex.sm="70" fxFlex.xs="70">
+            <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+                <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+                    <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+                        <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100">
+                            <div fxLayout fxLayoutAlign="start center" style="width: 90%">
+                                <h2 class="courseHeading">
+                                    {{blogDetail.title}}
+                                </h2>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center" style="width: 90%">
+                                <div fxFlex="100">
+                                    <div fxLayout fxLayoutAlign="center center">
+                                        <div fxFlex="50" fxLayoutAlign="start center">
+                                            <div class="BlogsHeading cut-text">
+                                                <button mat-icon-button>
+                                                    <mat-icon class="BlogsIcon">people_outline</mat-icon>
+                                                </button> By {{staffData.name}}
+                                            </div>
+                                        </div>
+                                        <div fxFlex="50" fxLayoutAlign="start center">
+                                            <div class="BlogsHeading cut-text">
+                                                <button mat-icon-button>
+                                                    <mat-icon class="BlogsIcon">list_alt</mat-icon>
+                                                </button>{{BlogcategoryName}}
+                                                <span *ngIf="CategoryLength > 1" style="color: #1565c0;">+
+                                                    {{CategoryLength - 1}}
+                                                    <span class="tooltiptext">
+
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="center center">
+                                <div fxFlex="100">
+                                    <img [src]="imageUrl + blogDetail.cover " class="blogsImage" alt="home">
+                                </div>
+                            </div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="center center" #blogdata style="width:90%">
+                                <div fxFlex="100" class="classData" id="blogdata" [innerHtml]="blogDetail?.content"
+                                    fxFlex.sm="90" fxFlex.xs="90">
+                                </div>
+                            </div>
+
+                            <br>
+                            <div *ngIf="len > 0" fxLayout fxLayoutAlign="start center">
+                                <p class="serchHeadings">
+                                    {{len}}&nbsp;{{len === 1 ? 'COMMENT' : 'COMMENTS'}}
+                                </p>
+                            </div>
+                            <div *ngIf="len > 0" class="blogDivider">
+                                
+                            </div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="start center"
+                                *ngFor="let comment of blogDetail.comments;let k=index">
+                                <div fxFlex="100" *ngIf="comment.status === 'active'">
+                                    <div fxLayout fxLayoutAlign="start start" fxLayoutGap="10px"
+                                        *ngIf="comment.replyId == undefined">
+                                        <div>
+                                            <ngx-avatar [size]="mobileDevice ? '35' : '45'" initialsSize="1"
+                                                [name]="comment.user.name"></ngx-avatar>
+                                        </div>
+                                        <div class="angular-with-newlines" fxFlex="100">
+                                            <div style="position: relative;" fxLayout fxLayoutAlign="start center">
+                                                <div class="triangle-left23"></div>
+                                                <div class="MainChat">
+                                                    <p class="ptag"> {{comment.comment}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px"
+                                        *ngIf="comment.replyId == undefined">
+                                        <div fxFlex="10">
+                                        </div>
+                                        <div fxFlex="100">
+                                            <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px">
+                                                <p class="chatName">{{comment.user.name}} </p>
+                                                <span class="spacer"></span>
+                                                <!-- <span> <mat-icon style="margin-right: -18px!important;">access_time</mat-icon></span><span class="timeago">{{returnTime(comment.createdAt)}} </span> -->
+                                                <button style=" font-weight: 600;" mat-button color="primary"
+                                                    (click)="replyMessage(comment,k)">REPLY</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px"
+                                        *ngIf="comment.replyId == undefined">
+                                        <div fxFlex="10">
+                                        </div>
+                                        <div fxFlex="90">
+                                            <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px">
+                                                <div fxFlex="100">
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px"
+                                                *ngIf="comment.showReplyForm !== undefined && comment.showReplyForm == true">
+                                                <div fxFlex="100">
+                                                    <form [formGroup]="commentsForm" (ngSubmit)="ReplyForm()">
+                                                        <div fxLayout fxLayoutAlign="start start">
+                                                            <!-- <div class="triangle-left" fxFlex="5" fxLayoutAlign="start center"></div> -->
+                                                            <div fxFlex="5" fxLayoutAlign="start center"></div>
+                                                            <div fxFlex="95" fxLayoutAlign="start center">
+                                                                <mat-form-field [floatLabel]="'never'"
+                                                                    style="width: 100%;">
+                                                                    <mat-label> Comment </mat-label>
+                                                                    <textarea matInput formControlName="query"
+                                                                        required></textarea>
+                                                                    <mat-error></mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                        <div fxLayout fxLayoutAlign="center center">
+                                                            <div fxFlex="5" fxLayoutAlign="start center"></div>
+                                                            <div fxFlex="95" fxLayoutAlign="start center">
+                                                                <mat-form-field [floatLabel]="'never'"
+                                                                    style="width: 100%;">
+                                                                    <mat-label> Name</mat-label>
+                                                                    <input required formControlName="name" matInput
+                                                                        minlength="3" maxlength="150">
+                                                                    <mat-error></mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                        <div fxLayout fxLayoutAlign="center center">
+                                                            <div fxFlex="5" fxLayoutAlign="start center"></div>
+                                                            <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                                                                <mat-form-field appearance="standard" style="width: 100%;">
+                                                                    <mat-label>Country Code</mat-label>
+                                                                    <mat-select required formControlName="country"
+                                                                        (ngModelChange)="onChange($event)">
+                                                                        <div *ngFor="let contry of AllCoutryName">
+                                                                            <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                                                            <mat-divider></mat-divider>
+                                                                        </div>
+                                                                    </mat-select>
+                                                                    <!-- <mat-error>Country name is Required</mat-error> -->
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div fxFlex="80" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                                                                <mat-form-field appearance="standard" style="width: 100%;">
+                                                                    <mat-label>Contact Number</mat-label>
+                                                                    <input required formControlName="mobile" type="tel" matInput
+                                                                        [maxlength]="mobileMax">
+                                                                    <mat-error
+                                                                        *ngIf="commentsForm.controls.mobile.invalid && (commentsForm.controls.mobile.touched || commentsForm.controls.mobile.dirty)">
+                                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.required">
+                                                                            </mat-error>
+                                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.minlength">
+                                                                            </mat-error>
+                                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.maxlength">
+                                                                            </mat-error>
+                                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.pattern">
+                                                                            </mat-error>
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                                                
+                                                        <div fxLayout fxLayoutAlign="center center">
+                                                            <div fxFlex="5" fxLayoutAlign="start center"></div>
+                                                            <div fxFlex="95" fxLayoutAlign="start center">
+                                                                <mat-form-field [floatLabel]="'never'"
+                                                                    style="width: 100%;">
+                                                                    <mat-label>Email Id</mat-label>
+                                                                    <input required matInput type="email"
+                                                                        formControlName="email" matInput>
+                                                                    <mat-error></mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                        <div fxLayout fxLayoutAlign="end center">
+                                                            <div fxFlex="100" fxLayoutAlign="end center">
+                                                                <button mat-button color="primary"
+                                                                    style="border: 2px solid;" type="submit">REPLY
+                                                                    COMMENT</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div *ngIf="comment.Reply.length > 0">
+                                                <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px"
+                                                    *ngFor="let reply of comment.Reply">
+                                                    <div fxFlex="100" *ngIf="reply.status === 'active'">
+                                                        <div fxLayout fxLayoutAlign="start start" fxLayoutGap="10px">
+                                                            <div>
+                                                                <ngx-avatar [size]="mobileDevice ? '35' : '45'"
+                                                                    initialsSize="1" *ngIf="reply.user == undefined"
+                                                                    [name]="adminname"></ngx-avatar>
+                                                                <ngx-avatar [size]="mobileDevice ? '35' : '45'"
+                                                                    initialsSize="1" *ngIf="reply.user !== undefined"
+                                                                    [name]="reply.user.name"></ngx-avatar>
+                                                            </div>
+                                                            <div fxFlex="90">
+                                                                <div style="position: relative;" fxLayout
+                                                                    fxLayoutAlign="center center">
+                                                                    <div class="triangle-left23"></div>
+                                                                    <div class="ReplyChat">
+                                                                        <p class="ptag"> {{reply.comment}} </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px">
+                                                            <div fxFlex="10">
+                                                            </div>
+                                                            <div fxFlex="90">
+                                                                <div fxLayout fxLayoutAlign="start center"
+                                                                    fxLayoutGap="20px">
+                                                                    <p class="chatName">
+                                                                        {{reply.user == undefined ? adminname :reply.user.name}}
+                                                                    </p>
+                                                                    <span class="spacer"></span>
+                                                                    <!-- <span> <mat-icon style="margin-right: -18px!important;">access_time</mat-icon></span><span class="timeago">{{returnTime(comment.createdAt)}} </span> -->
+                                                                    <!-- <button mat-button color="primary">REPLY</button> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="blogDivider">
+
+                            </div>
+
+                            <br>
+                            <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10px" fxLayout.sm="column"
+                                fxLayout.xs="column">
+                                <div fxFlex="10" fxFlex.sm="100" fxFlex.xs="100">
+                                    <!-- <button mat-icon-button style="background: #bdbdbd;"> <mat-icon>person_outline</mat-icon></button> -->
+                                </div>
+                                <div fxFlex="90" [style.width]="mobileDevice ? '80%' : '90%'">
+                                    <form [formGroup]="commentsForm" (ngSubmit)="submitForm()">
+                                        <div fxLayout fxLayoutAlign="start start">
+                                            <!-- <div class="triangle-left" fxFlex="5" fxLayoutAlign="start center"></div> -->
+
+                                            <div class="angular-with-newlines" fxFlex="100" fxLayoutAlign="start center">
+                                                <mat-form-field [floatLabel]="'never'" class="form-control no-border"
+                                                    style="width: 100%;">
+                                                    <mat-label> Comment </mat-label>
+                                                    <textarea matInput formControlName="query" required></textarea>
+                                                    <mat-error></mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="center center">
+
+                                            <div fxFlex="100" fxLayoutAlign="start center">
+                                                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                                    <mat-label> Name</mat-label>
+                                                    <input required formControlName="name" matInput minlength="3"
+                                                        maxlength="150">
+                                                    <mat-error></mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <div fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                                                <mat-form-field appearance="standard" style="width: 100%;">
+                                                    <mat-label>Country Code</mat-label>
+                                                    <mat-select required formControlName="country"
+                                                        (ngModelChange)="onChange($event)">
+                                                        <div *ngFor="let contry of AllCoutryName">
+                                                            <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                                            <mat-divider></mat-divider>
+                                                        </div>
+                                                    </mat-select>
+                                                    <!-- <mat-error>Country name is Required</mat-error> -->
+                                                </mat-form-field>
+                                            </div>
+                                            <div fxFlex="85" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                                                <mat-form-field appearance="standard" style="width: 100%;">
+                                                    <mat-label>Contact Number</mat-label>
+                                                    <input required formControlName="mobile" type="tel" matInput
+                                                        [maxlength]="mobileMax">
+                                                    <mat-error
+                                                        *ngIf="commentsForm.controls.mobile.invalid && (commentsForm.controls.mobile.touched || commentsForm.controls.mobile.dirty)">
+                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.required">
+                                                            </mat-error>
+                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.minlength">
+                                                            </mat-error>
+                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.maxlength">
+                                                            </mat-error>
+                                                        <mat-error *ngIf="commentsForm.controls.mobile.errors.pattern">
+                                                            </mat-error>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+            
+         
+                                        <div fxLayout fxLayoutAlign="center center">
+
+                                            <div fxFlex="100" fxLayoutAlign="start center">
+                                                <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                                    <mat-label>Email Id</mat-label>
+                                                    <input required matInput type="email" formControlName="email"
+                                                        matInput>
+                                                    <mat-error></mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="start center">
+                                            <div fxFlex="100" fxLayoutAlign="end end">
+                                                <button mat-raised-button color="primary" style="color:whitesmoke"
+                                                    type="submit"> <b>ADD COMMENT </b></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div *ngIf="showSearch" class="two" fxFlex="70" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <div style=" text-align: left;" fxFlex="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayout="column" fxLayoutGap.xs="40px" fxLayoutGap="80px">
+                            <div *ngIf="count === 0  && !mobileDevice" style="height: 400px;" fxLayout
+                                fxLayoutAlign="center center">
+                                <h3 class="mat-h3 primary">NO POSTS FOUND!</h3>
+                            </div>
+                            <div *ngIf="count === 0 && mobileDevice" style="height: 300px; width: 100%;"
+                                fxLayout fxLayoutAlign="center center">
+                                <h3 class="mat-h3 primary">NO POSTS FOUND!</h3>
+                            </div>
+                            <div  fxLayout fxLayoutAlign="center center" *ngFor="let blog of allPosts;let i = index">
+                                <div fxFlex="100" *ngIf="count>0">
+                                    
+                                    <div fxLayout fxLayoutAlign="start center">
+                                        <p [style.marginBottom]="mobileDevice ? '10px' : '15px'" class="courseHeading">
+                                            {{blog.title}}
+                                        </p>
+                                    </div>
+                                    <div [style]="mobileDevice ? 'padding: 5px 0;' : 'padding: 0'" fxLayout
+                                        fxLayoutAlign="start center">
+                                        <div fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="40" fxFlex.xs="40">
+                                            <div class="BlogsHeading cut-text">
+                                                <button style="pointer-events: none;" mat-icon-button>
+                                                    <mat-icon class="BlogsIcon">people_outline</mat-icon>
+                                                </button> BY {{blog.staff.name}}
+                                            </div>
+                                        </div>
+                                        <div fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="60" fxFlex.xs="60">
+                                            <div class="BlogsHeading cut-text">
+                                                <button style="pointer-events: none;" mat-icon-button>
+                                                    <mat-icon class="BlogsIcon">list_alt</mat-icon>
+                                                </button> {{blog.categories[0].title}} <span
+                                                    *ngIf="blog.categories.length > 1" #tooltip="matTooltip"
+                                                    [matTooltip]="returnValName(blog.categories, 'cat')"
+                                                    style="color: #1565c0;">+
+                                                    {{blog.categories.length - 1}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="center center">
+                                        <div fxFlex="100" (click)="BlogDetail(blog)">
+                                            <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div fxLayout fxLayoutAlign="center center" (click)="BlogDetail(blog)" #blogdata>
+                                        <div fxFlex="100" id="{{'blogdata' + i }}" class="classData">
+                                            <p *ngIf="showdata(blog.content,i)">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="readone" fxLayoutAlign="start center">
+                                        <p class="readMore" (click)="BlogDetail(blog)" style="cursor: pointer;">
+                                            READ MORE
+                                        </p>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="center center" *ngIf="mobileDevice">
+                        <div fxFlex="100" fxLayout="column" fxLayoutAlign="start start">
+                            <div fxLayout fxLayoutAlign="start center">
+                                <p class="serchHeadings">
+                                    CATEGORIES
+                                </p>
+                            </div>
+                            <div class="blogDivider">
+
+                            </div>
+                            <p>&nbsp;</p>
+                            <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100" fxLayoutAlign="start center">
+                                    <div fxFlex="100">
+                                        <div style="height: 180px; overflow: auto;" fxLayout="column">
+                                            <button mat-button class="example-item" fxLayout
+                                                fxLayoutAlign="start center" (click)="GetBlogs()">
+                                                <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                                    mat-list-icon>panorama_fish_eye
+                                                </mat-icon>
+                                                &nbsp;
+                                                <span mat-line>All</span>
+                                            </button>
+                                            <button mat-button *ngFor="let category of Allcategory" class="example-item"
+                                                fxLayout fxLayoutAlign="start center" (click)="filterByCat(category)">
+                                                <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                                    mat-list-icon>panorama_fish_eye
+                                                </mat-icon>
+                                                &nbsp;
+                                                <span mat-line>{{category.title}}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>&nbsp;</p>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <p class="serchHeadings">
+                                    RECENT POSTS
+                                </p>
+                            </div>
+                            <div class="blogDivider">
+
+                            </div>
+                            <br>
+                            <div style="width: 100%;" fxLayout="column" fxLayoutAlign="start center"
+                                *ngFor="let blog of allPosts.slice().reverse();let i = index" fxLayoutGap="10px">
+                                <div style="width: 100%" *ngIf=" i<3" fxLayout="column" fxLayoutAlign="start start">
+                                    <div style="letter-spacing: 0.5px;" class="blogsList"> {{blog.title}}</div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                        <mat-icon style="font-size: 18px; height: 18px; width:20px;">
+                                            people_outline</mat-icon>&nbsp;&nbsp;
+                                        <div class="cut-text">By {{blog.staff.name}}</div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div *ngIf="mobileDevice" style="width: 90%;" class="one" fxLayout fxLayoutAlign="start start">
+            <div fxFlex="100" fxLayout fxLayoutAlign="center center">
+                <div fxFlex="100">
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            CATEGORIES
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <br>
+                    <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                        <div fxFlex="100" fxLayoutAlign="start center">
+                            <div fxFlex="100">
+                                <div style="height: 180px; overflow: auto;" fxLayout="column">
+                                    <button mat-button class="example-item" fxLayout fxLayoutAlign="start center"
+                                        (click)="GetBlogs()">
+                                        <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                            mat-list-icon>panorama_fish_eye
+                                        </mat-icon>
+                                        &nbsp;
+                                        <span mat-line>All</span>
+                                    </button>
+                                    <button mat-button *ngFor="let category of Allcategory" class="example-item"
+                                        fxLayout fxLayoutAlign="start center" (click)="filterByCat(category)">
+                                        <mat-icon style="height: 8px; width: 8px; font-size: 8px !important;"
+                                            mat-list-icon>panorama_fish_eye
+                                        </mat-icon>
+                                        &nbsp;
+                                        <span mat-line>{{category.title}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center">
+                        <p class="serchHeadings">
+                            RECENT POSTS
+                        </p>
+                    </div>
+                    <div class="blogDivider">
+
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start start" class="Sarchmargin" fxLayoutGap="5px"
+                        *ngFor="let blog of allPosts.slice().reverse();let i = index">
+                        <div style="width: 100%" *ngIf=" i<3" fxLayout="column" fxLayoutAlign="start start">
+                            <div style="letter-spacing: 0.5px;" class="blogsList"> {{blog.title}}</div>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <mat-icon style="font-size: 18px; height: 18px; width:20px;">
+                                    people_outline</mat-icon>&nbsp;&nbsp;
+                                <div class="cut-text">By {{blog.staff.name}}</div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <br><br><br>
+
+</div>

@@ -1,0 +1,72 @@
+.imageHeight{
+    // height: 455px;
+    width: 100%;
+}
+
+.downlodsHeading{
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .classButton{
+    border: 2px solid;
+    margin-bottom: 15px;
+    width: 165px;
+  }
+
+  .btn:focus {
+    box-shadow: 0;
+    outline: 0;
+    border: none;
+  }
+
+  .divImage{
+    // background-image: url(assets/image/downlods123.png);
+    width: 100%;
+  }
+  .mobileImage{
+    width: 50%;
+  }
+
+
+  .imageHeight3-sm{
+    width: 50%;
+  }
+  
+  .whiteText{
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .imageHeight1{
+    // height: 455px;
+    width: 100%;
+}
+
+
+.imageHeight2{
+  width: 40%;
+}
+
+.Show{
+  display: block!important;
+}
+
+.hide{
+ display: none!important;
+}
+
+@media only screen and (max-width:600px)
+{
+  .Show{
+  display: none!important;
+ }
+ .hide{
+ display: block!important;
+}
+}

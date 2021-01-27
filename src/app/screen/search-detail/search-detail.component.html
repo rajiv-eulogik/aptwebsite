@@ -1,0 +1,140 @@
+
+<div fxLayout fxLayoutAlign="start center">
+  <div class="no-data" *ngIf="loading1 || loading2" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 || loading2"
+        [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+  
+    </ngx-loading>
+  </div>
+    <div *ngIf="!loading1 && !loading2" fxFlex="100">
+      <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+          <div fxFlex="70" fxFlex.sm="100" fxFlex.xs="100" fxLayoutAlign="start center">
+            <p class="MainHeding"> {{SearchData}}- search result </p>
+          </div>
+      </div>
+      <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+        <div fxFlex="70" fxFlex.sm="100" fxFlex.xs="100" fxLayoutAlign="center center">
+          <mat-form-field appearance="outline" class="formWith">
+            <mat-label>Search</mat-label>
+            <input matInput #search [(ngModel)]="SearchData" name="search" id="search" (keyup.enter)="SearchData1(SearchData)" style="color:black">
+            <button matSuffix mat-icon-button *ngIf="SearchData == '' " (click)="SearchData1(search.value)">
+                <mat-icon >search</mat-icon>
+            </button>
+            <button matSuffix mat-icon-button *ngIf="SearchData !== ''" (click)="SearchData1(SearchData)">
+              <mat-icon (click)="CloseHome()">close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <br><br>
+      <div fxLayout fxLayoutAlign="center center" *ngIf="FilterContent.length == 0 && DownlodsData.length == 0">
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <div class="no-data" *ngIf="loading1 || loading2" fxLayoutAlign="center center" fxFlex>
+            <ngx-loading [show]="loading1 || loading2"
+                [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+          
+            </ngx-loading>
+          </div>
+          <p class="Noresult" *ngIf="!showloader"> No Result For Your Search </p>
+        </div>
+      </div>
+      <div>
+        <div class="no-data" *ngIf="showloader" fxLayoutAlign="center center" fxFlex>
+          <ngx-loading [show]="showloader"
+              [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+        
+          </ngx-loading>
+        </div>
+      </div>
+      <div *ngIf="!loading1 && !loading2">
+      <div fxLayout fxLayoutAlign="center center" *ngFor="let blog of FilterContent;let i = index">
+        <div fxFlex="70" fxLayoutAlign="center center">
+            <div fxLayout fxLayoutAlign="start start" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+              <div fxFlex="30"  fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+                <img [src]="imageUrl + blog.item.cover " class="blogsImage" alt="home" (click)="BlogDetail(blog.item)">
+              </div>
+              <div fxFlex="70" fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="start center">
+                  <div fxFlex="100">
+                    <div fxLayout fxLayoutAlign="start center">
+                      <p class="courseHeading" (click)="BlogDetail(blog.item)">
+                        {{blog.item.title}}
+                      </p>
+                    </div>
+                    <div fxLayout fxLayoutAlign="start center">
+                      <div fxFlex="45" fxLayoutAlign="start center" fxFlex.sm="40" fxFlex.xs="40">
+                        <p class="BlogsHeading" (click)="BlogDetail(blog.item)">
+                          <button mat-icon-button>
+                            <mat-icon class="BlogsIcon">people_outline</mat-icon>
+                          </button> By {{blog.item.staff.name}}
+                        </p>
+                      </div>
+                      <div fxFlex="55" fxLayoutAlign="start center" fxFlex.sm="60" fxFlex.xs="60">
+                        <p class="BlogsHeading" (click)="BlogDetail(blog.item)">
+                          <button mat-icon-button>
+                            <mat-icon class="BlogsIcon">list_alt</mat-icon>
+                          </button> {{blog.item.categories[0].title}} <span *ngIf="blog.item.categories.length > 1" style="color: #1565c0;">+
+                            {{blog.item.categories.length - 1}} </span>
+                        </p>
+                      </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="start center" #blogdata>
+                      <div fxFlex="100" id="{{'blogdata' + i }}" class="classData" (click)="BlogDetail(blog.item)">
+                        <p *ngIf="showdata(blog.item.content,i)">
+                          
+                        </p>
+                      </div>
+                    </div>
+                    <br>
+                    <div fxLayout fxLayoutAlign="start center">
+                      <p style="cursor: pointer;" (click)="BlogDetail(blog.item)" class="readMore">
+                        READ MORE 
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <br><br>
+      </div>
+      <br><br>
+      <div fxLayout fxLayoutAlign="center center" *ngFor="let downlods of DownlodsData">
+        <div fxFlex="70" fxLayoutAlign="start start">
+          <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="30" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+               <img src="assets/image/staticPdf.png" height="230" alt="home">
+            </div>
+            <div fxFlex="70" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+              <div fxLayout fxLayoutAlign="center center">
+                <div fxFlex="100">
+                  <div fxLayout fxLayoutAlign="start center">
+                    <p class="courseHeading">
+                      {{downlods.title}}
+                    </p>
+                  </div>
+                  <div fxLayout fxLayoutAlign="start center" #blogdata>
+                    <div fxFlex="100">
+                      <p class="classData">
+                        {{downlods.description}}
+                      </p>
+                    </div>
+                  </div>
+                  <div fxLayout fxLayoutAlign="start center">
+                    <p style="cursor: pointer;" (click)="ConatDetail()" class="readMore">
+                      READ MORE
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Blankheight">
+      
+      </div>
+      </div>
+    </div>
+</div>
+

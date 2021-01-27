@@ -1,0 +1,460 @@
+<!-- <div fxLayout fxLayoutAlign="start center" fxLayoutGap="2px" >
+    <div fxFlex="100" class="divImage" > -->
+<!-- <img src="assets/image/home.png" alt="home" class="imageHeight" [@slideInUp]="'slideInUp'"> style="background-image: url(assets/image/downlods123.png);" -->
+<!-- </div>
+</div> -->
+
+<div class="no-data" *ngIf="loading1 || loading2 || loading3" fxLayoutAlign="center center" fxFlex>
+    <!-- <p style="margin-bottom: 60px;">Loading...</p> -->
+    <ngx-loading [show]="loading1 || loading2 || loading3"
+        [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+    </ngx-loading>
+</div>
+<div *ngIf="!loading1 && !loading2 && !loading3" (window:resize)="getWidth($event)">
+    <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div fxLayout fxLayoutAlign="start center" fxLayout.sm="column" fxLayout.xs="column" fxFlex="100"
+            class="divImage"
+            style="background-image: url(assets/Websiteimg/bg1.png); background-repeat: no-repeat;background-size: cover">
+            <div fxFlex="50" fxLayoutAlign="center start" fxFlex.sm="100">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxFlex="100">
+                        <div fxLayout fxLayoutAlign="center start">
+                            <h3 class="titileText"> APT IS FOR YOU </h3>
+                        </div>
+                        <div fxLayout fxLayoutAlign="center center">
+                            <div fxFlex="100" fxLayoutAlign="center center">
+                                <h3 class="discrTitle"> BEST EDUCATION INSTITUTE IN CENTRAL INDIA </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout fxLayoutAlign="center center" fxFlex="50" fxFlex.sm="100">
+                <img src="assets/images/Home.png" alt="home" class="imageHeight1">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div fxLayout fxLayoutAlign="center center">
+        <h1 class="mat-display-1"><b>Our Courses</b></h1>
+        <!-- <p class="MainHeding ">  </p> -->
+    </div>
+    <div fxLayout fxLayoutAlign="center center">
+        <div fxFlex="100" fxLayout="column" fxLayoutGap="80px">
+            <div *ngFor="let data of classData; let i = index">
+                <div fxLayout fxLayoutAlign="start" fxLayout.sm="column" fxLayout.xs="column" class="marginOfDiv">
+                    <div *ngIf="mobileDevice" fxFlex="50" fxLayoutGap.xs="20px" fxLayoutAlign="center center"
+                        fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="100" fxLayoutAlign.xs="center center">
+                        <div *ngIf="i%2 === 1" fxLayoutAlign="start center">
+                            <div fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100">
+                                    <div fxLayout fxLayoutAlign="start center"
+                                        *ngFor="let class of data.classes; let k = index">
+                                        <button *ngIf="k < 3" style="font-weight: 600;" mat-button
+                                            class="classButton btn" color="primary"
+                                            (click)="CousesDetailScreen(class)">{{class.name?.toUpperCase()}}</button>
+
+                                        <button (click)="CousesSceen()" *ngIf="k === (data.classes?.length - 1) && k > 2" style="padding: 0; outline: none; font-weight: 600;" mat-button color="primary">
+                                            +{{data?.classes?.length - 3}} MORE
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxLayout fxLayoutAlign="start center">
+                            <div fxLayoutAlign="end center" fxFlex.sm="60" fxFlex.md="50">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <!-- <div fxFlex="100"> -->
+                                    <img [src]="i%2 == 0 ? 'assets/latest/'+images_girl[i]+'.png' : 'assets/latest/'+images_boy[i]+'.png'"
+                                        alt="home" [height]="mobileDevice ? '300' : '500'">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <div *ngIf="i % 2 === 0" fxLayoutAlign="start center">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100">
+                                        <div fxLayout fxLayoutAlign="start center"
+                                            *ngFor="let class of data.classes; let k = index">
+                                            <button *ngIf="k < 3" style="font-weight: 600;" mat-button
+                                                class="classButton btn" color="primary"
+                                                (click)="CousesDetailScreen(class)">{{class.name?.toUpperCase()}}</button>
+
+                                            <button (click)="CousesSceen()" *ngIf="k === (data.classes?.length - 1) && k > 2" style="padding: 0; outline: none; font-weight: 600;" mat-button color="primary">
+                                                +{{data?.classes?.length - 3}} MORE
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i % 2 === 0 && !mobileDevice" fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100"
+                        fxFlex.xs="100" fxFlex.md="100" fxLayoutGap="30px" fxLayoutAlign.xs="start center">
+                        <div fxLayout fxLayoutAlign="start center">
+                            <div fxLayoutAlign="end center" fxFlex.sm="60">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <!-- <div fxFlex="100"> -->
+                                    <img src="assets/latest/{{images_girl[i]}}.png" alt="home"
+                                        [height]="mobileDevice ? '300' : '450'">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <div fxLayoutAlign="start center">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100">
+                                        <div fxLayout fxLayoutAlign="start center"
+                                            *ngFor="let class of data.classes; let k = index">
+                                            <button *ngIf="k < 3" style="font-weight: 600;" mat-button
+                                                class="classButton btn" color="primary"
+                                                (click)="CousesDetailScreen(class)">{{class.name?.toUpperCase()}}</button>
+
+                                            <button (click)="CousesSceen()" *ngIf="k === (data.classes?.length - 1) && k > 2" style="padding: 0; outline: none; font-weight: 600;" mat-button color="primary">
+                                                +{{data?.classes?.length - 3}} MORE
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex="50" fxLayoutAlign="center" fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="75">
+                        <div fxLayout fxLayoutAlign="start">
+                            <div fxFlex="100">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="start center">
+                                        <p class="courseHeading" (click)="CousesSceen()" style="cursor: pointer;">
+                                            {{data.title}} <button [disableRipple]="true" class="btn" mat-icon-button
+                                                color="primary">
+                                                <mat-icon class="courseIcon btn">arrow_right_alt</mat-icon>
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="center center">
+                                        <h4 class="courseDis">
+                                            Our courses are designed to clarify all the topics, be it basic or advanced.
+                                            We
+                                            make sure that students get basic strength that they need in all subjects by
+                                            giving them the highest quality of content available. There is no point in
+                                            building a monument on a weak foundation. Courses are completed punctually
+                                            and
+                                            revision is done properly in advance. Doubts are revisited multiple times
+                                            for a
+                                            deeper understanding. We at APT believe in “doing things differently at a
+                                            level
+                                            that is far beyond status quo” and you should expect nothing less than that
+                                            from
+                                            us.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="i % 2 === 1 && !mobileDevice" fxFlex="50" fxLayoutAlign.xs="start center"
+                        fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100" fxFlex="75" fxLayoutGap="30px">
+                        <div fxLayout fxLayoutAlign="start center">
+                            <div fxLayoutAlign="end center" >
+                                <div fxLayoutAlign="start center">
+                                    <div fxLayout fxLayoutAlign="start center">
+                                        <div fxFlex="100">
+                                            <div fxLayout fxLayoutAlign="start center"
+                                                *ngFor="let class of data.classes; let k = index">
+
+                                                <button *ngIf="k < 3" style="font-weight: 600;" mat-button class="classButton btn" color="primary" (click)="CousesDetailScreen(class)">{{class.name?.toUpperCase()}}</button>
+                                            
+                                                <button (click)="CousesSceen()" *ngIf="k === (data.classes?.length - 1) && k > 2" style="padding: 0; outline: none; font-weight: 600;" mat-button color="primary">
+                                                    +{{data?.classes?.length - 3}} MORE
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <!-- <div fxFlex="100"> -->
+                                    <img src="assets/latest/{{images_boy[i]}}.png" alt="home"
+                                        [height]="mobileDevice ? '300' : '450'">
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SENIOR SCHOOL COURSES start here  -->
+
+            <!-- CA COURSES start here   -->
+
+            <!-- CS COURSES start here   -->
+            <!-- Compititive exam screen  -->
+
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <!-- app downloads section -->
+    <app-download-app [source]="utm_source" [medium]="utm_medium" [campaign]="campaignType" [publisher]="publisherId" ></app-download-app>
+
+    <div *ngIf="AllBlogs?.length">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+
+    <!-- blogs section code start here  -->
+    <div *ngIf="AllBlogs?.length" style="width: 100%;" fxLayout fxLayoutAlign="center center">
+        <div [fxFlex]="mobileDevice ? '100' : '96'" fxLayout fxLayoutAlign="space-between center">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <h2 style="margin-bottom: 10px;" class="mat-display-1"><b>News & Views</b></h2>
+                </div>
+                <br>
+                <div class="padding-l-r" style="margin-bottom: 50px;" fxLayout fxLayoutAlign="center center">
+                    <h4 style="text-align: center;" class="courseDis">
+                        See what’s going on with the biggest institute for Commerce, CA and CS in Central India.
+                    </h4>
+                </div>
+                <br>
+
+                <div class="blogs-container" fxLayout="column" fxLayoutGap="80px" fxLayoutGap.xs="40px"  *ngFor="let blog of AllBlogs;let i = index">
+                    <div fxLayout fxLayoutAlign="start center" *ngIf="i>=AllBlogs.length-3">
+                        <div fxFlex="100">
+                            <div fxLayout fxLayoutAlign="start center" *ngIf="i %2 == 0">
+                                <div fxFlex="100" (click)="BlogDetail(blog)">
+                                    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column"
+                                        fxLayoutGap="60px" fxLayoutGap.xs="0px">
+                                        <div style="width: 100%;" fxLayout="column" fxFlex="50"
+                                            fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100">
+                                            <div fxLayout fxLayoutAlign.xs="center center" style="width: 100%;"
+                                                fxLayoutAlign="start start">
+                                                <div class="Show" fxFlex="100">
+                                                    <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                                </div>
+                                                <div class="hide"
+                                                    style="margin-left: -20px; margin-right: -20px; width: 100%"
+                                                    class="hide" fxFlex="100">
+                                                    <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                                </div>
+                                                <br><br><br>
+                                            </div>
+                                        </div>
+                                        <div class="padding-l-r" fxFlex="50" fxLayoutAlign="start center"
+                                            fxFlex.sm="100" fxFlex.xs="100">
+                                            <div fxLayout fxFlex="100" fxLayoutAlign="start center">
+                                                <div fxFlex="100">
+                                                    <!-- <div fxLayout fxLayoutAlign="start center">
+                                                        
+                                                    </div> -->
+                                                    <h1 style="text-align: left !important;" class="courseHeading">
+                                                        {{blog.title}}</h1>
+                                                    <div style="padding: 10px 0;" fxLayout
+                                                        fxLayoutAlign.xs="space-between center"
+                                                        fxLayoutAlign="start center">
+                                                        <div fxFlex.xs="auto" fxFlex="40" fxLayoutAlign="start start"
+                                                            fxFlex.sm="40" fxFlex.xs="40">
+                                                            <div fxLayout fxLayoutGap="10px"
+                                                                fxLayoutAlign="start center">
+                                                                <mat-icon class="BlogsIcon">people_outline</mat-icon>
+                                                                <p style="font-size: 12px !important;"
+                                                                    class="no-margin mat-body">By {{blog.staff.name}}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div fxFlex.xs="auto" fxFlex="60" fxLayoutAlign="start start"
+                                                            fxFlex.sm="70" fxFlex.xs="70">
+                                                            <div fxLayout fxLayoutGap="10px"
+                                                                fxLayoutAlign="start center">
+                                                                <mat-icon class="BlogsIcon">list_alt</mat-icon>
+                                                                <p style="font-size: 12px !important;"
+                                                                    class="mat-body no-margin">
+                                                                    {{blog.categories[0].title}} <span
+                                                                        *ngIf="blog.categories.length > 1"
+                                                                        style="color: #1565c0;">+
+                                                                        {{blog.categories.length - 1}} </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div fxLayout fxLayoutAlign="start center" #blogdata>
+                                                        <div class="blog-text" fxFlex="100" fxFlex.sm="100"
+                                                            fxFlex.xs="100" id="{{'blogdata' + i }}">
+                                                            <p *ngIf="showdata(blog.content,i)">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="readone" fxLayout fxLayoutAlign="start center">
+                                                        <p class="readMore" (click)="BlogDetail(blog)">
+                                                            READ MORE
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div fxLayout fxLayoutAlign="start center" *ngIf=" i%2 !=0">
+                                <div fxFlex="100" (click)="BlogDetail(blog)">
+                                    <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column"
+                                        fxLayoutGap="60px" fxLayoutGap.xs="0px">
+                                        <div *ngIf="mobileDevice" fxLayout="column" fxFlex="50"
+                                            fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+                                            <div fxLayout style="width: 100%;" fxLayoutAlign.xs="center center"
+                                                fxLayoutAlign="start center">
+                                                <div class="Show" fxFlex="100">
+                                                    <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                                </div>
+                                                <div class="hide" style="margin-left: -20px; margin-right: -20px;"
+                                                    fxFlex="100">
+                                                    <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                                </div>
+                                                <br><br>
+                                            </div>
+                                            <p>&nbsp;</p>
+                                        </div>
+                                        <div class="padding-l-r" fxFlex="50" fxLayoutAlign="start center"
+                                            fxFlex.sm="100" fxFlex.xs="100">
+                                            <div fxFlex="100" fxLayout fxLayoutAlign="start center">
+                                                <div fxFlex="100">
+                                                    <h1 style="text-align: left !important;" class="courseHeading">
+                                                        {{blog.title}}</h1>
+
+                                                    <div style="padding: 10px 0;" fxLayout
+                                                        fxLayoutAlign.xs="space-between center"
+                                                        fxLayoutAlign="start center">
+                                                        <div fxFlex.xs="auto" fxFlex="40" fxLayoutAlign="start start"
+                                                            fxFlex.sm="40" fxFlex.xs="40">
+                                                            <div fxLayout fxLayoutGap="10px"
+                                                                fxLayoutAlign="start center">
+                                                                <mat-icon class="BlogsIcon">people_outline</mat-icon>
+                                                                <p style="font-size: 12px !important;"
+                                                                    class="no-margin mat-body">By {{blog.staff.name}}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div fxFlex.xs="auto" fxFlex="60" fxLayoutAlign="start start"
+                                                            fxFlex.sm="70" fxFlex.xs="70">
+                                                            <div fxLayout fxLayoutGap="10px"
+                                                                fxLayoutAlign="start center">
+                                                                <mat-icon class="BlogsIcon">list_alt</mat-icon>
+                                                                <p style="font-size: 12px !important;"
+                                                                    class="mat-body no-margin">
+                                                                    {{blog.categories[0].title}} <span
+                                                                        *ngIf="blog.categories.length > 1"
+                                                                        style="color: #1565c0;">+
+                                                                        {{blog.categories.length - 1}} </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div fxLayout fxLayoutAlign="start center" #blogdata>
+                                                        <div class="blog-text" fxFlex="100" fxFlex.sm="100"
+                                                            fxFlex.xs="100" id="{{'blogdata' + i }}">
+                                                            <p *ngIf="showdata(blog.content,i)">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="readone" fxLayout fxLayoutAlign="start center">
+                                                        <p class="readMore" (click)="BlogDetail(blog)">
+                                                            READ MORE
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div *ngIf="!mobileDevice" fxLayout="column" fxFlex="50"
+                                            fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+                                            <div fxLayout style="width: 100%;" fxLayoutAlign.xs="center center"
+                                                fxLayoutAlign="start center">
+                                                <div class="Show" fxFlex="100">
+                                                    <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                                </div>
+                                                <div class="hide" style="margin-left: -20px; margin-right: -20px;"
+                                                    fxFlex="100">
+                                                    <img [src]="imageUrl + blog.cover " class="blogsImage" alt="home">
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <p>&nbsp;</p>
+                <div fxLayout fxLayoutAlign="center center">
+                    <button mat-raised-button class="whiteText" color="primary" (click)="BlogsScreen()">VIEW ALL
+                        BLOGS</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <app-topper-speaks [toppersData]="toppersData" [topperImage]="topperImage" [mobileDevice]="mobileDevice"></app-topper-speaks>
+
+
+    <!-- <div fxLayout fxLayoutAlign="start start">
+        <div fxFlex="100" class="divImage"
+            style="background-image: url(assets/image/downlods123.png); background-repeat: no-repeat;background-size: cover">
+            <br>
+            <div fxLayout fxLayoutAlign="center center" style="padding: 0 10px">
+                <div fxFlex="40" fxLayoutAlign="end center">
+                    <div *ngFor="let rank of timerData;let i = index">
+                        <img *ngIf="i==0" class="imageWith" [src]="topperImage+rank.image" alt="ERROR:404:NOT_FOUND">
+                    </div>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="start center">
+                </div>
+                <div fxFlex="40" fxLayoutAlign="start center">
+                    <div *ngFor="let rank of timerData;let i = index">
+                        <img *ngIf="i==2" class="imageWith" [src]="topperImage+rank.image" alt="ERROR:404:NOT_FOUND">
+                    </div>
+                </div>
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <div fxFlex="35" fxFlex.sm="100" fxFlex.xs="100" fxLayoutAlign="center center">
+                    <div *ngFor="let rank of timerData;let i = index">
+                        <img *ngIf="i==1" style="position: relative;" class="centerImage" [src]="topperImage+rank.image"
+                            alt="ERROR:404:NOT_FOUND">
+                        <button mat-icon-button *ngIf="i==1" class="leftButton" (click)="backIndex(i)">
+                            <mat-icon class="iconButton">keyboard_arrow_left</mat-icon>
+                        </button>
+                        <button mat-icon-button *ngIf="i==1" class="rightButton" (click)="NextIndex(i)">
+                            <mat-icon class="iconButton">keyboard_arrow_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <br>
+    <div fxLayout fxLayoutAlign="center center">
+        <h2 class="theySay">THEY SAY </h2>
+    </div>
+    <div fxLayout fxLayoutAlign="center center" *ngFor="let rank of timerData;let i = index">
+        <div fxFlex="80" fxLayoutAlign="center center">
+            <p *ngIf="i==1" class="testominial"> <span *ngIf="i==1" style="font-size: 40px">'' </span>
+                {{rank.testimonial}}</p>
+        </div>
+    </div> -->
+    <!-- <div fxLayout fxLayoutAlign="center center" *ngFor="let rank of timerData;let i = index">
+        <p *ngIf="i==1" class="rank"> {{rank.name}} </p>
+    </div> -->
+    <p>&nbsp;</p>
+
+</div>

@@ -1,0 +1,137 @@
+.courseHeading {
+  font-size: 24px !important;
+  font-weight: 500;
+}
+
+.classImage {
+  width: 100%;
+}
+
+.desc-text {
+  font-size: 16px !important;
+  color: #454545 !important;
+}
+
+.head-text {
+  font-size: 24px !important;
+  color: #212121 !important;
+  font-weight: 600;
+}
+
+// .MainDiv{
+//   margin-left: 3%;
+//   margin-right: 3%;
+// }
+
+.image {
+  object-fit: cover;
+
+  width: 150px;
+  height: 150px;
+}
+
+.imageHeight {
+  // height: 455px;
+  width: 100%;
+}
+
+.downlodsHeading {
+  font-size: 24px;
+  font-weight: 500;
+  margin-left: 5%;
+  text-align: center;
+}
+
+.image {
+  object-fit: cover;
+
+  width: 150px;
+  height: 150px;
+}
+
+.divImage {
+  // background-image: url(assets/image/downlods123.png);
+  width: 100%;
+}
+.mobileImage {
+  width: 50%;
+  padding: 30px 0;
+}
+
+.whiteText {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.button {
+  padding-bottom: 30px;
+}
+
+
+.classImage {
+  width: 80%;
+}
+
+.MainDiv {
+  margin: 0 10%;
+}
+
+.classDetail {
+  height: 100px;
+  width: 80%;
+  text-align: center;
+}
+
+.imageWith {
+  height: auto;
+  width: 60%;
+}
+
+.classDetail {
+  height: 100px;
+  width: 80%;
+  text-align: center;
+}
+
+.mat-grid-list {
+  display: block;
+  position: relative;
+  text-align: center !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .downlodsHeading {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .downloadsDescription {
+    font-size: 14px;
+    padding: 10px 20px;
+    color: #424242;
+    margin-left: 5%;
+    text-align: center;
+  }
+
+  .MainDiv {
+    margin: 0 20px;
+  }
+
+  .courseHeading {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+  }
+  .desc-text {
+    font-size: 14px !important;
+    color: #454545 !important;
+  }
+  
+  .head-text {
+    font-size: 18px !important;
+    color: #212121 !important;
+  }
+}

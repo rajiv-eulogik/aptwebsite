@@ -1,0 +1,131 @@
+<div class="no-data" *ngIf="loading1 || loading2" fxLayoutAlign="center center" fxFlex>
+   <ngx-loading [show]="loading1 || loading2"
+      [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+   </ngx-loading>
+</div>
+<div *ngIf="!loading1 && !loading2"  fxLayout="column" (window:resize)=getWidth($event)>
+   <div class="res-container" fxLayout fxLayoutAlign="start center">
+      <div fxFlex="100">
+         <div fxLayout fxLayoutAlign="center center">
+            <h1 class="mat-display-1"><b>{{SubjectName}}</b></h1>
+            <!-- <p class="MainHeding">  </p> -->
+         </div>
+         <!-- <div fxLayout fxLayoutAlign="center center">
+       <div fxFlex="100" fxLayoutAlign="center center" >
+         <img src="assets/images/Topic-Details.png" class="imagedata" alt="home">
+       </div>
+    </div> -->
+         <p>&nbsp;</p>
+         <br>
+         <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="80px">
+            <div *ngIf="TopicData?.length === 0" fxLayout fxLayoutAlign="center start">
+               <p class="mat-body-strong"><b>No Topic Files</b></p>
+            </div>
+            <div fxLayoutAlign="start start" *ngFor="let data of TopicData;let i= index">
+               <div fxLayout fxFlex="100">
+                  <div *ngIf="mobileDevice" fxLayout="column" fxLayoutAlign="start center">
+                     <div style="width: 100%;" fxLayout fxLayoutAlign="center center">
+                        <img height="200" src="assets/images/pdf.png" alt="not_found">
+                     </div>
+                     <div fxLayout fxLayoutAlign="center center">
+                        <h2 class="courseHeading"><b>{{data.title}}</b></h2>
+                     </div>
+                     <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                        <p class="courseDis">{{data.description}}</p>
+                     </div>
+                     <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                        <p class="free"> {{data.price > 0 ? '&#8377; ' + data.price : 'FREE' }} </p>
+                     </div>
+                     <div fxLayout fxLayoutAlign="center center">
+                        <button mat-button color="primary" style="border: 2px solid;"
+                           (click)="OpenDailog(data)"> DOWNLOAD </button>
+                     </div>
+                  </div>
+                  <div *ngIf="!mobileDevice" fxLayout fxLayoutAlign="start center">
+                     <div fxFlex="100" *ngIf="i % 2 === 0">
+                        <div fxLayout fxLayoutGap="50px" fxLayoutAlign="start start" fxLayout.xs="column">
+                           <!-- <div fxFlex="5" fxFlex.xs="100" >
+                          <p class="count">{{i+1}}.</p>
+                        </div> -->
+                           <div fxFlex="50" fxFlex.xs="100" fxLayoutAlign="center center">
+                              <img src="assets/images/pdf.png" height="230" alt="home">
+                           </div>
+                           <div fxFlex="50" fxFlex.xs="100">
+                              <div fxLayout fxLayoutAlign="start center">
+                                 <div fxFlex="100">
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <p class="courseHeading">
+                                          {{data.title}}
+                                       </p>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <h4 class="courseDis">
+                                          {{data.description}}
+                                       </h4>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <p class="free"> {{data.price > 0 ? '&#8377; ' + data.price : 'FREE' }} </p>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <button mat-button color="primary" style="border: 2px solid;"
+                                          (click)="OpenDailog(data)"> DOWNLOAD </button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <a [href]="pdfUrl+data.fileName" [download]="data.link" style="display: none;"
+                           id="{{data.fileName}}"></a>
+                     </div>
+                     <div fxFlex="100" *ngIf="i % 2 !== 0">
+                        <div fxLayout fxLayoutGap="50px" fxLayoutAlign="start start" fxLayout.xs="column">
+                           <!-- <div fxFlex="5" fxFlex.xs="100" >
+                       <p class="count">{{i+1}}.</p>
+                     </div> -->
+                           <div fxFlex="50" fxFlex.xs="100">
+                              <div fxLayout fxLayoutAlign="start center">
+                                 <div fxFlex="100">
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <p class="courseHeading">
+                                          {{data.title}}
+                                       </p>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <h4 class="courseDis">
+                                          {{data.description}}
+                                       </h4>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <p class="free"> {{data.price > 0 ? '&#8377; ' + data.price : 'FREE' }} </p>
+                                    </div>
+                                    <div fxLayout fxLayoutAlign="start center">
+                                       <button mat-button color="primary" style="border: 2px solid;"
+                                          (click)="OpenDailog(data)"> DOWNLOAD </button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div fxFlex="50" fxLayoutAlign="center center" fxFlex.xs="100">
+                              <img src="assets/images/pdf.png" height="230" alt="home">
+                           </div>
+                        </div>
+                        <a [href]="pdfUrl+data.fileName" [download]="data.link" style="display: none;"
+                           id="{{data.fileName}}"></a>
+                     </div>
+                  </div>
+                  <br><br>
+                  <!-- <div fxLayout fxLayoutAlign="start center" *ngIf="isEven(i) == true">
+              
+              </div> -->
+               </div>
+
+            </div>
+         </div>
+         <br><br>
+      </div>
+   </div>
+   <app-download-app [source]="utm_source" [medium]="utm_medium" [campaign]="campaignType" [publisher]="publisherId">
+   </app-download-app>
+</div>
+<br>

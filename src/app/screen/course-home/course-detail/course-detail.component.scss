@@ -1,0 +1,221 @@
+.courseHeading{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+  .courseDis {
+    font-size: 14px !important;
+  }
+  .classImage{
+    width: 100%;
+  }
+  
+  .vid{
+    height: 320px;
+  }
+
+  .verticalLine{
+    border-left: 3px solid #0C5C8F;
+    height: 80px
+  }
+
+  .Number{
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  .paragraph{
+    font-size: 14px;
+    color: #212121;
+    font-weight: 500;
+    margin-right: 5px;
+    text-align: left;
+    align-content: center;
+  }
+
+  .whiteText{
+    color: #ffffff;
+    //margin-left: 25px;
+  }
+
+  .imageHeight{
+    width: 100%;
+  }
+
+  .downlodsHeading{
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .marginApp{
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .divImage{
+    // background-image: url(assets/image/downlods123.png);
+    width: 100%;
+  }
+  .mobileImage{
+    width: 50%;
+  }
+  .courseHeading12{
+    font-size: 18px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  
+.toppersSpeal{
+  font-size: 24px;
+}
+
+.mainCard{
+  margin-left: -15px;
+    margin-top: 120px;
+    position: relative;
+    width: 100%;
+}
+
+
+.centerImage{
+  position: initial;
+  width: 100%;
+  margin-top: -50%;
+  background-color: white;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: drop-shadow(8px 8px 10px #ffffff );
+}
+
+.theySay{
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.testominial{
+  font-size: 20px;
+  color: #757575;
+}
+
+.rank{
+  font-size: 20px;
+  color: #757575;
+}
+
+.leftButton{
+  display: none;
+  position: absolute;
+  left: -5%;
+}
+.rightButton{
+  display: none;
+  position: absolute;
+  left: 83%;
+}
+
+.iconButton{
+  font-size: 50px;
+  color:#212121;
+}
+
+.Show{
+  display: block!important;
+}
+
+.hide{
+ display: none!important;
+}
+
+@media only screen and (max-width:600px)
+{
+
+  .Show{
+    display: none!important;
+  }
+  
+  .hide{
+   display: block!important;
+  }
+
+  .marginData{
+    margin-left: 20%;
+  }
+  .blogsImage{
+    width: 100%;
+   }
+   .courseHeading{
+    font-size: 20px;
+    text-align: center;
+    //margin-left: 15px;
+  }
+  .leftButton{
+    display: unset;
+    position: absolute;
+    left: -5%;
+  }
+  .rightButton{
+    display: unset;
+    position: absolute;
+    left: 83%;
+  }
+  .classImage{
+    width: 100%;
+  }
+  .discrTitle {
+    font-size: 24px;
+    text-align: center;
+  }
+  .downlodsHeading {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .vid{
+    height: 240px;
+  }
+}
+
+::ng-deep .mat-form-field .mat-input-element {
+  color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: slategray !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: slategray;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #0c5c8f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: red
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #e40000 !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #e40000;
+}
+

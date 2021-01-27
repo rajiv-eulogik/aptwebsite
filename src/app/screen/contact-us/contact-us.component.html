@@ -1,0 +1,139 @@
+<div class="no-data" *ngIf="showloader" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="showloader"
+        [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+<div *ngIf="!showloader" (window:resize)="getWidth($event)">
+    <div class="main-route-details" style="margin-right: 0px;">
+        <div fxLayoutAlign="center center" style="margin-top: 30px;">
+            <h2 class="mat-display-1" style="font-size: 24px; font-weight: 600;"><b>Contact Us</b></h2>
+        </div>
+        <div fxLayout fxLayoutAlign="center center" >
+            <div fxFlex="100">
+                <img src="assets/image/team.jpg" alt="home" class="imageHeight">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div fxLayout fxLayoutAlign="center center" fxLayoutAlign.sm="start center" fxLayoutAlign.xs="start center" style="margin-left: 3%;margin-right: 3%;">
+            <h4 class="courseDis">
+                The main pillars that give strong foundation to our wonderful organization.
+                They are the main source of strength and the visionaries who keep us the righteous path and
+                the driving forces who have taught us how to overcome any obstacle.
+                The path that we proudly follow was created by them with their loving heart and will-power of steel.
+            </h4>
+        </div>
+        <div fxLayout fxLayoutAlign="center center" fxLayoutAlign.sm="start center" fxLayoutAlign.xs="start center" style="margin-left: 3%;margin-right: 3%;">
+            <h4 class="courseDis">
+                They are our highly talented and dedicated faculties who are an essential part of
+                our mission and who work day and night to provide the best education.
+                Their efforts reflect in the results given by our students.
+                With such focused people under one roof with one mission,
+                expect nothing but the best that you will ever find.
+                We believe that “Quality Is Everything” and that is what we deliver.
+            </h4>
+        </div>
+        <div fxLayout fxLayoutAlign="center center" fxLayoutAlign.sm="start center" fxLayoutAlign.xs="start center" style="margin-left: 3%;margin-right: 3%;">
+            <h4 class="courseDis">
+                To make students ready to face society and future in best form possible along with their scorecard.
+                We work on both academics and personality development.
+                The positive environment helps the students to express themselves freely.
+                Group discussion sessions are also conducted so students can develop strong communication skills.
+            </h4>
+        </div>
+
+        <br>
+        <br>
+
+        <div style="width: 100%; " fxLayout fxLayoutAlign.xs="center center"
+            fxLayoutAlign.sm="center center" fxLayoutAlign="center center">
+            <div style="margin-left: 6px; margin-right: 0px;" fxFlex="50" fxFlex.sm="90" fxFlex.xs="90" fxLayout fxLayoutAlign="center start" fxLayoutGap="10px">
+                <!-- <div style="padding: 0 10px;">
+                    <button mat-icon-button style="background: #bdbdbd;">
+                        <mat-icon>person_outline</mat-icon>
+                    </button>
+                </div> -->
+                <form fxFlex="100" [formGroup]="ContectUs" (ngSubmit)="submit()">
+                    <div class="angular-with-newlines" fxLayout fxLayoutAlign="start start">
+                        <!-- <div class="triangle-left" fxFlex="5" fxLayoutAlign="start center"></div> -->
+                        <div fxFlex="100" fxLayoutAlign="start center">
+                            <mat-form-field  style="width: 100%;">
+                                <mat-label>Enter your Queries</mat-label>
+                                <textarea required matInput formControlName="query"></textarea>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <!-- <div fxFlex="5" fxLayoutAlign="start center"></div> -->
+                        <div fxFlex="100" fxLayoutAlign="start center">
+                            <mat-form-field style="width: 100%;">
+                                <mat-label> Name</mat-label>
+                                <input required formControlName="name" matInput minlength="3" maxlength="50">
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div style="margin-top: -12px;" fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                            <mat-form-field appearance="standard" style="width: 100%;" id="code">
+                                <mat-label>Country Code</mat-label>
+                                <mat-select required formControlName="country" [(value)] = "selectedCountry"
+                                    (ngModelChange)="onChange($event)">
+                                    <div *ngFor="let contry of AllCoutryName let i=index;">
+                                        <mat-option [value]="contry" selected>+{{contry.dial_code}}</mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-select>
+                                <!-- <mat-error>Country name is Required</mat-error> -->
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="85" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Contact Number</mat-label>
+                                        <input required formControlName="mobile" type="tel" matInput
+                                            [maxlength]="mobileMax">
+                                        <mat-error
+                                            *ngIf="ContectUs.controls.mobile.invalid && (ContectUs.controls.mobile.touched || ContectUs.controls.mobile.dirty)">
+                                            <mat-error *ngIf="ContectUs.controls.mobile.errors.required">
+                                                </mat-error>
+                                            <mat-error *ngIf="ContectUs.controls.mobile.errors.minlength">
+                                                </mat-error>
+                                            <mat-error *ngIf="ContectUs.controls.mobile.errors.maxlength">
+                                                </mat-error>
+                                            <mat-error *ngIf="ContectUs.controls.mobile.errors.pattern">
+                                                </mat-error>
+                                        </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <!-- <div fxFlex="5" fxLayoutAlign="start center"></div> -->
+                        <div fxFlex="100" fxLayoutAlign="start center">
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Email Id</mat-label>
+                                <input matInput type="email" formControlName="email" matInput>
+                                <mat-error
+                                    *ngIf="ContectUs.controls.email.invalid && (ContectUs.controls.email.touched || ContectUs.controls.email.dirty )"
+                                    style="color: #f44336">
+                                    <mat-error *ngIf="ContectUs.controls.email.errors.pattern">
+                                    </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <button style="color: white" mat-flat-button color="primary" type="submit"><b>SUBMIT</b></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+</div>

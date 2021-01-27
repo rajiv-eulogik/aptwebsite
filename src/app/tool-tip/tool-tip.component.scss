@@ -1,0 +1,23 @@
+@import "../../styles/_colors";
+
+:host {
+  display:block;
+  position:absolute;
+  z-index:10000;
+
+  background:$redColor;
+  padding:20px;
+  width:300px;
+
+  margin-top:50px;
+
+  &:before {
+    content:"";
+    position:absolute;
+    top:-20px;
+    left:90%;
+    margin-left:-10px;
+    border:10px solid transparent;
+    border-bottom-color:maroon;
+  }
+}

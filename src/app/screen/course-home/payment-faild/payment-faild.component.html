@@ -1,0 +1,142 @@
+<br><br>
+<div fxLayout fxLayoutAlign="start center"  fxLayoutGap="20px" class="MainDiv">
+    <div fxFlex="100" fxLayoutAlign="center center">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100">
+                        <div fxLayout fxLayoutAlign="center center">
+                            <p class="courseHeading">
+                             Payment Failed !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100">
+                        <div fxLayout fxLayoutAlign="center center">
+                            <h5 class="courseHeading2">
+                             Your payment has been failed. Please try again.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div fxLayout fxLayoutAlign="start start" class="MainDiv" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+    <div fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <img [src]="imageUrl + img" class="classImage" alt="home">
+                     </div>
+                 </div>
+                 <br>
+            </div>
+       </div>
+    </div>
+    <div class="form1" fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+        <div fxLayout fxLayoutAlign="start center">
+              <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h3 class="completed"> COMPLETE COURSE </h3>
+                     </div>
+                 </div>
+                 <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h4 class="mrp"> M.R.P  <span class="space"> <del>Rs. {{credits}}.00 </del></span></h4>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h4 class="price"> Price  <span class="space">Rs. {{discPrice}}.00</span> </h4>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h6 class="gst"> * GST INCLUDED</h6>
+                    </div>
+                </div>
+             <form class="form-div" [formGroup]="CoursePurchasesedForm" > 
+                <mat-form-field style="width: 100%;">
+                    <mat-label> FULL COURSE</mat-label>
+                    <mat-select multiple (selectionChange)="someMethod($event.value)"  formControlName="course">
+                        <mat-option formfiltros-inmuebles #matOption #allSelected (click)="toggleAllSelection()" [value]="0" >
+                            <p class="courses selectall" style="margin-bottom: 0px; color: black">Full Course <span style="color:#0C5C8F;; text-align: right; margin-left: 140px; margin-bottom: 0px;" class="not-empty-select">  <b>Rs. {{credits - discPrice}} discount </b></span></p>
+                       </mat-option>
+                        <mat-option *ngFor="let subject of allSubject" [value]="subject.name">
+                          {{subject.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>  
+                <mat-form-field style="width: 100%;">
+                    <mat-label> COUPON CODE</mat-label>
+                    <div style="display: flex;">
+                    <input id="value" matInput formControlName="coupons"  minlength="3" maxlength="15" #myInput (keyup)="coupon(myInput.value)" (keydown.backspace)="coupon(myInput.value)">
+                    <span *ngIf="bool">
+                        <button class="coupon" id="coupon1" (click)="couponmessage(); errormessage(myInput.value)"><b>APPLY</b></button>
+                        <div style="display: flex;">
+                        <p class="coup" id="coupon2"><b></b></p>
+                        <button class="but" id="coupon3" (click)="togglecoupon()"></button>
+                        </div>
+                    </span>
+                </div>
+                </mat-form-field>
+                <div fxLayout fxLayoutAlign="start center">
+                    <div id="error" fxFlex="100" fxLayoutAlign="start center">
+                        <p></p>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100" fxLayoutAlign="center center">
+                        <button (click)="PAYNOW()" mat-raised-button color="primary" class="submitButton"><span class="submit"> <b>PROCEED TO PAY</b> </span></button>
+                    </div>
+                </div>
+            </form>
+            </div>
+       </div>
+    </div>
+</div>
+<br>
+<div fxLayout fxLayoutAlign="start center" class="MainDiv">
+    <div fxFlex="100">
+        <div fxLayoutAlign="start start">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="center center"> 
+                        <h4 class="courseHeading12">
+                          {{contentTitle}}
+                        </h4>
+                   </div>
+                </div>
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center"> 
+                        <h4 class="courseDis">
+                           {{contentDescription}}
+                        </h4>
+                        <!-- <mat-list>
+                            <mat-list-item *ngFor="let bullet of SeniorBullet">
+                            <mat-icon mat-list-icon>brightness_1</mat-icon>
+                            <div mat-line>{{bullet}}</div>
+                            </mat-list-item>
+                        </mat-list> -->
+                    </div>
+                </div>
+                <br>
+                <!-- <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center"> 
+                        <button mat-raised-button class="whiteText" color="primary" (click)="BuyNow()">BUY NOW </button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<br><br> 
+

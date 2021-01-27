@@ -1,0 +1,146 @@
+<!-- <mat-toolbar >  -->
+<div *ngIf="showFooter()" fxLayout fxLayoutAlign="start center">
+    <div fxFlex="100">
+        <br><br>
+        <div fxLayout fxLayoutAlign="center center">
+            <h1 style="margin-bottom: 15px;" class="mat-display-1"><b>Get Social With Us</b></h1>
+            <!-- <p class="MainHeding">  </p> -->
+        </div>
+        <!-- <div fxLayout fxLayoutAlign="center center">
+            <share-buttons theme="material-dark" show="11" image="https://loremflickr.com/320/240"></share-buttons>
+          </div> -->
+        <br>
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxLayout fxLayoutAlign="center center" fxFlex.md="60" fxFlex.sm="80" fxFlex.xs="100" fxFlex="40">
+                <div fxFlex="20" fxLayoutAlign="center center">
+                    <a fxLayout fxLayoutAlign="center center" href="https://www.facebook.com/APTCA/" target="_blank" class="fa fa-facebook fa-facebook2"></a>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="center center">
+                    <a fxLayout fxLayoutAlign="center center" href="https://twitter.com/Aptclasses1" target="_blank" class="fa fa-twitter fa-twitter2"></a>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="center center">
+                    <a fxLayout fxLayoutAlign="center center" href="https://www.instagram.com/apt_study/" target="_blank"
+                        class="fa fa-instagram fa-instagram2"></a>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="center center">
+                    <a fxLayout fxLayoutAlign="center center" href="https://www.linkedin.com/company/apt-classes/?viewAsMember=true" target="_blank"
+                        class="fa fa-linkedin fa-linkedin2"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div fxLayout fxLayoutAlign="start center">
+    <div fxFlex="100">
+        <div *ngIf="showFooter()" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-around start" fxLayout.sm="column" fxLayout.xs="column"
+            style=" background: #404040!important;">
+           
+            <div style="padding:0 20px;" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100">
+                        <br>
+                        <p class="heading" fxLayout fxLayoutAlign="start center">CONTACT US </p>
+                        <p class="textHeading" fxLayout fxLayoutAlign="start center">Contact No. 18002709987</p>
+                        <p class="textHeading" fxLayout fxLayoutAlign="start center"> APT, 161/1, Above Indian Bank,</p>
+                        <p class="textHeading" fxLayout fxLayoutAlign="start center"> Near Vikramadiya college,</p>
+                        <p class="textHeading" fxLayout fxLayoutAlign="start center"> MP Nagar – Zone II, Bhopal,</p>
+                        <p class="textHeading" fxLayout fxLayoutAlign="start center"> Madhya Pradesh 462011 </p>
+                        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px">
+                            <a href="https://www.facebook.com/APTCA/" target="_blank"
+                                class="fa fa-facebook fast fa-facebook1"></a>
+                            <a href="https://twitter.com/Aptclasses1" target="_blank"
+                                class="fa fa-twitter fast fa-twitter1"></a>
+                            <a href="https://www.instagram.com/apt_study/" target="_blank"
+                                class="fa fa-instagram fast fa-instagram1"></a>
+                            <a href="https://www.linkedin.com/company/apt-classes/?viewAsMember=true" target="_blank"
+                                class="fa fa-linkedin fast fa-linkedin1"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding:0 20px;" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100">
+                        <br>
+                        <p class="heading" fxLayout fxLayoutAlign="start center"> MORE LINKS </p>
+                        <div fxLayout fxLayoutAlign="start center" style="margin-bottom: 5px;">
+                            <div fxFlex="100">
+                                <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                    routerLinkActive="active-route" [routerLink]="['/course']"
+                                    (click)="CousesSceen()">OUR COURSES</a>
+                                <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                    routerLinkActive="active-route" [routerLink]="['/blogs']"
+                                    (click)="BlogsScreen()">NEWS & VIEWS</a>
+                                <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                    routerLinkActive="active-route" [routerLink]="['/about-us']"
+                                    (click)="AboutScreen()">
+                                    ABOUT US</a>
+                                <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                    routerLinkActive="active-route" [routerLink]="['/downloadapp']"
+                                    href="/downloadapp" (click)="appDownloadScreen()">
+                                    DOWNLOAD APT APP</a>
+                                <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                    routerLinkActive="active-route" [routerLink]="['/privacy-policy']"
+                                    href="/privacy-policy"
+                                    (click)="privacyPolicyScreen()">
+                                    PRIVACY POLICY</a>
+                                <!-- <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                routerLinkActive="active-route" [routerLink]="['/feedback']"
+                                (click)="feedbackScreen()">
+                                FEEDBACK</a> -->
+                                <a class="textHeading" fxLayout fxLayoutAlign="start center"
+                                    routerLinkActive="active-route" [routerLink]="['/feedback']" href="/feedback"
+                                    (click)="feedbackScreen()">Feedback </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+                <!-- <div fxLayout="column"  fxLayoutAlign="start center"> -->
+                <div class="foot" fxLayout="row" fxLayoutAlign="start center">
+                    <div fxFlex="100" fxFlexFill>
+                        <br>
+                        <p class="heading1" fxLayout fxLayoutAlign="start center">PHOTO STREAM</p>
+
+                        <div fxLayout fxLayoutAlign="start center" fxLayout.sm="row" fxLayout.xs="row"
+                            style="margin-bottom: 5px;">
+                            <div fxLayout fxFlex="100" fxFlex.sm="100" fxFlex.xs="100"
+                                *ngFor="let image of PhotoStream;let i=index;">
+                                <img [src]="ImageUrl + image.image" *ngIf="i < 4"
+                                    style="cursor: pointer;" height="75" width="75"
+                                    (click)="PhotoStreamDetail()">
+                            </div>
+                        </div>
+                        <div fxLayout fxLayoutAlign="start center" fxLayout.sm="row" fxLayout.xs="row"
+                            style="margin-bottom: 5px;" *ngIf="PhotoStream.length > 4">
+                            <div fxLayout fxFlex="100" fxFlex.sm="100" fxFlex.xs="100"
+                                *ngFor="let image of PhotoStream.slice(3);let i=index;">
+                                <img [src]="ImageUrl + image.image" *ngIf="i < 4"
+                                    style="cursor: pointer; " height="75" width="75"
+                                    (click)="PhotoStreamDetail()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div *ngIf="!showFooter()" style="height: 360px;">
+
+        </div>
+        <div>
+            <mat-toolbar style="background: #212121!important;height: 40px;" fxLayout fxLayoutAlign="center center">
+                <div fxLayout fxLayoutGap="5px" fxLayoutAlign="center center">
+                    <p class="footerText">&#9400; Copyright APT. Handcrafted by Eulogik, India </p><span style="font-size: 20px; height: 25px; color: #fff;">&#10084;</span>
+                </div>
+            </mat-toolbar>
+        </div>
+
+    </div>
+</div>

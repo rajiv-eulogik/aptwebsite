@@ -1,0 +1,32 @@
+.imageHeight{
+    // height: 455px;
+    width: 100%;
+}
+
+.downlodsHeading{
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .divImage{
+    // background-image: url(assets/image/downlods123.png);
+    width: 100%;
+  }
+  .mobileImage{
+    width: 50%;
+  }
+  
+  .whiteText{
+    color: #ffffff;
+  }
+
+  .imagedata{
+   width: 60%;
+  }
+
+  @media only screen and (max-width:600px)
+{
+  .imagedata{
+    width: 100%;
+  }
+}

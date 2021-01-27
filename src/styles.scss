@@ -1,0 +1,314 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '~@ngx-share/button/themes/default/default-theme';
+@import url("https://fonts.googleapis.com/css?family=Spectral+SC:700");
+@import "~ngx-sharebuttons/themes/material/material-dark-theme";
+@import "~ngx-sharebuttons/themes/modern/modern-light-theme";
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+
+// html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+p,
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b {
+  font-family: "Montserrat", sans-serif !important;
+}
+.free {
+  font-family: 'Roboto' !important;
+}
+
+.res-container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.course-img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 0.8s;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+// .mat-toolbar {
+//     background: #ffffff!important;
+//     color: rgba(0,0,0,.87);
+// }
+.font_size18 {
+  font-size: 18px !important;
+  color: #101010 !important;
+  font-weight: 600 !important;
+}
+
+.active-route {
+  // .mat-list-text {
+  //   a {
+  //     font-weight: 600 !important;
+  //     color: $primary-color !important;
+  //   }
+  // }
+  color: #e40000 !important;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.px-20 {
+  font-size: 20px !important;
+}
+
+.MainHeding {
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.mat-list-icon {
+  font-size: 14px !important;
+}
+.mat-list-base .mat-list-item.mat-list-item-with-avatar,
+.mat-list-base .mat-list-option.mat-list-item-with-avatar {
+  height: 30px !important;
+}
+
+.whiteText {
+  color: #ffffff;
+}
+
+.mat-form-field-required-marker {
+  color: red !important;
+}
+
+.submitButton {
+  width: 160px;
+  color: #f4f4f4 !important;
+  font-weight: 600;
+  font-weight: bolder;
+}
+
+.courseDis {
+  font-size: 16px !important;
+  color: #454545 !important;
+  font-weight: 500;
+  // margin-right: 15px;
+  // margin-left: 15px!important
+}
+
+.courseHeading {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+.registraion {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.cardWith {
+  width: 50%;
+  box-shadow: none !important;
+}
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none !important;
+}
+
+.formRemove {
+  margin-left: 10%;
+  margin-right: 10%;
+  //background-color: #f4f4f4;
+}
+
+@media only screen and (max-width: 800px) {
+  .cardWith {
+    width: 85%;
+    box-shadow: none !important;
+  }
+  .formRemove {
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #f4f4f4;
+  }
+}
+
+// .MainDiv{
+//   margin-left: 3%;
+//   margin-right: 3%;
+// }
+
+.center-text {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.full-container {
+  height: 100%;
+  width: 100%;
+}
+
+.custom-elevation-low {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+.grayColor {
+  color: #757575;
+}
+
+.toppersSpeal {
+  font-size: 24px;
+}
+.DividerShow {
+  display: none;
+}
+
+.marginButtom {
+  margin-bottom: 5%;
+  height: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-display-1 {
+    font-size: 24px !important;
+  }
+
+  .MainHeding {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .courseDis {
+    font-size: 14px !important;
+    color: #454545 !important;
+  }
+
+  .DividerShow {
+    display: block;
+  }
+
+  .courseHeading {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+
+  .res-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.imageWith {
+  height: auto;
+  width: 100%;
+}
+
+.no-data {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  margin: 0 15px 15px 0;
+  padding: 15px;
+  // border: 1px #ccc solid;
+  border-radius: 10px;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+
+
+/*********************SCROLL BAR CSS*************************/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  /* display: none; */
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #fff;
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  border-radius: 25px;
+  width: 10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e40000;
+}
+
+::-webkit-scrollbar {
+  width: 10;
+}
+/*********************************************/
+
+button {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+*:focus {
+  outline: 0 !important;
+}
+
+/**********************************/
+::ng-deep .mat-form-field .mat-input-element {
+  color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: slategray !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: slategray;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #0c5c8f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: #0c5c8f;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: #0c5c8f;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #e40000 !important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+  color: #e40000;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: #e40000;
+}
+
+::ng-deep .mat-select {
+  border-color: violet;
+}
+

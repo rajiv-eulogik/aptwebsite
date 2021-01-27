@@ -1,0 +1,358 @@
+.imageHeight {
+  // height: 455px;
+  width: 100%;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.titileText {
+  font-size: 24px;
+  font-weight: 600;
+}
+.discrTitle {
+  font-size: 52px;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.imageHeight1 {
+  width: 80%;
+}
+
+.divImage {
+  // background-image: url(assets/image/downlods123.png);
+  width: 100%;
+}
+.mobileImage {
+  width: 50%;
+}
+
+.classButton {
+  border: 2px solid;
+  margin-bottom: 15px;
+  width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 38px;
+}
+
+.courseDis1 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #454545;
+  text-align: center;
+}
+
+.courseDis {
+  font-size: 16px !important;
+  color: #454545 !important;
+  font-weight: 500 !important;
+}
+
+.btn:focus {
+  box-shadow: 0;
+  outline: 0;
+  border: none;
+}
+
+.courseHeading {
+  font-size: 24px !important;
+  text-align: center;
+  color: #212121 !important;
+}
+
+.courseIcon {
+  font-size: 35px;
+  margin-bottom: 7px;
+}
+
+mat-list-icon {
+  font-size: 14px !important;
+}
+
+.whiteText {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.blogsImage {
+  width: 100%;
+}
+.BlogsHeading {
+  font-size: 16px;
+}
+
+.BlogsIcon {
+  font-size: 24px;
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
+}
+
+.classData {
+  font-size: 14px;
+  color: #454545;
+  padding: 0 20px;
+}
+
+.readMore {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e40000;
+  cursor: pointer;
+  // margin-left: 15px;
+}
+
+.IconMore {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.marginData {
+  margin-left: 0%;
+}
+
+.image {
+  object-fit: cover;
+
+  width: 400px;
+  height: 150px;
+}
+
+.downlodsHeading {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.5;
+  // margin-left: 5%;
+  text-align: center;
+}
+
+.marginApp {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.DownlodsDiscription {
+  font-size: 16px;
+  text-align: center;
+  color: #454545;
+}
+
+.marginLeft {
+  margin-left: 2%;
+}
+
+.marginRight {
+  margin-right: 5%;
+}
+
+.centerImage {
+  position: initial;
+  width: 100%;
+  margin-top: -50%;
+  background-color: white;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: drop-shadow(8px 8px 10px #ffffff);
+}
+
+.theySay {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.testimonial {
+  font-size: 14px;
+  text-align: center;
+  color: #454545;
+}
+
+.topper {
+  font-size: 12px;
+  text-align: center;
+  color: #757575;
+}
+
+.rank {
+  font-size: 20px;
+  color: #757575;
+}
+
+.leftButton {
+  display: none;
+  position: absolute;
+  left: -5%;
+}
+.rightButton {
+  display: none;
+  position: absolute;
+  left: 83%;
+}
+
+.iconButton {
+  font-size: 50px;
+  color: #212121;
+}
+
+.marginOfDiv {
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.Show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.blog-text {
+  font-size: 16px !important;
+  color: #454545;
+  line-height: 1.5;
+}
+
+.blogs-container {
+  margin-right: 10% !important;
+  margin-left: 10% !important;
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 600px) {
+  html,
+  body {
+    width: auto !important;
+    overflow-x: hidden !important;
+  }
+  .marginData {
+    margin-left: 20%;
+  }
+
+  .blogs-container {
+    margin-right: 0% !important;
+    margin-left: 0% !important;
+  }
+
+  .mat-display-1 {
+    font-size: 24px !important;
+  }
+
+  .imageHeight1 {
+    width: 70%;
+  }
+  .blog-text {
+    font-size: 14px !important;
+    color: #454545;
+  }
+
+  .marginOfDiv {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0 5%;
+  }
+
+  .titileText {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .courseDis {
+    font-size: 14px !important;
+    color: #454545 !important;
+    font-weight: 500 !important;
+  }
+
+  .courseHeading {
+    font-size: 14px !important;
+    text-align: center;
+    color: #212121 !important;
+  }
+
+  .image {
+    object-fit: cover;
+
+    width: 100vh;
+    height: 35vh;
+  }
+
+  .Show {
+    display: none !important;
+  }
+
+  .hide {
+    display: block !important;
+  }
+
+  .titileText{
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .blogsImage{
+    width: 100%;
+  }
+  .leftButton {
+    display: unset;
+    position: absolute;
+    left: -5%;
+  }
+  .rightButton {
+    display: unset;
+    position: absolute;
+    left: 83%;
+  }
+
+  .DownlodsDiscription {
+    font-size: 14px;
+    color: #424242;
+    /* margin-left: 5%; */
+    text-align: center;
+  }
+
+  .downlodsHeading {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+  .courseHeading {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+.discrTitle {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+.cut-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 150px;
+  white-space: nowrap;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.button {
+  padding-bottom: 30px;
+}
+
+.padding-l-r {
+  padding: 0 20px !important;
+}
+
+// .MainDiv{
+//   margin-left: 3%;
+//   margin-right: 3%;
+// }

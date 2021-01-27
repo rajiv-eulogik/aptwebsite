@@ -1,0 +1,118 @@
+<div class="no-data" *ngIf="loading1 || loading2 || loading3" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 || loading2 || loading3"
+        [config]="{ backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+<div *ngIf=" !loading1 && !loading2 && !loading3">
+    <div class="res-container" fxLayout fxLayoutAlign="center center">
+        <div fxLayout fxLayoutAlign="start center" fxFlex="96">
+            <div fxFlex="100">
+                <p>&nbsp;</p>
+                <div fxLayout fxLayoutAlign="center center">
+                    <p style="font-size:24px" class="mat-display-1"> <b>Downloads</b> </p>
+                </div>
+                <br><br>
+                <p>&nbsp;</p>
+                <div *ngFor="let heading of title">
+                    <div fxLayout fxLayoutAlign="start center">
+                        <h1 class="courseHeading">
+                            {{heading}}
+                        </h1>
+                    </div>
+                    <p>&nbsp;</p>
+                    <div *ngFor="let data of classData; let i = index">
+                        <mat-grid-list *ngIf="data.title === heading" [cols]="cols" rowHeight="200px" gutterSize="5"
+                            (window:resize)="getWidth()">
+                            <div *ngFor="let menu of AllClass">
+                                <mat-grid-tile class="course-img"
+                                    *ngIf="menu.products.length > 0 && menu.status === 'published' && data.id === menu.classcatId"
+                                    (click)="navigate(menu)">
+                                    <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                                        <div style="margin-bottom: 10px;">
+                                            <img class="image" [src]="ImageUrl + menu.image" height="124"
+                                                alt="Photo stream">
+                                            <div fxLayout>
+                                                <p style="font-size: 14px;" class="mat-h2">{{menu.name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-grid-tile>
+                            </div>
+                        </mat-grid-list>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div fxLayout fxLayoutAlign="start center" style="margin-left: 5%;margin-right: 5%;" fxLayoutGap="20px"
+                    fxLayout.sm="column" fxLayout.xs="column">
+                    <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" fxLayoutAlign="center center" fxFill>
+                        <div fxLayout fxLayoutAlign="center center">
+                            <img src="assets/images/Downloads.png" class="imageWith" alt="home">
+                        </div>
+                    </div>
+                    <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100" fxLayoutAlign="center center" fxFill>
+                        <div fxLayout fxLayoutAlign="start center">
+                            <div fxFlex="100">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <p class="courseHeading1">
+                                       <b> {{aboutTittle}}</b>
+                                    </p>
+                                </div>
+                                <div fxLayout fxLayoutAlign="center center">
+                                    <h4 class="courseDis">
+                                        {{aboutDescription}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <!-- <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+                    <div fxFlex="100" class="divImage" style="background-image: url('../../../assets/Websiteimg/2 4.png');">
+                        <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+                            <div fxFlex="40" fxLayoutAlign="center center" fxFlex.sm="100">
+                                <img src="assets/image/mobile.png" alt="home" class="mobileImage">
+                            </div>
+                            <div fxFlex="50" fxFlex.sm="100">
+                                <div fxLayout fxLayoutAlign="center center">
+                                    <div fxFlex="100">
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <div fxFlex=100>
+                                                <h3 class="downlodsHeading"> START YOUR JOURNEY WITH US, JUST DOWNLOAD APP
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <p style="font-size: 16px;" class="marginApp downloadsDescription"> Share your
+                                                past,present and future of our glorious journey. We still have long ways to
+                                                go and so do you
+                                                . Be the first one to get our latest study material, test series,offers and
+                                                event information. Stay connected 24*7
+                                                on the go, no matter where you are. Download APT STUDY app NOW!!
+                                            </p>
+                                        </div>
+                                        <br>
+                                        <div fxLayout fxLayoutAlign="center center">
+                                            <button mat-raised-button class="whiteText" color="primary"
+                                                (click)="DownloadsApp()"> DOWNLOAD APT APP </button>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <br><br> -->
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+    <app-download-app [source]="utm_source" [medium]="utm_medium" [campaign]="campaignType" [publisher]="publisherId">
+    </app-download-app>
+</div>

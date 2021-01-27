@@ -1,0 +1,134 @@
+<div class="no-data" *ngIf="loading1 || loading2 || loading3" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 || loading2 || loading3"
+        [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+<div *ngIf="!loading1 && !loading2 && !loading3" fxLayout="column" fxLayoutAlign="start center"
+    (window:resize)="getWidth($event)">
+    <div class="res-container" fxLayout fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="column" fxLayoutGap="80px" fxLayoutGap.sx="40px" fxLayoutGap.xs="40px">
+            <div fxFlex="100" fxLayoutAlign="center center">
+                <h1 class="mat-display-1"><b>{{className}}</b></h1>
+            </div>
+
+            <div fxLayout fxLayoutAlign="start center" fxLayout.sm="column" fxLayout.xs="column"
+                *ngFor="let data of SubjectData;let i= index">
+                <div style="width: 100%;" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="40px"
+                    *ngIf="mobileDevice && data.status === 'published'">
+                    <div fxFlex="100" fxLayout fxLayoutAlign="center center">
+                        <img [src]="'assets/latest/'+images[i]+'.png'" alt="home"
+                            [height]="mobileDevice ? '300' : '450'">
+                    </div>
+                    <div fxFlex="100">
+                        <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                            <div fxFlex="100" fxLayoutAlign="start center">
+                                <p class="courseHeading">
+                                    {{data.downloadContents[0]?.title}}
+                                </p>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                            <div fxFlex="100" fxLayoutAlign="start center">
+                                <h4 class="courseDis">
+                                    {{data.downloadContents[0]?.description}}
+                                </h4>
+                            </div>
+                        </div>
+                        <div style="width: 100%;" fxLayout fxLayoutAlign="start center">
+                            <div fxFlex="100" fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100">
+                                    <p>
+                                        <button mat-button class="classButton btn" color="primary"
+                                            (click)="OpenDailog(data)">Get Notes</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 100%;" fxLayout="column" fxLayoutAlign="center center"
+                    *ngIf="!mobileDevice && data.status === 'published'">
+                    <div style="width: 100%;" fxLayout fxLayoutAlign="center center" fxLayoutGap="40px"
+                        *ngIf="i % 2 === 0">
+                        <div fxFlex="50" fxLayout fxLayoutAlign="center center">
+                            <img [src]="'assets/latest/'+images[i]+'.png'" alt="home"
+                                [height]="mobileDevice ? '300' : '450'">
+                        </div>
+                        <div fxFlex="50">
+                            <div fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100" fxLayoutAlign="start center">
+                                    <p class="courseHeading">
+                                        {{data.downloadContents[0]?.title}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100" fxLayoutAlign="start center">
+                                    <h4 class="courseDis">
+                                        {{data.downloadContents[0]?.description}}
+                                    </h4>
+                                </div>
+                            </div>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <div fxFlex="100">
+                                    <div fxLayout fxLayoutAlign="start center">
+                                        <div fxFlex="100">
+                                            <p>
+                                                <button mat-button class="classButton btn" color="primary"
+                                                    (click)="OpenDailog(data)">Get Notes</button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100%;" *ngIf="i % 2 === 1">
+                        <div style="width: 100%;" fxLayout fxLayoutAlign="center center" fxLayoutGap="40px">
+
+                            <div fxFlex="50">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="start center">
+                                        <p class="courseHeading">
+                                            {{data.downloadContents[0]?.title}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="start center">
+                                        <h4 class="courseDis">
+                                            {{data.downloadContents[0]?.description}}
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100">
+                                        <div fxLayout fxLayoutAlign="start center">
+                                            <div fxFlex="100">
+                                                <p>
+                                                    <button mat-button class="classButton btn" color="primary"
+                                                        (click)="OpenDailog(data)">Get Notes</button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div fxFlex="50" fxLayout fxLayoutAlign="center center">
+                                <img [src]="'assets/latest/'+images[i]+'.png'" alt="home"
+                                    [height]="mobileDevice ? '300' : '450'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    <app-download-app [source]="utm_source" [medium]="utm_medium" [campaign]="campaignType" [publisher]="publisherId">
+    </app-download-app>
+
+
+</div>

@@ -1,0 +1,84 @@
+<div class="no-data" *ngIf="loading1" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 && loading2"  [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+<div *ngIf="!loading1 " [@expand] [@flyInOut] fxLayout fxLayoutAlign="start center">
+    <div fxFlex="100">
+      <div fxLayout fxLayoutAlign="center center" >
+         <p class="MainHeding"> {{SubjectName}} </p>
+      </div>
+     <br>
+     <div fxLayout fxLayoutAlign="start start" style="margin-left: 5%;margin-right: 5%;" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+        <div fxFlex="100">
+            <div fxLayout fxLayoutAlign="center center" [@slideInUp]="'slideInUp'">
+                <img src="assets/images/Topics.png" class="imagedata" alt="home">
+            </div>
+            <p>&nbsp;</p>
+             <div fxLayout fxLayoutAlign="center center" >
+                    <h4 class="courseDis">
+                        Our courses are designed to clarify all the topics, be it basic or advanced.
+                        We make sure that students get basic strength that they need in all subjects by
+                        giving them the highest quality of content available.
+                        There is no point in building a monument on a weak foundation. 
+                        Courses are completed punctually and revision is done properly in advance.
+                        Doubts are revisited multiple times for a deeper understanding.
+                    </h4>
+             </div>
+             <br>
+             <div fxLayout fxLayoutAlign="center center" >
+                 <div fxFlex="100" fxLayoutAlign="center center">
+                    <mat-nav-list>
+                        <div *ngFor="let topic of topics;let i = index">
+                                <div *ngIf="TopicData[i].length>0">
+                                    <mat-list-item  (click)="showInfo(topic)">
+                                        Chapter {{i+1}} - {{topic.name}}
+                                        <span class="spacer"></span>
+                                        <button mat-icon-button >
+                                        <mat-icon>keyboard_arrow_right</mat-icon>
+                                        </button>
+                                    </mat-list-item>
+                                </div>
+                        </div>
+                      </mat-nav-list>
+                 </div>
+             </div>
+        </div>
+    </div>
+     <br><br>
+     <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div fxFlex="100" class="divImage"  style="background-image: url(assets/images/homeback.png);">
+            <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column">
+                <div fxFlex="40" fxLayoutAlign="center center" fxFlex.sm="100">
+                    <img src="assets/image/mobile.png" alt="home" class="mobileImage" >
+                </div>
+                <div fxFlex="60" fxFlex.sm="100">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100">
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <h3 class="downlodsHeading marginApp"> START YOUR JOURNEY WITH US, JUST DOWNLOAD APP </h3>
+                            </div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <p style="font-size: 16px;" class="marginApp"> Share your past,present nd future of our glorious journey. We still have long ways to go and so do you 
+                                   ,Be the first one to get our latest study materil, test series,offers and event information.Stay connected 24*7 
+                                   on the go, no matter where you are. Download APT STUDY app NOW!!
+                                </p>
+                            </div>
+                            <br>
+                            <div fxLayout fxLayoutAlign="center center" >
+                                <button mat-raised-button class="whiteText" color="primary" (click)="DownloadsApp()"> DOWNLOAD APT APP </button>
+                            </div>
+                            <br>
+                        </div>
+                 </div>
+                </div>
+            </div>
+            <!-- <img src="assets/image/downlods123.png" alt="home" class="imageHeight"> -->
+        </div>
+     </div>
+    <br><br>
+    </div>
+</div>
+  <br>

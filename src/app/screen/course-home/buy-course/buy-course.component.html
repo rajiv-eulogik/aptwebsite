@@ -1,0 +1,190 @@
+<div class="no-data" *ngIf="loading1 && loading2 && loading3 && loading4 && loading5" fxLayoutAlign="center center" fxFlex>
+    <ngx-loading [show]="loading1 && loading2 && loading3 && loading4 && loading5"  [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+    </ngx-loading>
+</div>
+
+<div *ngIf="!loading1 || !loading2 || !loading3 || !loading4 || !loading5" [@expand] [@flyInOut]>
+<div fxLayout fxLayoutAlign="start center"  fxLayoutGap="20px" class="MainDiv">
+    <div fxFlex="100" fxLayoutAlign="center center">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100">
+                        <br>
+                        <div fxLayout fxLayoutAlign="start center">
+                            <p class="courseHeading">
+                              {{ClassName}} 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+<br>
+<div *ngIf="features?.length>2" fxLayout fxLayoutAlign="start start" class="MainDiv" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="33" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100" *ngFor="let feture of features;let k = index;">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <br>
+                <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10px" >
+                    <div fxFlex="5" fxLayoutAlign="center center">
+                        <p class="Number"> {{k+1}}.  </p>   
+                    </div>
+                    <div style="margin-left: 5px;" fxFlex="10" fxLayoutAlign="center center">
+                        <div class="verticalLine"> </div>
+                    </div>
+                    <div fxFlex="85" fxLayoutAlign="center center">
+                       <p class="paragraph"> 
+                        {{feture}}
+                     </p> 
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>
+<div *ngIf="features?.length==1" fxLayout fxLayoutAlign="center center" class="MainDiv" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="33" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100" *ngFor="let feture of features;let k = index;">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <br>
+                <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10px" >
+                    <div fxFlex="5" fxLayoutAlign="center center">
+                        <p class="Number"> {{k+1}}.  </p>   
+                    </div>
+                    <div style="margin-left: 5px;" fxFlex="10" fxLayoutAlign="center center">
+                        <div class="verticalLine"> </div>
+                    </div>
+                    <div fxFlex="85" fxLayoutAlign="center center">
+                       <p class="paragraph"> 
+                        {{feture}}
+                     </p> 
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>
+<div *ngIf="features?.length==2" fxLayout fxLayoutAlign="center start" class="MainDiv" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="33" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100" *ngFor="let feture of features;let k = index;">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <br>
+                <div fxLayout fxLayoutAlign="center center" fxLayoutGap="10px" >
+                    <div fxFlex="5" fxLayoutAlign="center center">
+                        <p class="Number"> {{k+1}}.  </p>   
+                    </div>
+                    <div style="margin-left: 5px;" fxFlex="10" fxLayoutAlign="center center">
+                        <div class="verticalLine"> </div>
+                    </div>
+                    <div fxFlex="85" fxLayoutAlign="center center">
+                       <p class="paragraph"> 
+                        {{feture}}
+                     </p> 
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>
+<br><br>
+<div fxLayout fxLayoutAlign="start start" class="MainDiv" fxLayout.sm="column" fxLayout.xs="column" class="MainDiv">
+    <div fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+        <div fxLayout fxLayoutAlign="center center">
+            <div fxFlex="100">
+                <div style="margin-left: 50px; margin-right: 50px;"fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <img [src]="imageUrl + img" class="classImage" alt="home">
+                     </div>
+                 </div>
+                 <br>
+                 <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100" fxLayoutAlign="center center">
+                        <!-- <div>
+                            <div class="full-width" fxLayout fxLayoutGap="15px" fxLayoutAlign="center center">
+                                <mat-icon style="color: #0C5C8F;" *ngFor="let star of showRating(ratingCount)">{{star}}</mat-icon>
+                            </div>
+                        </div> -->
+                     </div>
+                 </div> 
+            </div>
+       </div>
+    </div>
+    <br>
+    <div style="margin-left: 25px; margin-right: 24px;" fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+        <div fxLayout fxLayoutAlign="start center">
+              <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h3 class="completed"><b> Complete Course </b></h3>
+                     </div>
+                 </div>
+                 <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                    <h4 class="mrp"><b>M.R.P.</b> </h4> &nbsp; &nbsp;<h4 class="mrp" style="text-decoration: line-through"> RS. {{credits}}.00 </h4>
+                    </div>
+                </div>
+                <br>
+                <div fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h4 class="price"> <b>PRICE</b> </h4> &nbsp;&nbsp; <h4 class="price">RS. {{discPrice}}.00 </h4>
+                    </div>
+                </div>
+                <div style="margin-left: 58px;" fxLayout fxLayoutAlign="start center">
+                    <div fxFlex="100" fxLayoutAlign="start center">
+                        <h5 style="color: E40000;"> * &nbsp; </h5>
+                        <h6 class="gst"><b> GST Included </b></h6>
+                    </div>
+                </div>
+             <form [formGroup]="purchaseForm" style="margin-left: 12px;" > 
+                <mat-form-field  style="width: 100%;" >
+                    <mat-label class="full"> FULL COURSE</mat-label>
+                    <mat-select multiple (selectionChange)="someMethod($event.value)" placeholder="Full Course" formControlName="course">
+                        <mat-option formfiltros-inmuebles #matOption #allSelected (click)="toggleAllSelection()" [value]="0" >
+                             <p class="courses selectall" style="margin-bottom: 0px; color: black">Full Course <span style="color:#0C5C8F;; text-align: right; margin-left: 140px; margin-bottom: 0px;" class="not-empty-select">  <b>Rs. {{credits - discPrice}} discount </b></span></p>
+                        </mat-option>
+                        <mat-option #matOption class="mat-primary courses" #subSelected style="margin-left: 25px; color: black" *ngFor="let subject of allSubject" [value]="subject.name" (click)="tosslePerOne(allSelected.viewValue)" >
+                          {{subject.name}} 
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>  
+                <mat-form-field style="width: 100%;">
+                    <mat-label> COUPON CODE</mat-label>
+                    <div style="display: flex;">
+                    <input id="value" matInput formControlName="coupons"  minlength="3" maxlength="15" #myInput (keyup)="coupon(myInput.value)" (keydown.backspace)="coupon(myInput.value)">
+                    <span *ngIf="bool">
+                        <button class="coupon" id="coupon1" (click)="couponmessage(); errormessage(myInput.value)"><b>APPLY</b></button>
+                        <div style="display: flex;">
+                        <p class="coup" id="coupon2"><b></b></p>
+                        <button class="but" id="coupon3" (click)="togglecoupon()"></button>
+                        </div>
+                    </span>
+                </div>
+                </mat-form-field>
+                <div fxLayout fxLayoutAlign="start center">
+                    <div id="error" fxFlex="100" fxLayoutAlign="start center">
+                        <p></p>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100" fxLayoutAlign="center center">
+                        <button (click)="PAYNOW()" mat-raised-button color="primary" class="submitButton"><span class="submit"> <b>PROCEED TO PAY</b> </span></button>
+                    </div>
+                </div>
+            </form>
+            </div>
+       </div>
+    </div>
+</div>
+<br>
+<br>
+<!-- app downloads section -->
+<br><br>
+<!-- app downloads section -->
+<br>
+
+</div>
+

@@ -1,0 +1,312 @@
+<!-- <br><br> -->
+<div fxLayout="column">
+    <div class="no-data" *ngIf="loading1 || loading3" fxLayoutAlign="center center" fxFlex>
+        <ngx-loading [show]="loading1 || loading3"
+            [config]="{backdropBackgroundColour: 'rgba(0, 0, 0, 0)', primaryColour: '#54ACE4' , secondaryColour: '#2486C5', tertiaryColour:  '#0C5C8F' }">
+
+        </ngx-loading>
+    </div>
+
+    <div class="res-container" *ngIf="!loading1  && !loading3" (window:resize)="getWidth($event)">
+
+        <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px" class="MainDiv">
+            <div fxFlex="100" fxLayoutAlign="center center">
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100">
+                        <div fxLayout fxLayoutAlign="start center">
+                            <div fxFlex="100">
+                                <br>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <h1 class="mat-display-1">
+                                        <b>{{ClassName}}</b>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="features?.length>2" fxLayout fxLayoutAlign="start center" fxLayoutAlign.xs="start start"
+            fxLayoutAlign.sm="start start" class="MainDiv" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxLayout fxFlex="33" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100"
+                *ngFor="let feture of features;let k = index;">
+                    <div fxFlex="100" fxLayout fxLayoutAlign="center center" fxLayoutGap="10px">
+                        <div fxFlex="5" fxLayoutAlign="center center">
+                            <p style="margin-bottom: 0;" class="Number"> {{k+1}}. </p>
+                        </div>
+                        <div fxFlex="5" fxLayoutAlign="start center">
+                            <div class="verticalLine"> </div>
+                        </div>
+                        <div fxFlex="85" fxLayoutAlign="start center">
+                            <p class="mat-body">
+                                {{feture}}
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div *ngIf="features?.length==1" fxLayout fxLayoutAlign="center center" fxLayoutAlign.xs="start start"
+            fxLayoutAlign.sm="start start" class="MainDiv" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxLayout fxFlex="33" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100"
+                *ngFor="let feture of features;let k = index;">
+                    <div fxFlex="100" fxLayout fxLayoutAlign="center center" fxLayoutGap="10px">
+                        <div fxFlex="5" fxLayoutAlign="center center">
+                            <p style="margin-bottom: 0;" class="Number"> {{k+1}}. </p>
+                        </div>
+                        <div fxFlex="5" fxLayoutAlign="start center">
+                            <div class="verticalLine"> </div>
+                        </div>
+                        <div fxFlex="85" fxLayoutAlign="start center">
+                            <p class="mat-body">
+                                {{feture}}
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div *ngIf="features?.length==2" fxLayout fxLayoutAlign="center start" fxLayoutAlign.xs="start start"
+            fxLayoutAlign.sm="start start" class="MainDiv" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxLayout fxFlex="33" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100"
+                *ngFor="let feture of features;let k = index;">
+                    <div fxFlex="100" fxLayout fxLayoutAlign="center center" fxLayoutGap="10px">
+                        <div fxFlex="5" fxLayoutAlign="center center">
+                            <p style="margin-bottom: 0;" class="Number"> {{k+1}}. </p>
+                        </div>
+                        <div fxFlex="5" fxLayoutAlign="start center">
+                            <div class="verticalLine"> </div>
+                        </div>
+                        <div fxFlex="85" fxLayoutAlign="center center">
+                            <p class="mat-body">
+                                {{feture}}
+                            </p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div fxLayout fxLayoutAlign="start start" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap.xs="40px"
+            fxLayoutGap.sm="40px" fxLayoutGap="10px" class="MainDiv">
+            <div fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="100">
+                        <div style="margin-left: 50px; margin-right: 50px;"fxLayout fxLayoutAlign="start center">
+                            <div fxFlex="100" fxLayoutAlign="start center">
+                                <img [src]="imageUrl + img" class="classImage" alt="home">
+                             </div>
+                         </div>
+                         <br>
+                        <br>
+                        <div fxLayout fxLayoutAlign="center center">
+                            <div fxFlex="100" fxLayoutAlign="center center">
+                                <div>
+                                    <!-- <div class="full-width" fxLayout fxLayoutGap="15px" fxLayoutAlign="center center">
+                                    <mat-icon style="color: #0C5C8F;" *ngFor="let star of showRating(ratingCount)">
+                                        {{star}}</mat-icon>
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div fxFlex="50" fxLayoutAlign="start start" fxFlex.sm="100" fxFlex.xs="100">
+                <div fxLayout fxLayoutAlign="start start">
+                    <div fxFlex="100">
+                        <div fxLayoutAlign="start start">
+                            <div fxFlex="100">
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="start center">
+                                        <h4 class="courseHeading12">
+                                            {{contentTitle}}
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="start center">
+
+                                        <h4 class="courseDis">
+                                            {{contentDescription}}
+                                        </h4>
+                                        <!-- <mat-list>
+                                    <mat-list-item *ngFor="let bullet of SeniorBullet">
+                                    <mat-icon mat-list-icon>brightness_1</mat-icon>
+                                    <div mat-line>{{bullet}}</div>
+                                    </mat-list-item>
+                                </mat-list> -->
+                                    </div>
+                                </div>
+                                <br>
+                                <div fxLayout fxLayoutAlign="start center">
+                                    <div fxFlex="100" fxLayoutAlign="start center">
+                                        <button mat-flat-button class="whiteText" color="primary" (click)="BuyNow()">
+                                            <b>BUY NOW </b></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <div fxLayout fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="25px">
+            <!-- <div class="MainDiv Show" fxFlex="50" fxLayoutAlign="center center" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="center center">
+                <div fxFlex="100">
+                    <div>
+                        <a target="_blank" [href]="courseVideoURL"><img alt="APT" class="bgCoverimg"
+                                style=" width:100%;"
+                                src="https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F712716086_640x360.jpg&amp;src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+            <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="40px">
+                <div style="width: 100%;" fxLayoutAlign="center center">
+                    <div fxFlex="70" fxFlex.sm="100" fxFlex.xs="100">
+                        <!-- <a target="_self" [href]="courseVideoURL">
+                            <img *ngIf="classData?.courseVideoContent?.videoData?.thumbnail" alt="APT"
+                                class="bgCoverimg" style=" width:100%;"
+                                [src]="classData?.courseVideoContent?.videoData?.thumbnail">
+                            <img *ngIf="!classData?.courseVideoContent?.videoData?.thumbnail" alt="APT"
+                                class="bgCoverimg" style=" width:100%;" src="assets/image/vid_p.png">
+                        </a> -->
+                        <video width="100%" class="vid" controls>
+                            <source [src]="link" type="video/mp4">
+                          </video>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center center">
+                    <div fxFlex="70" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex="100">
+                            <div fxLayout fxLayoutAlign="center center">
+                                <p class="courseHeading12">
+                                    {{courseVideoTitle}}
+                                </p>
+                            </div>
+                            <div fxLayout fxLayoutAlign="start center">
+                                <h4 class="courseDis">
+                                    {{courseVideoDesc}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="MainDiv" fxFlex="50" fxLayoutAlign="start center" fxFlex.sm="100" fxFlex.xs="100">
+            <div fxLayout fxLayoutAlign="start center">
+                <div fxFlex="100">
+                    
+                </div>
+            </div>
+        </div> -->
+        </div>
+
+        <!-- form fileds -->
+        <br><br>
+        <br><br>
+        <div fxLayout fxLayoutAlign="start center">
+            <div fxFlex="100">
+                <div fxLayout fxLayoutAlign="center center">
+                    <p style="font-size: 20px;" class="registraion"> Fix An Appointment </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div style="width: 100%;" fxLayout fxLayoutAlign="center center">
+            <div fxFlex="40" fxFlex.sm="85" fxFlex.xs="100" fxLayoutAlign="center center">
+                <form style="width: 100%;" [formGroup]="FixAppintmentsForm" (ngSubmit)="submitForm()">
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label> Name</mat-label>
+                                <input required formControlName="name"  #myInput (keyup)="formValue(myInput.value)" (keydown.backspace)="formValue(myInput.value)" matInput minlength="3" maxlength="150">
+                                <mat-error *ngIf="!bool1"></mat-error>
+                                <mat-error *ngIf="bool1"></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div style="margin-top: -12px;" fxFlex="15" fxFlex.sm="25" fxFlex.xs="25" fxLayoutAlign="center center">
+                            <mat-form-field appearance="standard" style="width: 100%;">
+                                <mat-label>Country Code</mat-label>
+                                <mat-select required formControlName="country"
+                                    (ngModelChange)="onChange($event)">
+                                    <div *ngFor="let contry of AllCoutryName">
+                                        <mat-option [value]="contry">+{{contry.dial_code}}</mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-select>
+                                <!-- <mat-error>Country name is Required</mat-error> -->
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="85" fxFlex.sm="75" fxFlex.xs="75" fxLayoutAlign="center center">
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Contact Number</mat-label>
+                                        <input required formControlName="mobile" type="tel" matInput
+                                            [maxlength]="mobileMax">
+                                        <mat-error
+                                            *ngIf="FixAppintmentsForm.controls.mobile.invalid && (FixAppintmentsForm.controls.mobile.touched || FixAppintmentsForm.controls.mobile.dirty)">
+                                            <mat-error *ngIf="FixAppintmentsForm.controls.mobile.errors.required">
+                                                </mat-error>
+                                            <mat-error *ngIf="FixAppintmentsForm.controls.mobile.errors.minlength">
+                                                </mat-error>
+                                            <mat-error *ngIf="FixAppintmentsForm.controls.mobile.errors.maxlength">
+                                                </mat-error>
+                                            <mat-error *ngIf="FixAppintmentsForm.controls.mobile.errors.pattern">
+                                                </mat-error>
+                                        </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <mat-form-field [floatLabel]="'never'" style="width: 100%;">
+                                <mat-label>Email Id</mat-label>
+                                <input required type="email" formControlName="email" matInput>
+                                <mat-error
+                                    *ngIf="FixAppintmentsForm.controls.email.invalid && (FixAppintmentsForm.controls.email.touched || FixAppintmentsForm.controls.email.dirty )"
+                                    style="color: #f44336">
+                                    <mat-error *ngIf="FixAppintmentsForm.controls.email.errors.required">
+                                         </mat-error>
+                                    <mat-error *ngIf="FixAppintmentsForm.controls.email.errors.pattern"> 
+                                        </mat-error>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxLayout fxLayoutAlign="center center">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <button style="font-weight: 600;" mat-flat-button color="primary" type="submit"
+                                class="submitButton">FIX APPOINTMENT</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <br><br>
+    </div>
+
+    <br><br>
+    <!-- app downloads section -->
+    <app-download-app [source]="utm_source" [medium]="utm_medium" [campaign]="campaignType" [publisher]="publisherId">
+    </app-download-app>
+
+    <!-- TOPPER SPEAKS BELOW -->
+
+    <app-topper-speaks [toppersData]="classData" [topperImage]="TooperimageUrl" [mobileDevice]="mobileDevice">
+    </app-topper-speaks>
+
+    <p>&nbsp;</p>
+</div>
